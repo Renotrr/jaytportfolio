@@ -244,14 +244,14 @@ const PortfolioPage = () => {
   useEffect(() => {
     if (!activeCaseStudyId) return;
 
-    const onKeyDown = (event: KeyboardEventInit & { key: string }) => {
+    const onKeyDown = (event: globalThis.KeyboardEvent) => {
       if (event.key === "Escape") {
         closeCaseStudy();
       }
     };
 
-    window.addEventListener("keydown", onKeyDown as EventListener);
-    return () => window.removeEventListener("keydown", onKeyDown as EventListener);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, [activeCaseStudyId]);
 
   useEffect(() => {
