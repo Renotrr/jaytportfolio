@@ -74,8 +74,17 @@ const PortfolioPage = () => {
 
   const previewImages = useMemo(() => {
     const mapped = thumbnailImages.map(resolvePortfolioImage);
-    return mapped.length > 0 ? mapped : [resolvePortfolioImage(heroPreviewFallback)];
+    const list = mapped.length > 0 ? mapped : [resolvePortfolioImage(heroPreviewFallback)];
+    return list.slice(0, 3);
   }, []);
+
+  useEffect(() => {
+    if (previewImages.length <= 1) return;
+    const interval = window.setInterval(() => {
+      setThumbIndex((current) => (current + 1) % previewImages.length);
+    }, 3500);
+    return () => window.clearInterval(interval);
+  }, [previewImages.length]);
 
   const activeCaseStudy = useMemo(
     () => caseStudies.find((item) => item.id === activeCaseStudyId) ?? null,
@@ -382,7 +391,25 @@ const PortfolioPage = () => {
 
               <div className={`h-col fi ${heroEntered ? "in" : ""}`} style={withDelay(".65s")}>
                 <div className="h-thumb">
-                  <img id="thumbImg" src={previewImages[thumbIndex]} alt="Work preview" />
+                  {previewImages.map((src, idx) => (
+                    <img
+                      key={src + idx}
+                      src={src}
+                      alt="Work preview"
+                      className={`h-slide ${idx === thumbIndex ? "is-active" : ""}`}
+                    />
+                  ))}
+                  <div className="h-thumb-dots">
+                    {previewImages.map((_, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        className={`h-dot ${idx === thumbIndex ? "is-active" : ""}`}
+                        onClick={() => setThumbIndex(idx)}
+                        aria-label={`Show preview ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
                   <div className="h-thumb-nav">
                     <button className="t-btn" type="button" onClick={prevThumb} aria-label="Show previous preview">
                       <IconChevronLeft />
