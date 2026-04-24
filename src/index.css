@@ -1808,13 +1808,13 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 960px) {
   .h-anno {
     display: block;
   }
 
   .h-name {
-    font-size: 19vw;
+    font-size: 17vw;
   }
 
   .h-strip {
