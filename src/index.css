@@ -441,8 +441,8 @@
   .h-col {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 0.7rem;
+    justify-content: flex-start;
+    gap: 0.6rem;
     padding: 0.9rem 1.4rem;
   }
 
@@ -488,6 +488,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.65rem;
+    margin-top: 0.35rem;
   }
 
   .btn-pill,
@@ -1814,7 +1815,7 @@
   }
 
   .h-name {
-    font-size: clamp(5rem, 13vw, 11rem);
+    font-size: clamp(5rem, 15vw, 14rem);
   }
 
   .h-strip {
