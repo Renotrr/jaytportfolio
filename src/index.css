@@ -397,12 +397,12 @@
     flex: 1;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 0 1.4rem 0;
+    padding: 0 1.4rem 0.4rem;
   }
 
   .h-hi {
     display: block;
-    margin-bottom: 0.1em;
+    margin-bottom: 0.05em;
     font-size: clamp(1.1rem, 2.6vw, 2.4rem);
     font-weight: 400;
     font-style: italic;
@@ -414,10 +414,10 @@
     position: relative;
     display: block;
     font-family: 'Instrument Serif', serif;
-    font-size: clamp(3.2rem, 13vw, 11rem);
+    font-size: clamp(3.6rem, 16vw, 16rem);
     font-style: italic;
     font-weight: 400;
-    line-height: 0.88;
+    line-height: 0.86;
     letter-spacing: -0.03em;
     color: hsl(var(--cream));
   }
@@ -435,6 +435,7 @@
     z-index: 10;
     display: grid;
     grid-template-columns: 1fr;
+    margin-top: auto;
     border-top: 1px solid hsl(var(--cream) / 0.1);
   }
 
@@ -442,8 +443,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 0.6rem;
-    padding: 0.9rem 1.4rem;
+    gap: 0.55rem;
+    padding: 0.7rem 1.4rem 0.85rem;
   }
 
   .h-col + .h-col {
