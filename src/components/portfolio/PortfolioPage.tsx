@@ -1,4 +1,4 @@
-import { CSSProperties, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
+import { CSSProperties, FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import Hls from "hls.js";
 
 import {
@@ -7,7 +7,6 @@ import {
   aboutTools,
   caseStudies,
   contactContent,
-  contactLinks,
   graphicProjects,
   heroContent,
   heroPreviewFallback,
@@ -20,12 +19,70 @@ import {
   workProjects,
 } from "@/components/portfolio/portfolioData";
 
+import work1 from "@/assets/work-1.jpg";
+import work2 from "@/assets/work-2.jpg";
+import work3 from "@/assets/work-3.jpg";
+import work4 from "@/assets/work-4.jpg";
+import graphic1 from "@/assets/graphic-1.jpg";
+import graphic2 from "@/assets/graphic-2.jpg";
+import graphic3 from "@/assets/graphic-3.jpg";
+import graphic4 from "@/assets/graphic-4.jpg";
+import graphic5 from "@/assets/graphic-5.jpg";
+import graphic6 from "@/assets/graphic-6.jpg";
+import exp1 from "@/assets/exp-1.jpg";
+
 const placeholderImage = "/placeholder.svg";
 
 const withDelay = (delay: string): CSSProperties => ({ ["--d" as string]: delay } as CSSProperties);
 
 const resolvePortfolioImage = (src: string) =>
   !src || src.startsWith("PASTE_YOUR_") ? placeholderImage : src;
+
+// New works data (4 cards) with year + generated images
+const worksData = [
+  { id: "w1", title: "Lumen Dashboard", year: "2024", category: "UI/UX · Web App", image: work1 },
+  { id: "w2", title: "Atlas Mobile", year: "2024", category: "Product Design · iOS", image: work2 },
+  { id: "w3", title: "Noir Identity", year: "2023", category: "Brand Identity", image: work3 },
+  { id: "w4", title: "Selene Boutique", year: "2025", category: "E-commerce · Framer", image: work4 },
+];
+
+const graphicsData = [
+  { id: "g1", title: "Editorial 01", category: "Poster · Gallery", image: graphic1 },
+  { id: "g2", title: "Chrome Form", category: "3D · Art Direction", image: graphic2 },
+  { id: "g3", title: "Liquid", category: "Album Cover", image: graphic3 },
+  { id: "g4", title: "Peant Bane", category: "Editorial · Fashion", image: graphic4 },
+  { id: "g5", title: "Ritual", category: "Packaging", image: graphic5 },
+  { id: "g6", title: "Freval Eve", category: "Event Poster", image: graphic6 },
+];
+
+const marqueeWords = [
+  "Creative Designer",
+  "No-Code Development",
+  "UX Research",
+  "AI Implementation",
+  "Brand Identity",
+  "Web Experience",
+  "Editorial",
+  "Motion",
+  "UI/UX",
+  "Art Direction",
+];
+
+const experienceData = [
+  { year: "2024", role: "Kelas Inspirasi Boyolali 7", desc: "Design Creative & Web Management" },
+  { year: "2024", role: "PT Tribintang Emas Mulia (Intern)", desc: "Frontend Developer" },
+  { year: "2025", role: "Kelas Inspirasi Boyolali 8", desc: "Creative Director & Web Management" },
+  { year: "2025", role: "Freelance Studio", desc: "Creative Designer & No-Code Developer" },
+];
+
+const navLinks = [
+  { id: "hero", label: "Home" },
+  { id: "work", label: "Works" },
+  { id: "about", label: "About Me" },
+  { id: "graphics", label: "Graphics" },
+  { id: "experience", label: "Experience" },
+  { id: "contact", label: "Contact" },
+];
 
 const IconArrow = ({ className = "ico ico-arr" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
@@ -59,23 +116,35 @@ const IconBack = () => (
   </svg>
 );
 
+const IconClose = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <line x1="6" y1="6" x2="18" y2="18" />
+    <line x1="18" y1="6" x2="6" y2="18" />
+  </svg>
+);
+
 const PortfolioPage = () => {
   const rootRef = useRef<HTMLDivElement | null>(null);
-  const cursorDotRef = useRef<HTMLDivElement | null>(null);
-  const cursorRingRef = useRef<HTMLDivElement | null>(null);
   const studioVideoRef = useRef<HTMLVideoElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
+  const graphicsSectionRef = useRef<HTMLElement | null>(null);
 
   const [loaderGone, setLoaderGone] = useState(false);
   const [heroEntered, setHeroEntered] = useState(false);
   const [thumbIndex, setThumbIndex] = useState(0);
+  const [hoveredWork, setHoveredWork] = useState<number | null>(null);
   const [activeCaseStudyId, setActiveCaseStudyId] = useState<string | null>(null);
   const [caseVisible, setCaseVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [graphicIndex, setGraphicIndex] = useState(0);
+  const [graphicDir, setGraphicDir] = useState<"right" | "left">("right");
 
   const previewImages = useMemo(() => {
     const mapped = thumbnailImages.map(resolvePortfolioImage);
     const list = mapped.length > 0 ? mapped : [resolvePortfolioImage(heroPreviewFallback)];
-    return list.slice(0, 3);
+    // Use generated work images as hero slideshow fallback when paste-tokens unresolved
+    const hasReal = list.some((s) => s !== placeholderImage);
+    return (hasReal ? list : [work1, work2, work3]).slice(0, 3);
   }, []);
 
   useEffect(() => {
@@ -124,25 +193,20 @@ const PortfolioPage = () => {
     };
   }, []);
 
+  // Scroll-triggered reveal animations
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
 
     const countUp = (element: HTMLElement, target: number, suffix: string, duration: number) => {
       const start = performance.now();
-
       const step = (now: number) => {
         const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         element.textContent = `${Math.round(eased * target)}${progress < 1 ? "" : suffix}`;
-
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        } else {
-          element.textContent = `${target}${suffix}`;
-        }
+        if (progress < 1) window.requestAnimationFrame(step);
+        else element.textContent = `${target}${suffix}`;
       };
-
       window.requestAnimationFrame(step);
     };
 
@@ -150,7 +214,6 @@ const PortfolioPage = () => {
       (entries) => {
         entries.forEach((entry) => {
           const target = entry.target as HTMLElement;
-
           if (entry.isIntersecting) {
             target.classList.add("in");
             if (target.classList.contains("a-stats")) {
@@ -172,78 +235,73 @@ const PortfolioPage = () => {
     );
 
     root.querySelectorAll<HTMLElement>(".wu,.fi,.si,.a-stats").forEach((element) => {
-      if (!element.closest("#hero")) {
-        observer.observe(element);
-      }
+      if (!element.closest("#hero")) observer.observe(element);
     });
 
     return () => observer.disconnect();
   }, []);
 
+  // Graphics section: scroll-hijack one-at-a-time throw out
   useEffect(() => {
-    const supportsFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    if (!supportsFinePointer) return;
+    const section = graphicsSectionRef.current;
+    if (!section) return;
 
-    const dot = cursorDotRef.current;
-    const ring = cursorRingRef.current;
-    const root = rootRef.current;
-    if (!dot || !ring || !root) return;
+    let lock = false;
+    let lastFire = 0;
 
-    document.body.classList.add("portfolio-cursor");
+    const onWheel = (e: WheelEvent) => {
+      const rect = section.getBoundingClientRect();
+      const inView = rect.top <= 5 && rect.bottom >= window.innerHeight - 5;
+      if (!inView) return;
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let ringX = 0;
-    let ringY = 0;
-    let frameId = 0;
+      const now = Date.now();
+      if (now - lastFire < 700) {
+        e.preventDefault();
+        return;
+      }
+      if (lock) {
+        e.preventDefault();
+        return;
+      }
 
-    const move = (event: MouseEvent) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
-      dot.style.left = `${mouseX}px`;
-      dot.style.top = `${mouseY}px`;
+      // Going forward
+      if (e.deltaY > 8) {
+        if (graphicIndex < graphicsData.length - 1) {
+          e.preventDefault();
+          lock = true;
+          lastFire = now;
+          setGraphicDir(graphicIndex % 2 === 0 ? "right" : "left");
+          setGraphicIndex((i) => i + 1);
+          window.setTimeout(() => {
+            lock = false;
+          }, 700);
+        }
+      } else if (e.deltaY < -8) {
+        if (graphicIndex > 0) {
+          e.preventDefault();
+          lock = true;
+          lastFire = now;
+          setGraphicDir(graphicIndex % 2 === 0 ? "left" : "right");
+          setGraphicIndex((i) => i - 1);
+          window.setTimeout(() => {
+            lock = false;
+          }, 700);
+        }
+      }
     };
 
-    const tick = () => {
-      ringX += (mouseX - ringX) * 0.1;
-      ringY += (mouseY - ringY) * 0.1;
-      ring.style.left = `${ringX}px`;
-      ring.style.top = `${ringY}px`;
-      frameId = window.requestAnimationFrame(tick);
-    };
+    window.addEventListener("wheel", onWheel, { passive: false });
+    return () => window.removeEventListener("wheel", onWheel);
+  }, [graphicIndex]);
 
-    const interactiveElements = root.querySelectorAll<HTMLElement>("a,button,.pc,.g-item");
-    const addHover = () => document.body.classList.add("hov");
-    const removeHover = () => document.body.classList.remove("hov");
-
-    interactiveElements.forEach((element) => {
-      element.addEventListener("mouseenter", addHover);
-      element.addEventListener("mouseleave", removeHover);
-    });
-
-    window.addEventListener("mousemove", move);
-    frameId = window.requestAnimationFrame(tick);
-
-    return () => {
-      document.body.classList.remove("portfolio-cursor", "hov");
-      window.removeEventListener("mousemove", move);
-      window.cancelAnimationFrame(frameId);
-      interactiveElements.forEach((element) => {
-        element.removeEventListener("mouseenter", addHover);
-        element.removeEventListener("mouseleave", removeHover);
-      });
-    };
-  }, []);
-
+  // Case study modal
   useEffect(() => {
     if (!activeCaseStudyId) return;
-
     document.body.style.overflow = "hidden";
     const rafA = window.requestAnimationFrame(() => {
       const rafB = window.requestAnimationFrame(() => setCaseVisible(true));
       return () => window.cancelAnimationFrame(rafB);
     });
-
     return () => {
       document.body.style.overflow = "";
       window.cancelAnimationFrame(rafA);
@@ -252,24 +310,29 @@ const PortfolioPage = () => {
 
   useEffect(() => {
     if (!activeCaseStudyId) return;
-
     const onKeyDown = (event: globalThis.KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closeCaseStudy();
-      }
+      if (event.key === "Escape") closeCaseStudy();
     };
-
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [activeCaseStudyId]);
 
   useEffect(() => {
     return () => {
-      if (closeTimerRef.current) {
-        window.clearTimeout(closeTimerRef.current);
-      }
+      if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
     };
   }, []);
+
+  // Lock body scroll when menu open
+  useEffect(() => {
+    if (menuOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [menuOpen]);
 
   const openCaseStudy = (id: string) => {
     if (closeTimerRef.current) {
@@ -288,6 +351,17 @@ const PortfolioPage = () => {
     }, 400);
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const el = document.getElementById(id);
+    if (el) {
+      window.requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  };
+
   const handleCardKeyDown = (event: KeyboardEvent<HTMLDivElement>, id: string) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -298,17 +372,62 @@ const PortfolioPage = () => {
   const nextThumb = () => setThumbIndex((current) => (current + 1) % previewImages.length);
   const prevThumb = () => setThumbIndex((current) => (current - 1 + previewImages.length) % previewImages.length);
 
+  const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") || "");
+    const email = String(data.get("email") || "");
+    const subject = String(data.get("subject") || "");
+    const message = String(data.get("message") || "");
+    const body = encodeURIComponent(`From: ${name} <${email}>\n\n${message}`);
+    const sub = encodeURIComponent(subject || "Project inquiry");
+    window.location.href = `mailto:${heroContent.email}?subject=${sub}&body=${body}`;
+  };
+
   return (
     <div ref={rootRef} className="portfolio-page">
-      <div id="cd" ref={cursorDotRef} />
-      <div id="cr" ref={cursorRingRef} />
-
       <div id="ld" className={loaderGone ? "gone" : undefined}>
-        <div className="ld-w">John Adewole</div>
+        <div className="ld-w">{heroContent.logo}</div>
         <div className="ld-b">
           <div className="ld-f" />
         </div>
       </div>
+
+      {/* Floating menu button */}
+      <button
+        type="button"
+        className={`nav-toggle ${menuOpen ? "is-open" : ""}`}
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        onClick={() => setMenuOpen((v) => !v)}
+      >
+        {menuOpen ? <IconClose /> : (
+          <span className="nav-burger">
+            <span />
+            <span />
+          </span>
+        )}
+      </button>
+
+      {/* Side menu */}
+      <div className={`nav-overlay ${menuOpen ? "is-open" : ""}`} onClick={() => setMenuOpen(false)} aria-hidden="true" />
+      <nav className={`nav-drawer ${menuOpen ? "is-open" : ""}`} aria-label="Primary">
+        <div className="nav-eye">Menu</div>
+        <ul className="nav-list">
+          {navLinks.map((link, i) => (
+            <li key={link.id} style={withDelay(`${0.05 + i * 0.05}s`)}>
+              <a href={`#${link.id}`} onClick={(e) => handleNavClick(e, link.id)}>
+                <span className="nav-num">0{i + 1}</span>
+                <span className="nav-label">{link.label}</span>
+                <IconArrow className="ico ico-arr nav-arr" />
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="nav-foot">
+          <a href={`mailto:${heroContent.email}`}>{heroContent.email}</a>
+        </div>
+      </nav>
 
       <div id="page">
         <section id="hero">
@@ -329,7 +448,7 @@ const PortfolioPage = () => {
             <div className="brace brace-bc2" />
 
             <div className="h-topbar">
-              <a href="#" className="h-logo">
+              <a href="#hero" className="h-logo" onClick={(e) => handleNavClick(e, "hero")}>
                 {heroContent.logo}
               </a>
               <div className="h-anno">
@@ -340,10 +459,6 @@ const PortfolioPage = () => {
                   Stories That Connect
                 </span>
               </div>
-              <button className="h-ham" aria-label="Open navigation menu" type="button">
-                <span />
-                <span />
-              </button>
             </div>
 
             <div className="h-mid">
@@ -367,7 +482,7 @@ const PortfolioPage = () => {
                   <br />
                   No-Code Developer
                 </div>
-                <a href={`mailto:${heroContent.email}`} className={`h-dl fi ${heroEntered ? "in" : ""}`} style={withDelay(".62s")}>
+                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className={`h-dl fi ${heroEntered ? "in" : ""}`} style={withDelay(".62s")}>
                   Get in touch ↓
                 </a>
               </div>
@@ -377,13 +492,13 @@ const PortfolioPage = () => {
                   {heroContent.description}
                 </p>
                 <div className={`h-btns fi ${heroEntered ? "in" : ""}`} style={withDelay(".7s")}>
-                  <a href="#work" className="btn-pill btn-primary">
+                  <a href="#work" onClick={(e) => handleNavClick(e, "work")} className="btn-pill btn-primary">
                     View Works
                     <span className="btn-circle">
                       <IconArrow />
                     </span>
                   </a>
-                  <a href="#contact" className="btn-outline">
+                  <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-outline">
                     Let&apos;s Work
                   </a>
                 </div>
@@ -397,6 +512,7 @@ const PortfolioPage = () => {
                       src={src}
                       alt="Work preview"
                       className={`h-slide ${idx === thumbIndex ? "is-active" : ""}`}
+                      loading="lazy"
                     />
                   ))}
                   <div className="h-thumb-dots">
@@ -429,6 +545,66 @@ const PortfolioPage = () => {
           </div>
         </section>
 
+        {/* WORKS — slides up over hero feel */}
+        <section id="work" className="works-section">
+          <div className="works-rise">
+            <div className="sec-hdr">
+              <div className="sec-lbl fi" style={withDelay("0s")}>
+                Selected Work
+              </div>
+              <div>
+                <span className="wu sec-h1" style={withDelay(".08s")}>
+                  Projects that show
+                </span>
+              </div>
+              <div>
+                <span className="wu sec-h2" style={withDelay(".16s")}>
+                  clarity and craft create impact.
+                </span>
+              </div>
+            </div>
+
+            <div
+              className="works-grid"
+              onMouseLeave={() => setHoveredWork(null)}
+            >
+              {worksData.map((w, i) => (
+                <div
+                  key={w.id}
+                  className={`work-card si ${hoveredWork === i ? "is-active" : ""} ${
+                    hoveredWork === null && i === 0 ? "is-default" : ""
+                  }`}
+                  style={withDelay(`${i * 0.08}s`)}
+                  onMouseEnter={() => setHoveredWork(i)}
+                >
+                  <div className="work-card-img">
+                    <img src={w.image} alt={w.title} loading="lazy" />
+                    <div className="work-card-ov" />
+                  </div>
+                  <div className="work-card-meta">
+                    <span className="work-card-title">{w.title}</span>
+                    <span className="work-card-year">{w.year}</span>
+                  </div>
+                  <span className="work-card-cat">{w.category}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* MARQUEE BANNER */}
+        <section id="marquee" className="marquee-section" aria-label="Skills">
+          <div className="marquee-track">
+            {[...marqueeWords, ...marqueeWords].map((word, i) => (
+              <span key={i} className="marquee-item">
+                <span>{word}</span>
+                <span className="marquee-plus">+</span>
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* ABOUT */}
         <section id="about">
           <div className="a-card">
             <div className="a-inner">
@@ -496,138 +672,86 @@ const PortfolioPage = () => {
           </div>
         </section>
 
-        <section id="work">
-          <div className="sec-hdr">
-            <div className="sec-lbl fi" style={withDelay("0s")}>
-              Selected Work
-            </div>
-            <div>
-              <span className="wu sec-h1" style={withDelay(".08s")}>
-                Five projects that show how
-              </span>
-            </div>
-            <div>
-              <span className="wu sec-h2" style={withDelay(".16s")}>
-                clarity and craft create impact.
-              </span>
+        {/* GRAPHICS — full screen one-at-a-time throw out */}
+        <section
+          id="graphics"
+          ref={graphicsSectionRef}
+          className="graphics-section"
+        >
+          <div className="graphics-hdr-fixed">
+            <div className="sec-lbl">Graphic Design</div>
+            <div className="graphics-counter">
+              <span className="g-curr">{String(graphicIndex + 1).padStart(2, "0")}</span>
+              <span className="g-sep">/</span>
+              <span className="g-tot">{String(graphicsData.length).padStart(2, "0")}</span>
             </div>
           </div>
-
-          <div className="p-outer">
-            <div className="p-row">
-              {workProjects.slice(0, 4).map((project, index) => {
-                if (project.layout === "image") {
-                  return (
-                    <div
-                      key={project.id}
-                      className="pc pc-img si"
-                      style={withDelay(`${index * 0.15}s`)}
-                      onClick={() => openCaseStudy(project.id)}
-                      onKeyDown={(event) => handleCardKeyDown(event, project.id)}
-                      role="button"
-                      tabIndex={0}
-                    >
-                      <img src={resolvePortfolioImage(project.image)} alt={project.imageAlt} />
-                      <div className="pc-ov" />
-                      <div className="pc-bot">
-                        <span className="pc-tag2">{project.tag}</span>
-                        <div className="pc-title2">{project.title}</div>
-                        <div className="pc-sub">{project.description}</div>
-                      </div>
-                    </div>
-                  );
-                }
-
-                return (
-                  <div key={project.id} className="pc pc-txt si" style={withDelay(`${index * 0.15}s`)}>
-                    <img src={resolvePortfolioImage(project.image)} alt={project.imageAlt} className="pc-ico" />
-                    <div>
-                      <div className="pc-num">{project.number}</div>
-                      <div className="pc-name">{project.title}</div>
-                    </div>
-                    <p className="pc-desc-short">{project.description}</p>
-                    <ul className="pc-list">
-                      {project.features?.map((feature) => (
-                        <li key={feature.text} className="pc-li">
-                          <IconCheck />
-                          <span>{feature.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <button className="pc-learn" type="button" onClick={() => openCaseStudy(project.id)}>
-                      Read case study <IconArrow className="l-ar" />
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="p-row2">
-              {workProjects.slice(4).map((project) => (
+          <div className="graphics-stage">
+            {graphicsData.map((g, i) => {
+              const isActive = i === graphicIndex;
+              const isPast = i < graphicIndex;
+              const dirClass = isPast ? `is-thrown-${i % 2 === 0 ? "right" : "left"}` : "is-coming";
+              return (
                 <div
-                  key={project.id}
-                  className="pc pc-img pc-wide si"
-                  style={withDelay(".6s")}
-                  onClick={() => openCaseStudy(project.id)}
-                  onKeyDown={(event) => handleCardKeyDown(event, project.id)}
-                  role="button"
-                  tabIndex={0}
+                  key={g.id}
+                  className={`graphic-slide ${isActive ? "is-active" : dirClass}`}
+                  aria-hidden={!isActive}
                 >
-                  <img src={resolvePortfolioImage(project.image)} alt={project.imageAlt} />
-                  <div className="pc-ov" />
-                  <div className="pc-bot">
-                    <div>
-                      <span className="pc-tag2">{project.tag}</span>
-                      <div className="pc-title2">{project.title}</div>
-                      <div className="pc-sub">{project.description}</div>
-                    </div>
-                    <button
-                      className="pc-learn"
-                      type="button"
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        openCaseStudy(project.id);
-                      }}
-                    >
-                      Read case study <IconArrow className="l-ar" />
-                    </button>
+                  <img src={g.image} alt={g.title} loading="lazy" />
+                  <div className="graphic-meta">
+                    <span className="g-ti">{g.title}</span>
+                    <span className="g-ty">{g.category}</span>
                   </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
-        </section>
-
-        <section id="graphics">
-          <div className="sec-hdr graphics-hdr">
-            <div className="sec-lbl fi" style={withDelay("0s")}>
-              Graphic Design
-            </div>
-            <div>
-              <span className="wu sec-h1" style={withDelay(".08s")}>
-                Visual work that communicates
-              </span>
-            </div>
-            <div>
-              <span className="wu sec-h2" style={withDelay(".16s")}>
-                before a word is read.
-              </span>
-            </div>
-          </div>
-
-          <div className="g-grid">
-            {graphicProjects.map((project, index) => (
-              <div key={`${project.title}-${project.category}`} className="g-item si" style={withDelay(`${[0, 0.1, 0.2, 0.05, 0.15, 0.25, 0.1, 0.2, 0.3, 0.15, 0.25, 0.35][index]}s`)}>
-                <img src={resolvePortfolioImage(project.image)} alt={project.imageAlt} />
-                <div className="g-ov">
-                  <div className="g-ti">{project.title}</div>
-                  <div className="g-ty">{project.category}</div>
-                </div>
-              </div>
+          <div className="graphics-progress">
+            {graphicsData.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                className={`gp-dot ${i === graphicIndex ? "is-active" : ""}`}
+                aria-label={`Go to graphic ${i + 1}`}
+                onClick={() => {
+                  setGraphicDir(i > graphicIndex ? "right" : "left");
+                  setGraphicIndex(i);
+                }}
+              />
             ))}
           </div>
         </section>
 
+        {/* EXPERIENCE */}
+        <section id="experience" className="exp-section">
+          <div className="exp-bg-text">
+            <span>Project</span>
+            <span className="exp-mark">✦</span>
+            <span>Experience</span>
+          </div>
+          <div className="exp-inner">
+            <div className="sec-lbl fi" style={withDelay("0s")} data-center>
+              Work Experience
+            </div>
+            <div className="exp-list">
+              {experienceData.map((item, i) => (
+                <div className="exp-row si" key={`${item.year}-${item.role}`} style={withDelay(`${i * 0.08}s`)}>
+                  <span className="exp-year">{item.year}</span>
+                  <span className="exp-role">{item.role}</span>
+                  <span className="exp-desc">{item.desc}</span>
+                  <span className="exp-arr">
+                    <IconArrow />
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="exp-image fi" style={withDelay(".3s")}>
+              <img src={exp1} alt="Studio" loading="lazy" />
+            </div>
+          </div>
+        </section>
+
+        {/* STUDIO CTA */}
         <section id="studio">
           <div className="st-vid">
             <video id="stVid" ref={studioVideoRef} autoPlay muted loop playsInline />
@@ -662,7 +786,12 @@ const PortfolioPage = () => {
                 </span>
               ))}
             </div>
-            <a href="#contact" className="btn-pill btn-primary fi" style={{ ...withDelay(".54s"), marginTop: "0.5rem" }}>
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "contact")}
+              className="btn-pill btn-primary fi"
+              style={{ ...withDelay(".54s"), marginTop: "0.5rem" }}
+            >
               Let&apos;s Work
               <span className="btn-circle">
                 <IconArrow />
@@ -671,47 +800,96 @@ const PortfolioPage = () => {
           </div>
         </section>
 
-        <section id="contact">
-          <div className="ct-orb" />
-          <div className="ct-in">
-            <div className="ct-eye fi" style={withDelay("0s")}>
-              {contactContent.eyebrow}
-            </div>
-            <h2 className="ct-title fi" style={withDelay(".1s")}>
-              {contactContent.titleLines[0]}
-              <br />
-              <em>{contactContent.titleLines[1]}</em>
-              <br />
-              {contactContent.titleLines[2]}
+        {/* CONTACT */}
+        <section id="contact" className="contact-form-section">
+          <div className="cf-inner">
+            <h2 className="cf-title fi" style={withDelay("0s")}>
+              Let&rsquo;s work together!
             </h2>
-            <p className="ct-sub fi" style={withDelay(".2s")}>
-              {contactContent.subtitle}
+            <p className="cf-sub fi" style={withDelay(".08s")}>
+              [ Marked fields are required to fill ]
             </p>
-            <a href={`mailto:${contactContent.email}`} className="ct-email fi" style={withDelay(".3s")}>
-              {contactContent.email}
-            </a>
-            <div className="ct-links fi" style={withDelay(".4s")}>
-              {contactLinks.map((link) => (
-                <a key={link.label} href={link.href} className="ct-lnk">
-                  {link.label}
-                </a>
-              ))}
+
+            <form className="cf-form fi" style={withDelay(".15s")} onSubmit={handleContactSubmit}>
+              <div className="cf-grid">
+                <label className="cf-field">
+                  <span className="cf-lbl">
+                    Full Name <span className="cf-req">*</span>
+                  </span>
+                  <input type="text" name="name" placeholder="Your full name" required maxLength={100} />
+                </label>
+                <label className="cf-field">
+                  <span className="cf-lbl">
+                    Email Address <span className="cf-req">*</span>
+                  </span>
+                  <input type="email" name="email" placeholder="Your email address" required maxLength={255} />
+                </label>
+                <label className="cf-field">
+                  <span className="cf-lbl">
+                    Subject <span className="cf-req">*</span>
+                  </span>
+                  <input type="text" name="subject" placeholder="Subject" required maxLength={120} />
+                </label>
+                <label className="cf-field">
+                  <span className="cf-lbl">Your Budget (Optional)</span>
+                  <input type="text" name="budget" placeholder="A range of budget for project" maxLength={60} />
+                </label>
+                <label className="cf-field cf-full">
+                  <span className="cf-lbl">
+                    Message <span className="cf-req">*</span>
+                  </span>
+                  <textarea name="message" placeholder="Write your message here..." rows={4} required maxLength={1000} />
+                </label>
+              </div>
+              <button type="submit" className="cf-submit">
+                Send a message
+                <span className="btn-circle">
+                  <IconArrow />
+                </span>
+              </button>
+            </form>
+
+            <div className="cf-direct fi" style={withDelay(".25s")}>
+              <a href={`mailto:${heroContent.email}`}>{heroContent.email}</a>
+              <a href="https://wa.me/2340000000000" target="_blank" rel="noreferrer">
+                WhatsApp · +234 000 000 0000
+              </a>
             </div>
           </div>
         </section>
 
-        <footer>
-          <span className="f-l">{contactContent.footerLeft}</span>
-          <span className="f-r">{contactContent.footerRight}</span>
-          <a href="#hero" className="f-top">
-            Back to top ↑
-          </a>
+        {/* FOOTER */}
+        <footer className="site-footer">
+          <div className="sf-grid">
+            <div className="sf-brand">{heroContent.logo}</div>
+            <div className="sf-col">
+              <h4>Social Media</h4>
+              <div className="sf-links">
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Pinterest</a>
+              </div>
+            </div>
+            <div className="sf-col sf-office">
+              <h4>Our Office :</h4>
+              <p>Surakarta, Indonesia</p>
+              <a href="tel:+621234567890" className="sf-phone">+62 123 4567 890</a>
+            </div>
+          </div>
+          <div className="sf-bot">
+            <div className="sf-bot-links">
+              <a href="#">FAQ</a>
+              <a href="#">Careers</a>
+              <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact Us</a>
+            </div>
+            <div className="sf-copy">© {new Date().getFullYear()} {contactContent.footerRight}</div>
+          </div>
         </footer>
       </div>
 
       {caseStudies.map((caseStudy) => {
         const isActive = activeCaseStudy?.id === caseStudy.id;
-
         return (
           <div
             key={caseStudy.id}
@@ -743,7 +921,6 @@ const PortfolioPage = () => {
                   </div>
                 ))}
               </div>
-
               {caseStudy.sections.map((section, index) => (
                 <div key={`${caseStudy.id}-${section.label}`}>
                   <div
@@ -776,7 +953,6 @@ const PortfolioPage = () => {
                   {index < caseStudy.sections.length - 1 && <hr className="div" />}
                 </div>
               ))}
-
               <div
                 className={`cs-out ${isActive && caseVisible ? "vis" : ""}`}
                 style={{ transitionDelay: `${(caseStudy.sections.length + 1) * 0.065}s` }}
