@@ -576,11 +576,13 @@
 
   .h-thumb {
     position: relative;
-    display: none;
+    display: block;
     overflow: hidden;
     border-radius: 0.75rem;
     aspect-ratio: 16 / 10;
     background: hsl(var(--ink));
+    width: 100%;
+    margin-top: 0.75rem;
   }
 
   .h-slide {
@@ -1861,6 +1863,7 @@
 
   .h-thumb {
     display: block;
+    margin-top: 0;
   }
 
   .a-inner {
