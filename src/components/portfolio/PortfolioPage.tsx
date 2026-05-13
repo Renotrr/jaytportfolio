@@ -19,6 +19,7 @@ import {
   workProjects,
 } from "@/components/portfolio/portfolioData";
 
+import logoSvg from "@/assets/logo.svg";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
@@ -431,110 +432,39 @@ const PortfolioPage = () => {
 
       <div id="page">
         <section id="hero">
-          <div className="h-shell">
+          <div className="h-shell h-shell--simple">
             <div className="h-bg">
               <video id="heroVid" autoPlay muted loop playsInline>
                 <source src={heroVideo} type="video/mp4" />
               </video>
-              <div className="h-bg-grad" />
+              <div className="h-bg-grad h-bg-grad--soft" />
             </div>
             <div className="noise" />
 
-            <div className="brace brace-tl" />
-            <div className="brace brace-tc" />
-            <div className="brace brace-tc2" />
-            <div className="brace brace-tr" />
-            <div className="brace brace-bc" />
-            <div className="brace brace-bc2" />
-
-            <div className="h-topbar">
-              <a href="#hero" className="h-logo" onClick={(e) => handleNavClick(e, "hero")}>
-                {heroContent.logo}
+            <div className="h-topbar h-topbar--simple">
+              <a href="#hero" className="h-logo h-logo--mark" onClick={(e) => handleNavClick(e, "hero")} aria-label="Home">
+                <img src={logoSvg} alt="John Adewole" />
               </a>
-              <div className="h-anno">
-                <span className="h-anno-arr">↗</span>
-                <span className="h-anno-txt">
-                  Design That Speaks,
-                  <br />
-                  Stories That Connect
-                </span>
-              </div>
+              <span className="h-menu-label">Menu</span>
             </div>
 
-            <div className="h-mid">
-              <span className={`h-hi wu ${heroEntered ? "in" : ""}`} style={withDelay(".1s")}>
-                {heroContent.intro}
-              </span>
-              <span className={`h-name wu ${heroEntered ? "in" : ""}`} style={withDelay(".2s")}>
-                {heroContent.nameLines[0]}
-                <br />
-                {heroContent.nameLines[1]}
-                <sup className="h-mark">{heroContent.mark}</sup>
-              </span>
-            </div>
-
-            <div className="h-strip">
-              <div className="h-col">
-                <div className={`h-role fi ${heroEntered ? "in" : ""}`} style={withDelay(".5s")}>
-                  Creative
-                  <br />
-                  Designer &amp;
-                  <br />
-                  No-Code Developer
-                </div>
-                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className={`h-dl fi ${heroEntered ? "in" : ""}`} style={withDelay(".62s")}>
-                  Get in touch ↓
+            <div className="h-center">
+              <h1 className={`h-headline wu ${heroEntered ? "in" : ""}`} style={withDelay(".15s")}>
+                <span className="h-headline-line">Hi I&rsquo;m John,</span>
+                <span className="h-headline-line">Welcome to my World</span>
+              </h1>
+              <p className={`h-sub fi ${heroEntered ? "in" : ""}`} style={withDelay(".45s")}>
+                Creative Designer &amp; No-Code Developer
+              </p>
+              <div className={`h-cta fi ${heroEntered ? "in" : ""}`} style={withDelay(".6s")}>
+                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-primary">
+                  Get in touch
+                  <span className="btn-circle"><IconArrow /></span>
                 </a>
-              </div>
-
-              <div className="h-col">
-                <p className={`h-desc fi ${heroEntered ? "in" : ""}`} style={withDelay(".55s")}>
-                  {heroContent.description}
-                </p>
-                <div className={`h-btns fi ${heroEntered ? "in" : ""}`} style={withDelay(".7s")}>
-                  <a href="#work" onClick={(e) => handleNavClick(e, "work")} className="btn-pill btn-primary">
-                    View Works
-                    <span className="btn-circle">
-                      <IconArrow />
-                    </span>
-                  </a>
-                  <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-outline">
-                    Let&apos;s Work
-                  </a>
-                </div>
-              </div>
-
-              <div className={`h-col fi ${heroEntered ? "in" : ""}`} style={withDelay(".65s")}>
-                <div className="h-thumb">
-                  {previewImages.map((src, idx) => (
-                    <img
-                      key={src + idx}
-                      src={src}
-                      alt="Work preview"
-                      className={`h-slide ${idx === thumbIndex ? "is-active" : ""}`}
-                      loading="lazy"
-                    />
-                  ))}
-                  <div className="h-thumb-dots">
-                    {previewImages.map((_, idx) => (
-                      <button
-                        key={idx}
-                        type="button"
-                        className={`h-dot ${idx === thumbIndex ? "is-active" : ""}`}
-                        onClick={() => setThumbIndex(idx)}
-                        aria-label={`Show preview ${idx + 1}`}
-                      />
-                    ))}
-                  </div>
-                  <div className="h-thumb-nav">
-                    <button className="t-btn" type="button" onClick={prevThumb} aria-label="Show previous preview">
-                      <IconChevronLeft />
-                    </button>
-                    <button className="t-btn" type="button" onClick={nextThumb} aria-label="Show next preview">
-                      <IconChevronRight />
-                    </button>
-                  </div>
-                </div>
+                <a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")} className="btn-pill btn-outline">
+                  View Graphic Design
+                  <span className="btn-circle"><IconArrow /></span>
+                </a>
               </div>
             </div>
 
