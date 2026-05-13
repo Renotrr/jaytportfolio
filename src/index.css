@@ -2545,3 +2545,103 @@
   .marquee-track { animation: none; }
   .graphic-slide { transition: opacity 0.2s; }
 }
+
+/* ============ SIMPLE HERO (fromanother-inspired) ============ */
+.h-shell--simple {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+.h-shell--simple .brace { display: none; }
+
+.h-bg-grad--soft {
+  background: linear-gradient(to bottom,
+    hsl(var(--ink) / 0.55) 0%,
+    hsl(var(--ink) / 0.25) 35%,
+    hsl(var(--ink) / 0.35) 70%,
+    hsl(var(--ink) / 0.55) 100%);
+}
+
+.h-topbar--simple {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 1.8rem;
+  border-bottom: none;
+}
+
+.h-logo--mark {
+  display: inline-flex;
+  align-items: center;
+}
+.h-logo--mark img {
+  display: block;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+@media (min-width: 768px) {
+  .h-logo--mark img { width: 52px; height: 52px; }
+}
+
+.h-menu-label {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: hsl(var(--cream));
+  /* sits visually beside the floating .nav-toggle button */
+  margin-right: 4.2rem;
+}
+
+.h-center {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  gap: 1.4rem;
+}
+
+.h-headline {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7.5vw, 7rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: hsl(var(--cream));
+  max-width: 14ch;
+}
+.h-headline-line {
+  display: block;
+}
+
+.h-sub {
+  font-family: 'Almarai', sans-serif;
+  font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: hsl(var(--cream) / 0.75);
+}
+
+.h-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.6rem;
+}
+
+@media (max-width: 640px) {
+  .h-menu-label { display: none; }
+  .h-topbar--simple { padding: 1rem 1.1rem; }
+  .h-center { padding: 1rem 1.2rem 4rem; }
+}
