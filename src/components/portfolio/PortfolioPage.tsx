@@ -507,49 +507,47 @@ const PortfolioPage = () => {
           </div>
         </section>
 
-        {/* WORKS — slides up over hero feel */}
-        <section id="work" className="works-section">
-          <div className="works-rise">
-            <div className="sec-hdr">
-              <div className="sec-lbl fi" style={withDelay("0s")}>
-                Selected Work
-              </div>
-              <div>
-                <span className="wu sec-h1" style={withDelay(".08s")}>
-                  Projects that show
-                </span>
-              </div>
-              <div>
-                <span className="wu sec-h2" style={withDelay(".16s")}>
-                  clarity and craft create impact.
-                </span>
-              </div>
+        {/* WORKS — horizontal pinned scroll showcase */}
+        <section id="work" className="works-h" ref={worksScrollRef}>
+          <div className="works-h-sticky">
+            <div className="works-h-hdr">
+              <span className="sec-lbl">Featured Work</span>
+              <span className="works-h-counter">
+                <span>01</span>
+                <span className="works-h-bar" />
+                <span>{String(worksData.length).padStart(2, "0")}</span>
+              </span>
             </div>
-
-            <div
-              className="works-grid"
-              onMouseLeave={() => setHoveredWork(null)}
-            >
+            <div className="works-h-track" ref={worksTrackRef}>
+              <div className="works-h-intro">
+                <h2 className="works-h-title">
+                  Driven by
+                  <br />
+                  <em>Creative Curiosity</em>
+                </h2>
+                <p className="works-h-lede">
+                  A selection of projects spanning brand systems, product design,
+                  and crafted web experiences.
+                </p>
+              </div>
               {worksData.map((w, i) => (
-                <div
-                  key={w.id}
-                  className={`work-card si ${hoveredWork === i ? "is-active" : ""} ${
-                    hoveredWork === null && i === 0 ? "is-default" : ""
-                  }`}
-                  style={withDelay(`${i * 0.08}s`)}
-                  onMouseEnter={() => setHoveredWork(i)}
-                >
-                  <div className="work-card-img">
+                <article className="works-h-card" key={w.id}>
+                  <div className="works-h-img">
                     <img src={w.image} alt={w.title} loading="lazy" />
-                    <div className="work-card-ov" />
                   </div>
-                  <div className="work-card-meta">
-                    <span className="work-card-title">{w.title}</span>
-                    <span className="work-card-year">{w.year}</span>
+                  <div className="works-h-meta">
+                    <span className="works-h-num">0{i + 1}</span>
+                    <h3 className="works-h-name">{w.title}</h3>
+                    <span className="works-h-cat">{w.category} · {w.year}</span>
                   </div>
-                  <span className="work-card-cat">{w.category}</span>
-                </div>
+                </article>
               ))}
+              <div className="works-h-end">
+                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-outline">
+                  Start a project
+                  <span className="btn-circle"><IconArrow /></span>
+                </a>
+              </div>
             </div>
           </div>
         </section>
