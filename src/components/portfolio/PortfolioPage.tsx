@@ -297,6 +297,36 @@ const PortfolioPage = () => {
     return () => window.removeEventListener("wheel", onWheel);
   }, [graphicIndex]);
 
+  // Works section: horizontal scroll pinned (fromanother-style)
+  useEffect(() => {
+    const section = worksScrollRef.current;
+    const track = worksTrackRef.current;
+    if (!section || !track) return;
+    if (window.matchMedia("(max-width: 768px)").matches) return;
+
+    let raf = 0;
+    const update = () => {
+      const rect = section.getBoundingClientRect();
+      const distance = track.scrollWidth - window.innerWidth;
+      if (distance <= 0) return;
+      const total = section.offsetHeight - window.innerHeight;
+      const progress = Math.min(Math.max(-rect.top / total, 0), 1);
+      track.style.transform = `translate3d(${-progress * distance}px, 0, 0)`;
+    };
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   // Case study modal
   useEffect(() => {
     if (!activeCaseStudyId) return;
