@@ -129,6 +129,8 @@ const PortfolioPage = () => {
   const studioVideoRef = useRef<HTMLVideoElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
   const graphicsSectionRef = useRef<HTMLElement | null>(null);
+  const worksScrollRef = useRef<HTMLElement | null>(null);
+  const worksTrackRef = useRef<HTMLDivElement | null>(null);
 
   const [loaderGone, setLoaderGone] = useState(false);
   const [heroEntered, setHeroEntered] = useState(false);
