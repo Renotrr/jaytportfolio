@@ -464,45 +464,81 @@ const PortfolioPage = () => {
 
       <div id="page">
         <section id="hero">
-          <div className="h-shell h-shell--simple">
+          <div className="h-shell h-shell--pin">
             <div className="h-bg">
               <video id="heroVid" autoPlay muted loop playsInline>
                 <source src={heroVideo} type="video/mp4" />
               </video>
-              <div className="h-bg-grad h-bg-grad--soft" />
+              <div className="h-bg-grad h-bg-grad--vignette" />
             </div>
             <div className="noise" />
 
-            <div className="h-topbar h-topbar--simple">
-              <a href="#hero" className="h-logo h-logo--mark" onClick={(e) => handleNavClick(e, "hero")} aria-label="Home">
+            {/* Top nav row: links left · logo center · links right + menu label */}
+            <div className="h-topbar h-topbar--pin">
+              <ul className="h-topnav h-topnav--left">
+                <li><a href="#work" onClick={(e) => handleNavClick(e, "work")}>Works</a></li>
+                <li><a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a></li>
+                <li><a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")}>Graphics</a></li>
+              </ul>
+              <a href="#hero" className="h-logo h-logo--center" onClick={(e) => handleNavClick(e, "hero")} aria-label="Home">
                 <img src={logoSvg} alt="John Adewole" />
               </a>
-              <span className="h-menu-label">Menu</span>
+              <ul className="h-topnav h-topnav--right">
+                <li><a href="#experience" onClick={(e) => handleNavClick(e, "experience")}>Experience</a></li>
+                <li><a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a></li>
+                <li><span className="h-menu-label">Menu</span></li>
+              </ul>
             </div>
 
-            <div className="h-center">
-              <h1 className={`h-headline wu ${heroEntered ? "in" : ""}`} style={withDelay(".15s")}>
-                <span className="h-headline-line">Hi I&rsquo;m John,</span>
-                <span className="h-headline-line">Welcome to my World</span>
-              </h1>
-              <p className={`h-sub fi ${heroEntered ? "in" : ""}`} style={withDelay(".45s")}>
-                Creative Designer &amp; No-Code Developer
-              </p>
-              <div className={`h-cta fi ${heroEntered ? "in" : ""}`} style={withDelay(".6s")}>
+            {/* Floating pill labels with hairlines */}
+            <div className={`h-pins fi ${heroEntered ? "in" : ""}`} aria-hidden="true">
+              <span className="h-pin h-pin--tl" style={withDelay(".4s")}>
+                <span className="h-pin-dot" />
+                Creative Designer
+                <span className="h-pin-line" />
+              </span>
+              <span className="h-pin h-pin--bl" style={withDelay(".55s")}>
+                <span className="h-pin-dot" />
+                No-Code Developer
+                <span className="h-pin-line" />
+              </span>
+              <span className="h-pin h-pin--tr" style={withDelay(".7s")}>
+                <span className="h-pin-dot" />
+                Brand &amp; Identity
+                <span className="h-pin-line" />
+              </span>
+              <span className="h-pin h-pin--br" style={withDelay(".85s")}>
+                <span className="h-pin-dot" />
+                AI &amp; Web Experiences
+                <span className="h-pin-line" />
+              </span>
+            </div>
+
+            {/* Bottom content block: headline left, description right, divider, CTAs */}
+            <div className="h-bottom">
+              <div className="h-bottom-row">
+                <h1 className={`h-headline h-headline--pin wu ${heroEntered ? "in" : ""}`} style={withDelay(".15s")}>
+                  <span className="h-headline-line">Hi I&rsquo;m John,</span>
+                  <span className="h-headline-line">Welcome to my World.</span>
+                </h1>
+                <p className={`h-lede fi ${heroEntered ? "in" : ""}`} style={withDelay(".35s")}>
+                  Creative designer &amp; no-code developer crafting brand systems,
+                  product interfaces, and considered web experiences.
+                </p>
+              </div>
+              <div className="h-divider" />
+              <div className={`h-cta h-cta--pin fi ${heroEntered ? "in" : ""}`} style={withDelay(".55s")}>
                 <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-primary">
                   Get in touch
                   <span className="btn-circle"><IconArrow /></span>
                 </a>
-                <a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")} className="btn-pill btn-outline">
-                  View Graphic Design
-                  <span className="btn-circle"><IconArrow /></span>
+                <a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")} className="btn-pill btn-ghost">
+                  <span className="btn-play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19" /></svg>
+                  </span>
+                  View graphic design
                 </a>
               </div>
-            </div>
-
-            <div className="h-scroll">
-              <div className="h-scroll-line" />
-              <span className="h-scroll-txt">Scroll</span>
             </div>
           </div>
         </section>
