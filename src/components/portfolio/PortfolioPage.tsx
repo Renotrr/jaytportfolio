@@ -83,7 +83,6 @@ const navLinks = [
   { id: "work", label: "Works" },
   { id: "about", label: "About Me" },
   { id: "graphics", label: "Graphics" },
-  { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -433,7 +432,6 @@ const PortfolioPage = () => {
                 <img src={logoSvg} alt="John Adewole" />
               </a>
               <ul className="h-topnav h-topnav--right">
-                <li><a href="#experience" onClick={(e) => handleNavClick(e, "experience")}>Experience</a></li>
                 <li><a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a></li>
                 <li><span className="h-menu-label">Menu</span></li>
               </ul>
