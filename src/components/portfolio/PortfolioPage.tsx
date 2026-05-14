@@ -589,47 +589,40 @@ const PortfolioPage = () => {
         </div>
         {/* /elope-stack */}
 
-        {/* WORKS — horizontal pinned scroll showcase */}
-        <section id="work" className="works-h" ref={worksScrollRef}>
-          <div className="works-h-sticky">
-            <div className="works-h-hdr">
-              <span className="sec-lbl">Featured Work</span>
-              <span className="works-h-counter">
-                <span>01</span>
-                <span className="works-h-bar" />
-                <span>{String(worksData.length).padStart(2, "0")}</span>
-              </span>
-            </div>
-            <div className="works-h-track" ref={worksTrackRef}>
-              <div className="works-h-intro">
-                <h2 className="works-h-title">
-                  Driven by
-                  <br />
-                  <em>Creative Curiosity</em>
-                </h2>
-                <p className="works-h-lede">
-                  A selection of projects spanning brand systems, product design,
-                  and crafted web experiences.
-                </p>
-              </div>
-              {worksData.map((w, i) => (
-                <article className="works-h-card" key={w.id}>
-                  <div className="works-h-img">
-                    <img src={w.image} alt={w.title} loading="lazy" />
+        {/* SELECTED WORKS — grid layout */}
+        <section id="work" className="sw" ref={worksScrollRef}>
+          <div className="sw-top">
+            <span className="sw-top-l"><span className="sw-dot" />002</span>
+            <span className="sw-top-c"><span className="sw-dot" />(Work)</span>
+            <span className="sw-top-r">©2025</span>
+          </div>
+          <div className="sw-title-row">
+            <h2 className="sw-title">Selected<br />Works</h2>
+            <span className="sw-count">({worksData.length})</span>
+          </div>
+          <p className="sw-lede">// &nbsp;&nbsp;We help brands grow and tell their stories to the world.</p>
+          <div className="sw-grid">
+            {worksData.map((w, i) => (
+              <article className="sw-card" key={w.id}>
+                <div className="sw-card-img">
+                  <img src={w.image} alt={w.title} loading="lazy" />
+                </div>
+                <div className="sw-card-foot">
+                  <span className="sw-card-name"><span className="sw-plus">+</span> {w.title}</span>
+                  <div className="sw-tags">
+                    <span className="sw-tag sw-tag-num">{i + 1}</span>
+                    {w.category.split("·").map((t, k) => (
+                      <span className="sw-tag" key={k}>{t.trim()}</span>
+                    ))}
                   </div>
-                  <div className="works-h-meta">
-                    <span className="works-h-num">0{i + 1}</span>
-                    <h3 className="works-h-name">{w.title}</h3>
-                    <span className="works-h-cat">{w.category} · {w.year}</span>
-                  </div>
-                </article>
-              ))}
-              <div className="works-h-end">
-                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-outline">
-                  Start a project
-                  <span className="btn-circle"><IconArrow /></span>
-                </a>
-              </div>
+                </div>
+              </article>
+            ))}
+            <div className="sw-allworks-cell">
+              <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="sw-allworks">
+                <span>All Works</span>
+                <span className="sw-allworks-arr"><IconArrow /></span>
+              </a>
             </div>
           </div>
         </section>
