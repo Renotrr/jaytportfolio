@@ -30,6 +30,7 @@ import graphic3 from "@/assets/graphic-3.jpg";
 import graphic4 from "@/assets/graphic-4.jpg";
 import graphic5 from "@/assets/graphic-5.jpg";
 import graphic6 from "@/assets/graphic-6.jpg";
+import graphic7 from "@/assets/graphic-7.jpg";
 import exp1 from "@/assets/exp-1.jpg";
 
 const placeholderImage = "/placeholder.svg";
@@ -54,6 +55,7 @@ const graphicsData = [
   { id: "g4", title: "Peant Bane", category: "Editorial · Fashion", image: graphic4 },
   { id: "g5", title: "Ritual", category: "Packaging", image: graphic5 },
   { id: "g6", title: "Freval Eve", category: "Event Poster", image: graphic6 },
+  { id: "g7", title: "Horizon", category: "Editorial · Landscape", image: graphic7 },
 ];
 
 const marqueeWords = [
@@ -128,7 +130,7 @@ const PortfolioPage = () => {
   const rootRef = useRef<HTMLDivElement | null>(null);
   const studioVideoRef = useRef<HTMLVideoElement | null>(null);
   const closeTimerRef = useRef<number | null>(null);
-  const graphicsSectionRef = useRef<HTMLElement | null>(null);
+  
   const worksScrollRef = useRef<HTMLElement | null>(null);
   const worksTrackRef = useRef<HTMLDivElement | null>(null);
 
@@ -139,8 +141,6 @@ const PortfolioPage = () => {
   const [activeCaseStudyId, setActiveCaseStudyId] = useState<string | null>(null);
   const [caseVisible, setCaseVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [graphicIndex, setGraphicIndex] = useState(0);
-  const [graphicDir, setGraphicDir] = useState<"right" | "left">("right");
 
   const previewImages = useMemo(() => {
     const mapped = thumbnailImages.map(resolvePortfolioImage);
@@ -244,58 +244,6 @@ const PortfolioPage = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Graphics section: scroll-hijack one-at-a-time throw out
-  useEffect(() => {
-    const section = graphicsSectionRef.current;
-    if (!section) return;
-
-    let lock = false;
-    let lastFire = 0;
-
-    const onWheel = (e: WheelEvent) => {
-      const rect = section.getBoundingClientRect();
-      const inView = rect.top <= 5 && rect.bottom >= window.innerHeight - 5;
-      if (!inView) return;
-
-      const now = Date.now();
-      if (now - lastFire < 700) {
-        e.preventDefault();
-        return;
-      }
-      if (lock) {
-        e.preventDefault();
-        return;
-      }
-
-      // Going forward
-      if (e.deltaY > 8) {
-        if (graphicIndex < graphicsData.length - 1) {
-          e.preventDefault();
-          lock = true;
-          lastFire = now;
-          setGraphicDir(graphicIndex % 2 === 0 ? "right" : "left");
-          setGraphicIndex((i) => i + 1);
-          window.setTimeout(() => {
-            lock = false;
-          }, 700);
-        }
-      } else if (e.deltaY < -8) {
-        if (graphicIndex > 0) {
-          e.preventDefault();
-          lock = true;
-          lastFire = now;
-          setGraphicDir(graphicIndex % 2 === 0 ? "left" : "right");
-          setGraphicIndex((i) => i - 1);
-          window.setTimeout(() => {
-            lock = false;
-          }, 700);
-        }
-      }
-    };
-
-    window.addEventListener("wheel", onWheel, { passive: false });
-    return () => window.removeEventListener("wheel", onWheel);
-  }, [graphicIndex]);
 
   // Works section: horizontal scroll pinned (fromanother-style)
   useEffect(() => {
@@ -641,53 +589,39 @@ const PortfolioPage = () => {
 
 
 
-        {/* GRAPHICS — full screen one-at-a-time throw out */}
-        <section
-          id="graphics"
-          ref={graphicsSectionRef}
-          className="graphics-section"
-        >
-          <div className="graphics-hdr-fixed">
+        {/* GRAPHICS — grid 2/2/2 + landscape */}
+        <section id="graphics" className="gx-section">
+          <div className="gx-hdr">
             <div className="sec-lbl">Graphic Design</div>
-            <div className="graphics-counter">
-              <span className="g-curr">{String(graphicIndex + 1).padStart(2, "0")}</span>
-              <span className="g-sep">/</span>
-              <span className="g-tot">{String(graphicsData.length).padStart(2, "0")}</span>
+            <div className="gx-count">
+              <span className="gx-curr">{String(graphicsData.length).padStart(2, "0")}</span>
+              <span className="gx-sep">—</span>
+              <span className="gx-lbl">Selected pieces</span>
             </div>
           </div>
-          <div className="graphics-stage">
-            {graphicsData.map((g, i) => {
-              const isActive = i === graphicIndex;
-              const isPast = i < graphicIndex;
-              const dirClass = isPast ? `is-thrown-${i % 2 === 0 ? "right" : "left"}` : "is-coming";
-              return (
-                <div
-                  key={g.id}
-                  className={`graphic-slide ${isActive ? "is-active" : dirClass}`}
-                  aria-hidden={!isActive}
-                >
+          <div className="gx-grid">
+            {graphicsData.slice(0, 6).map((g) => (
+              <figure key={g.id} className="gx-card">
+                <div className="gx-img">
                   <img src={g.image} alt={g.title} loading="lazy" />
-                  <div className="graphic-meta">
-                    <span className="g-ti">{g.title}</span>
-                    <span className="g-ty">{g.category}</span>
-                  </div>
                 </div>
-              );
-            })}
-          </div>
-          <div className="graphics-progress">
-            {graphicsData.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                className={`gp-dot ${i === graphicIndex ? "is-active" : ""}`}
-                aria-label={`Go to graphic ${i + 1}`}
-                onClick={() => {
-                  setGraphicDir(i > graphicIndex ? "right" : "left");
-                  setGraphicIndex(i);
-                }}
-              />
+                <figcaption className="gx-meta">
+                  <span className="gx-ti">{g.title}</span>
+                  <span className="gx-ty">{g.category}</span>
+                </figcaption>
+              </figure>
             ))}
+            {graphicsData[6] && (
+              <figure className="gx-card gx-card--wide">
+                <div className="gx-img gx-img--wide">
+                  <img src={graphicsData[6].image} alt={graphicsData[6].title} loading="lazy" />
+                </div>
+                <figcaption className="gx-meta">
+                  <span className="gx-ti">{graphicsData[6].title}</span>
+                  <span className="gx-ty">{graphicsData[6].category}</span>
+                </figcaption>
+              </figure>
+            )}
           </div>
         </section>
 
