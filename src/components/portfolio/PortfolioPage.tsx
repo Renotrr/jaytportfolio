@@ -637,34 +637,7 @@ const PortfolioPage = () => {
           </div>
         </section>
 
-        {/* EXPERIENCE */}
-        <section id="experience" className="exp-section">
-          <div className="exp-bg-text">
-            <span>Project</span>
-            <span className="exp-mark">✦</span>
-            <span>Experience</span>
-          </div>
-          <div className="exp-inner">
-            <div className="sec-lbl fi" style={withDelay("0s")} data-center>
-              Work Experience
-            </div>
-            <div className="exp-list">
-              {experienceData.map((item, i) => (
-                <div className="exp-row si" key={`${item.year}-${item.role}`} style={withDelay(`${i * 0.08}s`)}>
-                  <span className="exp-year">{item.year}</span>
-                  <span className="exp-role">{item.role}</span>
-                  <span className="exp-desc">{item.desc}</span>
-                  <span className="exp-arr">
-                    <IconArrow />
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="exp-image fi" style={withDelay(".3s")}>
-              <img src={exp1} alt="Studio" loading="lazy" />
-            </div>
-          </div>
-        </section>
+        {/* STUDIO CTA */}
 
         {/* STUDIO CTA */}
         <section id="studio">
