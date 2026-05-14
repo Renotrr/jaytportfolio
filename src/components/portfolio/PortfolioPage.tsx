@@ -591,8 +591,30 @@ const PortfolioPage = () => {
 
         {/* GRAPHICS — grid 2/2/2 + landscape */}
         <section id="graphics" className="gx-section">
+          <div className="gx-intro">
+            <div className="gx-intro-top">
+              <span className="sec-lbl">Graphic Design</span>
+              <span className="gx-intro-tag">/ A practice called <em>Calm Violence</em></span>
+            </div>
+            <h2 className="gx-intro-title">
+              Beyond pixels &amp; products, I make <em>loud, quiet</em> graphics.
+            </h2>
+            <p className="gx-intro-body">
+              I'm also a graphic designer. I built a visual language I call
+              <em> Calm Violence</em> — composed surfaces that hold tension underneath:
+              soft typography, brutal contrast, restrained color, sudden noise.
+              The work below is my playground for posters, covers, and
+              identity studies that try to feel like a held breath.
+            </p>
+            <div className="gx-intro-meta">
+              <span>Posters</span><span className="gx-dot">•</span>
+              <span>Covers</span><span className="gx-dot">•</span>
+              <span>Identity</span><span className="gx-dot">•</span>
+              <span>Editorial</span>
+            </div>
+          </div>
+
           <div className="gx-hdr">
-            <div className="sec-lbl">Graphic Design</div>
             <div className="gx-count">
               <span className="gx-curr">{String(graphicsData.length).padStart(2, "0")}</span>
               <span className="gx-sep">—</span>
