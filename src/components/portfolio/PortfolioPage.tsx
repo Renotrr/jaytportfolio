@@ -31,7 +31,6 @@ import graphic4 from "@/assets/graphic-4.jpg";
 import graphic5 from "@/assets/graphic-5.jpg";
 import graphic6 from "@/assets/graphic-6.jpg";
 import graphic7 from "@/assets/graphic-7.jpg";
-import exp1 from "@/assets/exp-1.jpg";
 
 const placeholderImage = "/placeholder.svg";
 
@@ -71,19 +70,11 @@ const marqueeWords = [
   "Art Direction",
 ];
 
-const experienceData = [
-  { year: "2024", role: "Kelas Inspirasi Boyolali 7", desc: "Design Creative & Web Management" },
-  { year: "2024", role: "PT Tribintang Emas Mulia (Intern)", desc: "Frontend Developer" },
-  { year: "2025", role: "Kelas Inspirasi Boyolali 8", desc: "Creative Director & Web Management" },
-  { year: "2025", role: "Freelance Studio", desc: "Creative Designer & No-Code Developer" },
-];
-
 const navLinks = [
   { id: "hero", label: "Home" },
   { id: "work", label: "Works" },
   { id: "about", label: "About Me" },
   { id: "graphics", label: "Graphics" },
-  { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -433,7 +424,6 @@ const PortfolioPage = () => {
                 <img src={logoSvg} alt="John Adewole" />
               </a>
               <ul className="h-topnav h-topnav--right">
-                <li><a href="#experience" onClick={(e) => handleNavClick(e, "experience")}>Experience</a></li>
                 <li><a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a></li>
                 <li><span className="h-menu-label">Menu</span></li>
               </ul>
@@ -647,34 +637,7 @@ const PortfolioPage = () => {
           </div>
         </section>
 
-        {/* EXPERIENCE */}
-        <section id="experience" className="exp-section">
-          <div className="exp-bg-text">
-            <span>Project</span>
-            <span className="exp-mark">✦</span>
-            <span>Experience</span>
-          </div>
-          <div className="exp-inner">
-            <div className="sec-lbl fi" style={withDelay("0s")} data-center>
-              Work Experience
-            </div>
-            <div className="exp-list">
-              {experienceData.map((item, i) => (
-                <div className="exp-row si" key={`${item.year}-${item.role}`} style={withDelay(`${i * 0.08}s`)}>
-                  <span className="exp-year">{item.year}</span>
-                  <span className="exp-role">{item.role}</span>
-                  <span className="exp-desc">{item.desc}</span>
-                  <span className="exp-arr">
-                    <IconArrow />
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="exp-image fi" style={withDelay(".3s")}>
-              <img src={exp1} alt="Studio" loading="lazy" />
-            </div>
-          </div>
-        </section>
+        {/* STUDIO CTA */}
 
         {/* STUDIO CTA */}
         <section id="studio">
