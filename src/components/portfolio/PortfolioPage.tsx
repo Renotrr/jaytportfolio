@@ -544,6 +544,51 @@ const PortfolioPage = () => {
           </div>
         </section>
 
+        {/* ABOUT — elopes the hero (slides up over it) */}
+        <section id="about" className="ab-elope">
+          <div className="ab-top">
+            <span className="ab-top-item"><span className="ab-bullet" />(About me)</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Crafted with intention</span>
+            <span className="ab-top-copy">©25</span>
+          </div>
+          <div className="ab-grid">
+            <div className="ab-card fi" style={withDelay(".05s")}>
+              <div className="ab-card-inner">
+                <img src={resolvePortfolioImage(profileImage)} alt="John Adewole" />
+                <div className="ab-tag">
+                  <span className="ab-tag-k">JA / 25</span>
+                  <span className="ab-tag-l">Creative Designer · No-Code Developer</span>
+                </div>
+              </div>
+            </div>
+            <div className="ab-right">
+              <h2 className="ab-headline wu" style={withDelay(".15s")}>
+                <span className="ab-eye">(About)</span>
+                With over 3 years under my belt, I craft — memorable websites and brand visuals that reflect each client&rsquo;s unique story.
+              </h2>
+              <ul className="ab-list">
+                <li className="fi" style={withDelay(".35s")}>
+                  <span className="ab-num">01.</span>
+                  <span className="ab-li-l">Creative Designer & No-Code Developer</span>
+                  <span className="ab-li-d" />
+                </li>
+                <li className="fi" style={withDelay(".45s")}>
+                  <span className="ab-num">02.</span>
+                  <span className="ab-li-l">From (Lagos, Nigeria)</span>
+                  <span className="ab-li-d" />
+                </li>
+                <li className="fi" style={withDelay(".55s")}>
+                  <span className="ab-num">03.</span>
+                  <span className="ab-li-l">Available for freelance & collaborations</span>
+                  <span className="ab-li-d" />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        </div>
+        {/* /elope-stack */}
+
         {/* WORKS — horizontal pinned scroll showcase */}
         <section id="work" className="works-h" ref={worksScrollRef}>
           <div className="works-h-sticky">
