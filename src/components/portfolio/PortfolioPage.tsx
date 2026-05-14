@@ -463,6 +463,7 @@ const PortfolioPage = () => {
       </nav>
 
       <div id="page">
+        <div className="elope-stack">
         <section id="hero">
           <div className="h-shell h-shell--pin">
             <div className="h-bg">
@@ -543,6 +544,51 @@ const PortfolioPage = () => {
           </div>
         </section>
 
+        {/* ABOUT — elopes the hero (slides up over it) */}
+        <section id="about" className="ab-elope">
+          <div className="ab-top">
+            <span className="ab-top-item"><span className="ab-bullet" />(About me)</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Crafted with intention</span>
+            <span className="ab-top-copy">©25</span>
+          </div>
+          <div className="ab-grid">
+            <div className="ab-card fi" style={withDelay(".05s")}>
+              <div className="ab-card-inner">
+                <img src={resolvePortfolioImage(profileImage)} alt="John Adewole" />
+                <div className="ab-tag">
+                  <span className="ab-tag-k">JA / 25</span>
+                  <span className="ab-tag-l">Creative Designer · No-Code Developer</span>
+                </div>
+              </div>
+            </div>
+            <div className="ab-right">
+              <h2 className="ab-headline wu" style={withDelay(".15s")}>
+                <span className="ab-eye">(About)</span>
+                With over 3 years under my belt, I craft — memorable websites and brand visuals that reflect each client&rsquo;s unique story.
+              </h2>
+              <ul className="ab-list">
+                <li className="fi" style={withDelay(".35s")}>
+                  <span className="ab-num">01.</span>
+                  <span className="ab-li-l">Creative Designer & No-Code Developer</span>
+                  <span className="ab-li-d" />
+                </li>
+                <li className="fi" style={withDelay(".45s")}>
+                  <span className="ab-num">02.</span>
+                  <span className="ab-li-l">From (Lagos, Nigeria)</span>
+                  <span className="ab-li-d" />
+                </li>
+                <li className="fi" style={withDelay(".55s")}>
+                  <span className="ab-num">03.</span>
+                  <span className="ab-li-l">Available for freelance & collaborations</span>
+                  <span className="ab-li-d" />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        </div>
+        {/* /elope-stack */}
+
         {/* WORKS — horizontal pinned scroll showcase */}
         <section id="work" className="works-h" ref={worksScrollRef}>
           <div className="works-h-sticky">
@@ -600,73 +646,7 @@ const PortfolioPage = () => {
           </div>
         </section>
 
-        {/* ABOUT */}
-        <section id="about">
-          <div className="a-card">
-            <div className="a-inner">
-              <div className="fi" style={withDelay("0s")}>
-                <div className="a-photo-wrap">
-                  <img src={resolvePortfolioImage(profileImage)} alt="John Adewole" className="a-photo" />
-                  <div className="a-deco" />
-                  <div className="a-badge">
-                    <span className="a-badge-n">{aboutContent.badge}</span>
-                    <span className="a-badge-l">{aboutContent.badgeLabel}</span>
-                  </div>
-                </div>
-              </div>
 
-              <div>
-                <span className="a-eye fi" style={withDelay(".05s")}>
-                  {aboutContent.eyebrow}
-                </span>
-
-                <h2 className="a-heading">
-                  <span className="wu" style={withDelay(".1s")}>
-                    {aboutContent.headingLines[0]}
-                  </span>
-                  <br />
-                  <span className="wu a-heading-accent" style={withDelay(".18s")}>
-                    {aboutContent.headingLines[1]}
-                  </span>
-                  <br />
-                  <span className="wu" style={withDelay(".26s")}>
-                    {aboutContent.headingLines[2]}
-                  </span>
-                </h2>
-
-                <div className="a-body">
-                  {aboutContent.paragraphs.map((paragraph, index) => (
-                    <p key={paragraph} className="fi" style={withDelay(`${0.32 + index * 0.08}s`)}>
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-
-                <div className="a-stats fi" style={withDelay(".54s")}>
-                  {aboutStats.map((stat) => (
-                    <div className="stat" key={stat.label}>
-                      <span className="stat-n" data-target={stat.value} data-suffix={stat.suffix}>
-                        0{stat.suffix}
-                      </span>
-                      <span className="stat-l">{stat.label}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="a-tools fi" style={withDelay(".6s")}>
-                  <div className="a-tools-lbl">Tools I use to design and build</div>
-                  <div className="a-tools-row">
-                    {aboutTools.map((tool) => (
-                      <span key={tool.label} className="t-pill">
-                        {tool.label}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* GRAPHICS — full screen one-at-a-time throw out */}
         <section
