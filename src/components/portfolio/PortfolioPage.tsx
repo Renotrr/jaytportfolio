@@ -463,6 +463,7 @@ const PortfolioPage = () => {
       </nav>
 
       <div id="page">
+        <div className="elope-stack">
         <section id="hero">
           <div className="h-shell h-shell--pin">
             <div className="h-bg">
