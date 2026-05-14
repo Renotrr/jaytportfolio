@@ -3177,3 +3177,154 @@
   .ab-top { flex-wrap: wrap; gap: 1rem; }
   .ab-list li { grid-template-columns: 44px 1fr auto; padding: 0.9rem 0; }
 }
+
+/* ============ SELECTED WORKS (sw) ============ */
+.sw {
+  position: relative;
+  background: hsl(var(--ink));
+  color: hsl(var(--cream));
+  padding: 4rem clamp(1.2rem, 4vw, 3rem) 6rem;
+  border-top: 1px solid hsl(var(--cream) / 0.08);
+}
+.sw-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  font-family: 'Almarai', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: hsl(var(--cream) / 0.7);
+  border-bottom: 1px solid hsl(var(--cream) / 0.12);
+  padding-bottom: 1.1rem;
+}
+.sw-top-l { justify-self: start; display: inline-flex; align-items: center; gap: 0.5rem; }
+.sw-top-c { justify-self: center; display: inline-flex; align-items: center; gap: 0.5rem; }
+.sw-top-r { justify-self: end; }
+.sw-dot { width: 6px; height: 6px; background: hsl(var(--cream)); display: inline-block; }
+
+.sw-title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 1.6rem;
+  gap: 2rem;
+}
+.sw-title {
+  font-family: 'Archivo Black', 'Almarai', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.2rem, 11vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: hsl(var(--cream));
+  margin: 0;
+}
+.sw-count {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  color: hsl(var(--cream) / 0.55);
+  padding-bottom: 1rem;
+}
+.sw-lede {
+  font-family: 'Almarai', sans-serif;
+  font-size: 0.95rem;
+  color: hsl(var(--cream) / 0.75);
+  margin: 2rem 0 2.4rem;
+}
+
+.sw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem 1.4rem;
+}
+.sw-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.sw-card-img {
+  aspect-ratio: 16 / 10;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  background: hsl(var(--cream) / 0.04);
+  border: 1px solid hsl(var(--cream) / 0.08);
+}
+.sw-card-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.sw-card:hover .sw-card-img img { transform: scale(1.04); }
+
+.sw-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0.4rem;
+}
+.sw-card-name {
+  font-family: 'Almarai', sans-serif;
+  font-size: 0.95rem;
+  color: hsl(var(--cream));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sw-plus { color: hsl(var(--cream) / 0.6); font-weight: 300; }
+.sw-tags {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.sw-tag {
+  font-family: 'Almarai', sans-serif;
+  font-size: 0.72rem;
+  color: hsl(var(--cream) / 0.8);
+  border: 1px solid hsl(var(--cream) / 0.18);
+  border-radius: 999px;
+  padding: 0.32rem 0.75rem;
+  white-space: nowrap;
+}
+.sw-tag-num {
+  border-color: hsl(var(--cream) / 0.25);
+  color: hsl(var(--cream) / 0.6);
+  padding: 0.32rem 0.6rem;
+}
+
+.sw-allworks-cell {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+.sw-allworks {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: hsl(var(--cream) / 0.06);
+  border: 1px solid hsl(var(--cream) / 0.18);
+  color: hsl(var(--cream));
+  padding: 0.85rem 1.1rem 0.85rem 1.4rem;
+  border-radius: 0.7rem;
+  font-family: 'Almarai', sans-serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.sw-allworks:hover { background: hsl(var(--cream) / 0.12); }
+.sw-allworks-arr {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: #ff5a1f; color: #0a0a0a;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.sw-allworks-arr svg { width: 14px; height: 14px; stroke: #0a0a0a; stroke-width: 2; fill: none; }
+
+@media (max-width: 768px) {
+  .sw { padding: 2.6rem 1rem 4rem; }
+  .sw-top { grid-template-columns: 1fr 1fr; font-size: 0.7rem; }
+  .sw-top-c { display: none; }
+  .sw-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+  .sw-allworks-cell { justify-content: flex-start; padding: 0.4rem 0; }
+}
