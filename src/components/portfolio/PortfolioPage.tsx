@@ -31,7 +31,6 @@ import graphic4 from "@/assets/graphic-4.jpg";
 import graphic5 from "@/assets/graphic-5.jpg";
 import graphic6 from "@/assets/graphic-6.jpg";
 import graphic7 from "@/assets/graphic-7.jpg";
-import exp1 from "@/assets/exp-1.jpg";
 
 const placeholderImage = "/placeholder.svg";
 
@@ -69,13 +68,6 @@ const marqueeWords = [
   "Motion",
   "UI/UX",
   "Art Direction",
-];
-
-const experienceData = [
-  { year: "2024", role: "Kelas Inspirasi Boyolali 7", desc: "Design Creative & Web Management" },
-  { year: "2024", role: "PT Tribintang Emas Mulia (Intern)", desc: "Frontend Developer" },
-  { year: "2025", role: "Kelas Inspirasi Boyolali 8", desc: "Creative Director & Web Management" },
-  { year: "2025", role: "Freelance Studio", desc: "Creative Designer & No-Code Developer" },
 ];
 
 const navLinks = [
