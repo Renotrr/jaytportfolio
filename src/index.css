@@ -2981,11 +2981,14 @@
 
 /* Tablet */
 @media (max-width: 900px) {
-  .h-topnav--left li:nth-child(3),
-  .h-topnav--right li:nth-child(1) { display: none; }
   .h-pin--bl { left: 6%; }
   .h-pin--br { right: 6%; }
   .h-bottom-row { gap: 1.6rem; }
+}
+
+/* Hide floating menu toggle on tablet & desktop — mobile only */
+@media (min-width: 641px) {
+  .nav-toggle { display: none !important; }
 }
 
 /* Mobile */
