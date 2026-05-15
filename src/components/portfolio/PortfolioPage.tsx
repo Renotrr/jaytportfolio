@@ -418,14 +418,13 @@ const PortfolioPage = () => {
               <ul className="h-topnav h-topnav--left">
                 <li><a href="#work" onClick={(e) => handleNavClick(e, "work")}>Works</a></li>
                 <li><a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a></li>
-                <li><a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")}>Graphics</a></li>
               </ul>
               <a href="#hero" className="h-logo h-logo--center" onClick={(e) => handleNavClick(e, "hero")} aria-label="Home">
                 <img src={logoSvg} alt="John Adewole" />
               </a>
               <ul className="h-topnav h-topnav--right">
-                <li><a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a></li>
-                <li><span className="h-menu-label">Menu</span></li>
+                <li><a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")}>Graphic Design</a></li>
+                <li><a href="#services" onClick={(e) => handleNavClick(e, "services")}>Services</a></li>
               </ul>
             </div>
 
