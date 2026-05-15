@@ -20,6 +20,7 @@ import {
 } from "@/components/portfolio/portfolioData";
 
 import logoSvg from "@/assets/logo.svg";
+import aboutPortrait from "@/assets/about-portrait.jpg";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
@@ -423,7 +424,7 @@ const PortfolioPage = () => {
                 <img src={logoSvg} alt="John Adewole" />
               </a>
               <ul className="h-topnav h-topnav--right">
-                <li><a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")}>Graphic Design</a></li>
+                <li><a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")}>Graphics</a></li>
                 <li><a href="#services" onClick={(e) => handleNavClick(e, "services")}>Services</a></li>
               </ul>
             </div>
@@ -491,9 +492,9 @@ const PortfolioPage = () => {
           <div className="ab-grid">
             <div className="ab-card fi" style={withDelay(".05s")}>
               <div className="ab-card-inner">
-                <img src={resolvePortfolioImage(profileImage)} alt="John Adewole" />
+                <img src={aboutPortrait} alt="John Adewole" />
                 <div className="ab-tag">
-                  <span className="ab-tag-k">JA / 25</span>
+                  <span className="ab-tag-k">JA / 3+</span>
                   <span className="ab-tag-l">Creative Designer · No-Code Developer</span>
                 </div>
               </div>
@@ -511,7 +512,7 @@ const PortfolioPage = () => {
                 </li>
                 <li className="fi" style={withDelay(".45s")}>
                   <span className="ab-num">02.</span>
-                  <span className="ab-li-l">From (Lagos, Nigeria)</span>
+                  <span className="ab-li-l">Figma, Canva, Framer, ChatGPT</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".55s")}>
@@ -582,7 +583,7 @@ const PortfolioPage = () => {
         <section id="graphics" className="gx-section">
           <div className="gx-intro">
             <div className="gx-intro-top">
-              <span className="sec-lbl">Graphic Design</span>
+              <span className="sec-lbl">Graphics</span>
               <span className="gx-intro-tag">/ A practice called <em>Calm Violence</em></span>
             </div>
             <h2 className="gx-intro-title">
