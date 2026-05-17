@@ -414,6 +414,20 @@ const PortfolioPage = () => {
         </div>
       </nav>
 
+      <div className={`h-topbar h-topbar--pin ${navScrolled ? "is-scrolled" : ""}`}>
+        <ul className="h-topnav h-topnav--left">
+          <li><a href="#work" onClick={(e) => handleNavClick(e, "work")}>Works</a></li>
+          <li><a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a></li>
+        </ul>
+        <a href="#hero" className="h-logo h-logo--center" onClick={(e) => handleNavClick(e, "hero")} aria-label="Home">
+          <img src={logoSvg} alt="John Adewole" />
+        </a>
+        <ul className="h-topnav h-topnav--right">
+          <li><a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")}>Graphics</a></li>
+          <li><a href="#services" onClick={(e) => handleNavClick(e, "services")}>Services</a></li>
+        </ul>
+      </div>
+
       <div id="page">
         <div className="elope-stack">
         <section id="hero">
@@ -425,21 +439,6 @@ const PortfolioPage = () => {
               <div className="h-bg-grad h-bg-grad--vignette" />
             </div>
             <div className="noise" />
-
-            {/* Top nav row: links left · logo center · links right + menu label */}
-            <div className={`h-topbar h-topbar--pin ${navScrolled ? "is-scrolled" : ""}`}>
-              <ul className="h-topnav h-topnav--left">
-                <li><a href="#work" onClick={(e) => handleNavClick(e, "work")}>Works</a></li>
-                <li><a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a></li>
-              </ul>
-              <a href="#hero" className="h-logo h-logo--center" onClick={(e) => handleNavClick(e, "hero")} aria-label="Home">
-                <img src={logoSvg} alt="John Adewole" />
-              </a>
-              <ul className="h-topnav h-topnav--right">
-                <li><a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")}>Graphics</a></li>
-                <li><a href="#services" onClick={(e) => handleNavClick(e, "services")}>Services</a></li>
-              </ul>
-            </div>
 
             {/* Floating pill labels with hairlines */}
             <div className={`h-pins fi ${heroEntered ? "in" : ""}`} aria-hidden="true">
