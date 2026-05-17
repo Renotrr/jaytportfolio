@@ -3005,8 +3005,8 @@
   .h-bottom-row { gap: 1.6rem; }
 }
 
-/* Hide floating menu toggle on tablet & desktop — mobile only */
-@media (min-width: 641px) {
+/* Hide floating menu toggle only on laptop/desktop where the full nav is shown */
+@media (min-width: 1025px) {
   .nav-toggle { display: none !important; }
 }
 
