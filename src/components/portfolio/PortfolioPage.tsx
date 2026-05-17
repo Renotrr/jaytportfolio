@@ -1,4 +1,5 @@
 import { CSSProperties, FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Hls from "hls.js";
 
 import {
@@ -47,10 +48,10 @@ const resolvePortfolioImage = (src: string) =>
 
 // New works data (4 cards) with year + generated images
 const worksData = [
-  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero },
-  { id: "w2", title: "Atlas Mobile", year: "2024", category: "Product Design · iOS", image: work2 },
-  { id: "w3", title: "Noir Identity", year: "2023", category: "Brand Identity", image: work3 },
-  { id: "w4", title: "Selene Boutique", year: "2025", category: "E-commerce · Framer", image: work4 },
+  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
+  { id: "w2", title: "Atlas Mobile", year: "2024", category: "Product Design · iOS", image: work2, href: null },
+  { id: "w3", title: "Noir Identity", year: "2023", category: "Brand Identity", image: work3, href: null },
+  { id: "w4", title: "Selene Boutique", year: "2025", category: "E-commerce · Framer", image: work4, href: null },
 ];
 
 const graphicsData = [
@@ -545,22 +546,33 @@ const PortfolioPage = () => {
           </div>
           <p className="sw-lede">// &nbsp;&nbsp;We help brands grow and tell their stories to the world.</p>
           <div className="sw-grid">
-            {worksData.map((w, i) => (
-              <article className="sw-card" key={w.id}>
-                <div className="sw-card-img">
-                  <img src={w.image} alt={w.title} loading="lazy" />
-                </div>
-                <div className="sw-card-foot">
-                  <span className="sw-card-name"><span className="sw-plus">+</span> {w.title}</span>
-                  <div className="sw-tags">
-                    <span className="sw-tag sw-tag-num">{i + 1}</span>
-                    {w.category.split("·").map((t, k) => (
-                      <span className="sw-tag" key={k}>{t.trim()}</span>
-                    ))}
+            {worksData.map((w, i) => {
+              const inner = (
+                <>
+                  <div className="sw-card-img">
+                    <img src={w.image} alt={w.title} loading="lazy" />
                   </div>
-                </div>
-              </article>
-            ))}
+                  <div className="sw-card-foot">
+                    <span className="sw-card-name"><span className="sw-plus">+</span> {w.title}</span>
+                    <div className="sw-tags">
+                      <span className="sw-tag sw-tag-num">{i + 1}</span>
+                      {w.category.split("·").map((t, k) => (
+                        <span className="sw-tag" key={k}>{t.trim()}</span>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              );
+              return w.href ? (
+                <Link to={w.href} className="sw-card sw-card--link" key={w.id}>
+                  {inner}
+                </Link>
+              ) : (
+                <article className="sw-card" key={w.id}>
+                  {inner}
+                </article>
+              );
+            })}
             <div className="sw-allworks-cell">
               <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="sw-allworks">
                 <span>All Works</span>
