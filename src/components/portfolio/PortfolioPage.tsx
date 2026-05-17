@@ -22,6 +22,11 @@ import {
 import logoSvg from "@/assets/logo.svg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
 import work1 from "@/assets/work-1.jpg";
+import queuetopHero from "@/assets/queuetop-hero.jpg";
+import queuetopIcon from "@/assets/queuetop-icon-mockup.jpg";
+import queuetopMulti from "@/assets/queuetop-multiscreen.jpg";
+import queuetopTablet from "@/assets/queuetop-tablet.jpg";
+import queuetopLogo from "@/assets/queuetop-logo.png";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
@@ -42,7 +47,7 @@ const resolvePortfolioImage = (src: string) =>
 
 // New works data (4 cards) with year + generated images
 const worksData = [
-  { id: "w1", title: "Lumen Dashboard", year: "2024", category: "UI/UX · Web App", image: work1 },
+  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero },
   { id: "w2", title: "Atlas Mobile", year: "2024", category: "Product Design · iOS", image: work2 },
   { id: "w3", title: "Noir Identity", year: "2023", category: "Brand Identity", image: work3 },
   { id: "w4", title: "Selene Boutique", year: "2025", category: "E-commerce · Framer", image: work4 },
