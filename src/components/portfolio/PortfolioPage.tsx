@@ -22,6 +22,11 @@ import {
 import logoSvg from "@/assets/logo.svg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
 import work1 from "@/assets/work-1.jpg";
+import queuetopHero from "@/assets/queuetop-hero.jpg";
+import queuetopIcon from "@/assets/queuetop-icon-mockup.jpg";
+import queuetopMulti from "@/assets/queuetop-multiscreen.jpg";
+import queuetopTablet from "@/assets/queuetop-tablet.jpg";
+import queuetopLogo from "@/assets/queuetop-logo.png";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
@@ -42,7 +47,7 @@ const resolvePortfolioImage = (src: string) =>
 
 // New works data (4 cards) with year + generated images
 const worksData = [
-  { id: "w1", title: "Lumen Dashboard", year: "2024", category: "UI/UX · Web App", image: work1 },
+  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero },
   { id: "w2", title: "Atlas Mobile", year: "2024", category: "Product Design · iOS", image: work2 },
   { id: "w3", title: "Noir Identity", year: "2023", category: "Brand Identity", image: work3 },
   { id: "w4", title: "Selene Boutique", year: "2025", category: "E-commerce · Framer", image: work4 },
@@ -565,7 +570,86 @@ const PortfolioPage = () => {
           </div>
         </section>
 
-        {/* MARQUEE BANNER */}
+        {/* QUEUETOP CASE STUDY */}
+        <section id="case-queuetop" className="qt-case">
+          <div className="qt-case-top">
+            <span className="qt-case-num"><span className="sw-dot" />Case Study / 01</span>
+            <span className="qt-case-year">©2026</span>
+          </div>
+
+          <div className="qt-case-head">
+            <div className="qt-case-id">
+              <img src={queuetopLogo} alt="QueueTop logo" className="qt-logo" />
+              <div>
+                <h2 className="qt-case-title">QueueTop</h2>
+                <p className="qt-case-tag">Control the music. A live song-request economy for nightlife.</p>
+              </div>
+            </div>
+            <a href="https://queuetopv1.lovable.app" target="_blank" rel="noreferrer" className="qt-case-cta">
+              Visit Live <span className="sw-allworks-arr"><IconArrow /></span>
+            </a>
+          </div>
+
+          <dl className="qt-meta">
+            <div><dt>Role</dt><dd>Product Designer &amp; Front-End Engineer</dd></div>
+            <div><dt>Year</dt><dd>2026</dd></div>
+            <div><dt>Type</dt><dd>Mobile-first PWA</dd></div>
+            <div><dt>Status</dt><dd>Live prototype</dd></div>
+          </dl>
+
+          <div className="qt-mock-grid">
+            <figure className="qt-mock qt-mock-tall">
+              <img src={queuetopMulti} alt="QueueTop live DJ session with floating UI cards" loading="lazy" />
+              <figcaption>Live session · floating UI system</figcaption>
+            </figure>
+            <div className="qt-mock-col">
+              <figure className="qt-mock">
+                <img src={queuetopIcon} alt="QueueTop app icon on iPhone home screen" loading="lazy" />
+                <figcaption>App icon · iOS launch</figcaption>
+              </figure>
+              <figure className="qt-mock">
+                <img src={queuetopTablet} alt="QueueTop DJ dashboard on iPad" loading="lazy" />
+                <figcaption>DJ dashboard · iPad</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>The Problem</h3>
+              <p>In clubs, festivals and creator rooms, the crowd has no real way to influence what plays next. They yell at the DJ, spam DMs, or tip cash that vanishes into a jar. DJs lose a monetisable layer of crowd interaction, and artists have no direct line to the rooms where their music is being played.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>The Solution</h3>
+              <p>A multi-sided platform where listeners pay coins to request, boost, skip-to-top and tip — while DJs, creators and artists turn that crowd energy into real income. A live queue auto-reorders in real time based on votes and paid boosts, so the floor becomes the algorithm.</p>
+            </div>
+          </div>
+
+          <div className="qt-highlights">
+            <h3>Highlights</h3>
+            <ul>
+              <li>One account, four roles — Listener, Creator, DJ, Artist</li>
+              <li>Live queue auto-reorders from votes + paid boosts in real time</li>
+              <li>Server-authoritative coin economy with idempotent wallet RPC</li>
+              <li>Dark, nightlife-tuned UI with neon gradient system</li>
+            </ul>
+          </div>
+
+          <div className="qt-numbers">
+            <div><span className="qt-num">80+</span><span className="qt-lbl">Screens</span></div>
+            <div><span className="qt-num">20+</span><span className="qt-lbl">Postgres tables · full RLS</span></div>
+            <div><span className="qt-num">16</span><span className="qt-lbl">Edge functions</span></div>
+            <div><span className="qt-num">4</span><span className="qt-lbl">Product surfaces</span></div>
+          </div>
+
+          <div className="qt-stack">
+            <span className="qt-stack-lbl">Stack</span>
+            {["React 18","Vite","TypeScript","Tailwind","Framer Motion","Lovable Cloud","Postgres","Realtime","Edge Functions","AI Gateway"].map(s => (
+              <span className="qt-chip" key={s}>{s}</span>
+            ))}
+          </div>
+        </section>
+
         <section id="marquee" className="marquee-section" aria-label="Skills">
           <div className="marquee-track">
             {[...marqueeWords, ...marqueeWords].map((word, i) => (
