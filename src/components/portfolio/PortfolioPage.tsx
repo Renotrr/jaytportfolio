@@ -427,7 +427,7 @@ const PortfolioPage = () => {
             <div className="noise" />
 
             {/* Top nav row: links left · logo center · links right + menu label */}
-            <div className="h-topbar h-topbar--pin">
+            <div className={`h-topbar h-topbar--pin ${navScrolled ? "is-scrolled" : ""}`}>
               <ul className="h-topnav h-topnav--left">
                 <li><a href="#work" onClick={(e) => handleNavClick(e, "work")}>Works</a></li>
                 <li><a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a></li>
