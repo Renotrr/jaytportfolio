@@ -2822,10 +2822,7 @@
 
 /* Top nav */
 .h-topbar--pin {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: 60;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -2833,9 +2830,18 @@
   gap: 1rem;
   padding: 1rem 2rem;
   border-bottom: none;
-  background: hsl(var(--ink) / 0.45);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: transparent;
+}
+@media (min-width: 1025px) {
+  .h-topbar--pin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: hsl(var(--ink) / 0.45);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
 }
 .h-topnav {
   display: flex;
