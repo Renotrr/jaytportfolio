@@ -135,6 +135,16 @@ const PortfolioPage = () => {
   const [activeCaseStudyId, setActiveCaseStudyId] = useState<string | null>(null);
   const [caseVisible, setCaseVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [navScrolled, setNavScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setNavScrolled(window.scrollY > window.innerHeight * 0.85);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const previewImages = useMemo(() => {
     const mapped = thumbnailImages.map(resolvePortfolioImage);
@@ -417,7 +427,7 @@ const PortfolioPage = () => {
             <div className="noise" />
 
             {/* Top nav row: links left · logo center · links right + menu label */}
-            <div className="h-topbar h-topbar--pin">
+            <div className={`h-topbar h-topbar--pin ${navScrolled ? "is-scrolled" : ""}`}>
               <ul className="h-topnav h-topnav--left">
                 <li><a href="#work" onClick={(e) => handleNavClick(e, "work")}>Works</a></li>
                 <li><a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a></li>
