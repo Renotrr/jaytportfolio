@@ -2847,9 +2847,9 @@
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
   }
-  /* keep hero bottom content anchored to bottom even though fixed nav left flex flow */
-  .h-shell--pin .h-bottom { margin-top: auto; }
 }
+/* Anchor hero bottom content to the bottom on all viewports (fixed nav is out of flex flow) */
+.h-shell--pin .h-bottom { margin-top: auto; }
 .h-topnav {
   display: flex;
   list-style: none;
