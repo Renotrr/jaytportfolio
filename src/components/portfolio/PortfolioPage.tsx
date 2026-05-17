@@ -135,6 +135,16 @@ const PortfolioPage = () => {
   const [activeCaseStudyId, setActiveCaseStudyId] = useState<string | null>(null);
   const [caseVisible, setCaseVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [navScrolled, setNavScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setNavScrolled(window.scrollY > window.innerHeight * 0.85);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const previewImages = useMemo(() => {
     const mapped = thumbnailImages.map(resolvePortfolioImage);
