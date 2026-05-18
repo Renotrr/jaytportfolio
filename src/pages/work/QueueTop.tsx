@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
-import queuetopHero from "@/assets/queuetop-hero.jpg";
-import queuetopIcon from "@/assets/queuetop-icon-mockup.jpg";
-import queuetopMulti from "@/assets/queuetop-multiscreen.jpg";
-import queuetopTablet from "@/assets/queuetop-tablet.jpg";
+import qtHeroLaptop from "@/assets/qt-laptop-hero-listener-live.webp";
+import qtHeroTablet from "@/assets/qt-tablet-hero-listener-live.webp";
+import qtRole from "@/assets/qt-mobile-01-role-select.webp";
+import qtDiscover from "@/assets/qt-mobile-02-discover.webp";
+import qtLive from "@/assets/qt-mobile-03-listener-live.webp";
+import qtDjLive from "@/assets/qt-mobile-04-dj-live.webp";
+import qtDjQueue from "@/assets/qt-mobile-05-dj-queue.webp";
+import qtWallet from "@/assets/qt-mobile-06-wallet.webp";
 import queuetopLogo from "@/assets/queuetop-logo.png";
 
 const IconArrow = () => (
@@ -33,7 +37,7 @@ const QueueTopCaseStudy = () => {
 
         <section className="qt-case qt-case--page">
           <div className="qt-hero">
-            <img src={queuetopHero} alt="QueueTop hero" loading="eager" />
+            <img src={qtHeroLaptop} alt="QueueTop listener live session — laptop hero" loading="eager" />
           </div>
 
           <div className="qt-case-top">
@@ -61,17 +65,10 @@ const QueueTopCaseStudy = () => {
             <div><dt>Status</dt><dd>Live prototype</dd></div>
           </dl>
 
-          <div className="qt-mock-grid qt-mock-grid--single">
-            <figure className="qt-mock qt-mock-tall">
-              <img src={queuetopMulti} alt="QueueTop live DJ session with floating UI cards" loading="lazy" />
-              <figcaption>Live session · floating UI system</figcaption>
-            </figure>
-          </div>
-
           <div className="qt-body">
             <div className="qt-body-col">
               <h3>The Problem</h3>
-              <p>In clubs, festivals and creator rooms, the crowd has no real way to influence what plays next. They yell at the DJ, spam DMs, or tip cash that vanishes into a jar. DJs lose a monetisable layer of crowd interaction, and artists have no direct line to the rooms where their music is being played.</p>
+              <p>In clubs, festivals, livestreams and creator rooms, the crowd has no real way to influence what plays next. They yell at the DJ, spam Instagram DMs, or tip cash that disappears into a tip jar. DJs and creators lose a monetisable layer of crowd interaction, and artists have no direct line to the rooms where their music is being played.</p>
             </div>
             <div className="qt-body-col">
               <h3>The Solution</h3>
@@ -79,28 +76,61 @@ const QueueTopCaseStudy = () => {
             </div>
           </div>
 
-          <div className="qt-mock-grid qt-mock-grid--single">
-            <figure className="qt-mock qt-mock-tall">
-              <img src={queuetopTablet} alt="QueueTop DJ dashboard on iPad" loading="lazy" />
-              <figcaption>DJ dashboard · iPad</figcaption>
+          <div className="qt-phones">
+            <figure className="qt-phone">
+              <div className="qt-phone-frame"><img src={qtRole} alt="QueueTop role selector — Listener, Creator, DJ, Artist" loading="lazy" /></div>
+              <figcaption>Role selector · one account, four lenses</figcaption>
+            </figure>
+            <figure className="qt-phone">
+              <div className="qt-phone-frame"><img src={qtDiscover} alt="QueueTop discover — live DJs and rooms" loading="lazy" /></div>
+              <figcaption>Discover · live DJs &amp; rooms</figcaption>
+            </figure>
+            <figure className="qt-phone">
+              <div className="qt-phone-frame"><img src={qtLive} alt="QueueTop listener live session — request, boost, tip" loading="lazy" /></div>
+              <figcaption>Listener live · request · boost · tip</figcaption>
+            </figure>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>The Live Queue</h3>
+              <p>Every request lands in a real-time queue scored by <em>boost + tip + votes − age</em>. Listeners pay coins to boost or skip-to-top; the previous holder is auto-refunded the delta. The floor becomes the algorithm.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>The DJ Surface</h3>
+              <p>DJs run live sessions, accept or reject incoming requests, and watch coins land in real time. The queue auto-sorts; the host only ever taps Play. One identity, four roles — an artist can DJ on Friday and listen on Saturday.</p>
+            </div>
+          </div>
+
+          <div className="qt-phones">
+            <figure className="qt-phone">
+              <div className="qt-phone-frame"><img src={qtDjLive} alt="QueueTop DJ live session — now playing and incoming requests" loading="lazy" /></div>
+              <figcaption>DJ live · now playing &amp; requests</figcaption>
+            </figure>
+            <figure className="qt-phone">
+              <div className="qt-phone-frame"><img src={qtDjQueue} alt="QueueTop DJ queue — auto-sorted by boost and tip" loading="lazy" /></div>
+              <figcaption>DJ queue · auto-sorted by boost</figcaption>
+            </figure>
+            <figure className="qt-phone">
+              <div className="qt-phone-frame"><img src={qtWallet} alt="QueueTop wallet — coin ledger and top-up" loading="lazy" /></div>
+              <figcaption>Wallet · coin ledger &amp; top-up</figcaption>
             </figure>
           </div>
 
           <div className="qt-highlights">
-            <h3>Highlights</h3>
+            <h3>Design Highlights</h3>
             <ul>
-              <li>One account, four roles — Listener, Creator, DJ, Artist</li>
-              <li>Live queue auto-reorders from votes + paid boosts in real time</li>
-              <li>Server-authoritative coin economy with idempotent wallet RPC</li>
-              <li>Dark, nightlife-tuned UI with neon gradient system</li>
+              <li>Nightlife-first dark UI — large touch targets, no light mode, tuned for low-light rooms</li>
+              <li>Public Sans across the system with a heavy display weight for headings</li>
+              <li>Neon gradient primary <code>#C95EFF → #9A40C8</code> with a <code>#00FFE3</code> accent</li>
+              <li>Borders replaced with subtle inset glows — feels screen-printed, not form-y</li>
+              <li>One identity, four roles — Listener, Creator, DJ, Artist on a single account</li>
+              <li>Server-authoritative coin economy — the client never decrements a wallet</li>
             </ul>
           </div>
 
-          <div className="qt-mock-grid qt-mock-grid--single">
-            <figure className="qt-mock qt-mock-tall">
-              <img src={queuetopIcon} alt="QueueTop app icon on iPhone home screen" loading="lazy" />
-              <figcaption>App icon · iOS launch</figcaption>
-            </figure>
+          <div className="qt-hero">
+            <img src={qtHeroTablet} alt="QueueTop listener live session — tablet" loading="lazy" />
           </div>
 
           <div className="qt-numbers">
