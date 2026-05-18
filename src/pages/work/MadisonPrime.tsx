@@ -58,21 +58,11 @@ const MadisonPrimeCaseStudy = () => {
             <div><dt>Year</dt><dd>2024</dd></div>
           </dl>
 
-          <div className="qt-mock-grid">
+          <div className="qt-mock-grid qt-mock-grid--single">
             <figure className="qt-mock qt-mock-tall">
               <img src={homeFull} alt="Madison Prime full homepage scroll" loading="lazy" />
               <figcaption>Homepage · full scroll</figcaption>
             </figure>
-            <div className="qt-mock-col">
-              <figure className="qt-mock">
-                <img src={aboutShot} alt="Madison Prime — About page, dry-aged beef section" loading="lazy" />
-                <figcaption>About · heritage &amp; craft</figcaption>
-              </figure>
-              <figure className="qt-mock">
-                <img src={menuShot} alt="Madison Prime à la carte menu page" loading="lazy" />
-                <figcaption>À la carte menu</figcaption>
-              </figure>
-            </div>
           </div>
 
           <div className="qt-body">
