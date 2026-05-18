@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import QueueTopCaseStudy from "./pages/work/QueueTop.tsx";
-import MadisonPrimeCaseStudy from "./pages/work/MadisonPrime.tsx";
+import RySwiftCaseStudy from "./pages/work/RySwift.tsx";
 import RevolutCaseStudy from "./pages/work/Revolut.tsx";
 import AtelierCaseStudy from "./pages/work/Atelier.tsx";
 import VirexCaseStudy from "./pages/work/Virex.tsx";
@@ -22,7 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/work/queuetop" element={<QueueTopCaseStudy />} />
-          <Route path="/work/madison-prime" element={<MadisonPrimeCaseStudy />} />
+          <Route path="/work/ryswift" element={<RySwiftCaseStudy />} />
           <Route path="/work/revolut" element={<RevolutCaseStudy />} />
           <Route path="/work/atelier" element={<AtelierCaseStudy />} />
           <Route path="/work/virex" element={<VirexCaseStudy />} />
