@@ -646,7 +646,7 @@ const PortfolioPage = () => {
 
           <div className="gx-hdr">
             <div className="gx-count">
-              <span className="gx-curr">{String(graphicsData.length).padStart(2, "0")}</span>
+              <span className="gx-curr">09</span>
               <span className="gx-sep">—</span>
               <span className="gx-lbl">Selected pieces</span>
             </div>
