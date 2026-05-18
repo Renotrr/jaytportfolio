@@ -27,6 +27,7 @@ import queuetopHero from "@/assets/queuetop-hero.jpg";
 import madisonHero from "@/assets/madison-hero.jpg";
 import revolutHero from "@/assets/revolut-hero.webp";
 import atelierHero from "@/assets/atelier-1-hero.webp";
+import waveHero from "@/assets/wave-1-hero.webp";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
@@ -55,7 +56,7 @@ const worksData = [
   { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
   { id: "w2", title: "Madison Prime", year: "2024", category: "Web Design · Hospitality", image: madisonHero, href: "/work/madison-prime" },
   { id: "w3", title: "Revolut", year: "2026", category: "Fintech · Mobile App · UI/UX", image: revolutHero, href: "/work/revolut" },
-  { id: "w4", title: "Noir Identity", year: "2023", category: "Brand Identity", image: work3, href: null },
+  { id: "w4", title: "Wave", year: "2024", category: "Restaurant · Web Design", image: waveHero, href: "/work/wave" },
   { id: "w5", title: "Atelier", year: "2026", category: "Fashion E-commerce · Lovable", image: atelierHero, href: "/work/atelier" },
 ];
 
