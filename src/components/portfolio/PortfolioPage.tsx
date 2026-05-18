@@ -821,8 +821,8 @@ const PortfolioPage = () => {
 
             <div className="cf-direct fi" style={withDelay(".25s")}>
               <a href={`mailto:${heroContent.email}`}>{heroContent.email}</a>
-              <a href="https://wa.me/2340000000000" target="_blank" rel="noreferrer">
-                WhatsApp · +234 000 000 0000
+              <a href="https://www.behance.net/johnadewole" target="_blank" rel="noreferrer">
+                Behance · @johnadewole
               </a>
             </div>
           </div>
@@ -833,27 +833,27 @@ const PortfolioPage = () => {
           <div className="sf-grid">
             <div className="sf-brand">{heroContent.logo}</div>
             <div className="sf-col">
-              <h4>Social Media</h4>
+              <h4>Social</h4>
               <div className="sf-links">
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Pinterest</a>
+                <a href="https://www.behance.net/johnadewole" target="_blank" rel="noreferrer">Behance</a>
+                <a href="https://www.linkedin.com/in/johnadewole" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://www.instagram.com/johnadewole" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="https://twitter.com/johnadewole" target="_blank" rel="noreferrer">Twitter</a>
               </div>
             </div>
             <div className="sf-col sf-office">
-              <h4>Our Office :</h4>
-              <p>Surakarta, Indonesia</p>
-              <a href="tel:+621234567890" className="sf-phone">+62 123 4567 890</a>
+              <h4>Get in touch</h4>
+              <a href={`mailto:${heroContent.email}`} className="sf-phone">{heroContent.email}</a>
+              <p>Open to freelance & full-time roles, worldwide.</p>
             </div>
           </div>
           <div className="sf-bot">
             <div className="sf-bot-links">
-              <a href="#">FAQ</a>
-              <a href="#">Careers</a>
-              <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact Us</a>
+              <a href="#work" onClick={(e) => handleNavClick(e, "work")}>Works</a>
+              <a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a>
+              <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a>
             </div>
-            <div className="sf-copy">© {new Date().getFullYear()} {contactContent.footerRight}</div>
+            <div className="sf-copy">© {new Date().getFullYear()} John Adewole · {contactContent.footerRight}</div>
           </div>
         </footer>
       </div>
