@@ -35,6 +35,9 @@ import graphic4 from "@/assets/graphic-4.jpg";
 import graphic5 from "@/assets/graphic-5.jpg";
 import graphic6 from "@/assets/graphic-6.jpg";
 import graphic7 from "@/assets/graphic-7.jpg";
+import graphic8 from "@/assets/graphic-8-malole.webp";
+import graphic9 from "@/assets/graphic-9-pwa-flag.webp";
+import graphic10 from "@/assets/graphic-10-pwa-flyer.webp";
 
 const placeholderImage = "/placeholder.svg";
 
@@ -59,6 +62,9 @@ const graphicsData = [
   { id: "g5", title: "Ritual", category: "Packaging", image: graphic5 },
   { id: "g6", title: "Freval Eve", category: "Event Poster", image: graphic6 },
   { id: "g7", title: "Horizon", category: "Editorial · Landscape", image: graphic7 },
+  { id: "g8", title: "Mal\u00f2l\u00e9", category: "Album Cover · Àkàndá", image: graphic8 },
+  { id: "g9", title: "The Corporate Rave", category: "Event Flag · PWA", image: graphic9 },
+  { id: "g10", title: "The Corporate Rave", category: "Event Flyer · PWA", image: graphic10 },
 ];
 
 const marqueeWords = [
@@ -657,6 +663,39 @@ const PortfolioPage = () => {
                   <span className="gx-ty">{graphicsData[6].category}</span>
                 </figcaption>
               </figure>
+            )}
+            {graphicsData[7] && (
+              <figure className="gx-card gx-card--wide">
+                <div className="gx-img gx-img--wide">
+                  <img src={graphicsData[7].image} alt={graphicsData[7].title} loading="lazy" />
+                </div>
+                <figcaption className="gx-meta">
+                  <span className="gx-ti">{graphicsData[7].title}</span>
+                  <span className="gx-ty">{graphicsData[7].category}</span>
+                </figcaption>
+              </figure>
+            )}
+            {graphicsData[8] && graphicsData[9] && (
+              <div className="gx-card gx-card--wide gx-pair">
+                <figure className="gx-pair-main">
+                  <div className="gx-img">
+                    <img src={graphicsData[8].image} alt={graphicsData[8].title} loading="lazy" />
+                  </div>
+                  <figcaption className="gx-meta">
+                    <span className="gx-ti">{graphicsData[8].title}</span>
+                    <span className="gx-ty">{graphicsData[8].category}</span>
+                  </figcaption>
+                </figure>
+                <figure className="gx-pair-side">
+                  <div className="gx-img">
+                    <img src={graphicsData[9].image} alt={graphicsData[9].title} loading="lazy" />
+                  </div>
+                  <figcaption className="gx-meta">
+                    <span className="gx-ti">{graphicsData[9].title}</span>
+                    <span className="gx-ty">{graphicsData[9].category}</span>
+                  </figcaption>
+                </figure>
+              </div>
             )}
           </div>
         </section>
