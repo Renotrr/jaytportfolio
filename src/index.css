@@ -3453,6 +3453,9 @@
 .qt-mock img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .qt-mock-tall { aspect-ratio: 3 / 4; }
 .qt-mock-col .qt-mock { aspect-ratio: 4 / 3; }
+.qt-mock-grid--single { grid-template-columns: 1fr; }
+.qt-mock-grid--single .qt-mock { aspect-ratio: auto; }
+.qt-mock-grid--single .qt-mock img { height: auto; object-fit: contain; }
 .qt-mock figcaption {
   position: absolute; bottom: 0.8rem; left: 0.9rem;
   font-family: 'Almarai', sans-serif; font-size: 0.72rem;
