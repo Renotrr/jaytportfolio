@@ -2378,7 +2378,8 @@
 }
 .gx-collage-cell img {
   width: 100%; height: 100%;
-  object-fit: cover; display: block;
+  object-fit: contain; display: block;
+  padding: 0.4rem;
 }
 
 /* Paired landscape: large flag + smaller flyer beside it */
