@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useCaseStudyAnimations } from "@/hooks/useCaseStudyAnimations";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 import revolutHero from "@/assets/revolut-hero.webp";
 import revolut1 from "@/assets/revolut-1.webp";
 import revolut2 from "@/assets/revolut-2.webp";
@@ -19,9 +21,11 @@ const IconBack = () => (
 );
 
 const RevolutCaseStudy = () => {
+  useCaseStudyAnimations();
   return (
     <div className="portfolio-page">
       <div id="page">
+        <ScrollProgressBar />
         <div className="cs-page-nav">
           <Link to="/" className="cs-bk" aria-label="Back to portfolio">
             <IconBack />
