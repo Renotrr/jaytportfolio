@@ -76,21 +76,25 @@ const MadisonPrimeCaseStudy = () => {
             </div>
           </div>
 
-          <div className="qt-mock-grid">
+          <div className="qt-mock-grid qt-mock-grid--single">
             <figure className="qt-mock qt-mock-tall">
-              <img src={menuShot} alt="Three-column à la carte menu typography" loading="lazy" />
-              <figcaption>Menu · three-column editorial grid</figcaption>
+              <img src={aboutShot} alt="Madison Prime — About page, dry-aged beef section" loading="lazy" />
+              <figcaption>About · heritage &amp; craft</figcaption>
             </figure>
-            <div className="qt-mock-col">
-              <figure className="qt-mock">
-                <img src={winesShot} alt="Madison Prime wines and cocktails page" loading="lazy" />
-                <figcaption>Wines &amp; Cocktails</figcaption>
-              </figure>
-              <figure className="qt-mock">
-                <img src={heroShot} alt="Homepage hero detail" loading="lazy" />
-                <figcaption>Hero · &ldquo;An Extraordinary Dining Experience&rdquo;</figcaption>
-              </figure>
-            </div>
+          </div>
+
+          <div className="qt-mock-grid qt-mock-grid--single">
+            <figure className="qt-mock qt-mock-tall">
+              <img src={menuShot} alt="Madison Prime à la carte menu page" loading="lazy" />
+              <figcaption>À la carte menu · three-column editorial grid</figcaption>
+            </figure>
+          </div>
+
+          <div className="qt-mock-grid qt-mock-grid--single">
+            <figure className="qt-mock qt-mock-tall">
+              <img src={winesShot} alt="Madison Prime wines and cocktails page" loading="lazy" />
+              <figcaption>Wines &amp; Cocktails</figcaption>
+            </figure>
           </div>
 
           <div className="qt-highlights">
