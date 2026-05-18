@@ -27,7 +27,7 @@ import queuetopHero from "@/assets/queuetop-hero.jpg";
 import madisonHero from "@/assets/madison-hero.jpg";
 import revolutHero from "@/assets/revolut-hero.webp";
 import atelierHero from "@/assets/atelier-1-hero.webp";
-import waveHero from "@/assets/wave-1-hero.webp";
+import virexHero from "@/assets/virex/virex-1.webp";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
