@@ -9,7 +9,7 @@ import QueueTopCaseStudy from "./pages/work/QueueTop.tsx";
 import MadisonPrimeCaseStudy from "./pages/work/MadisonPrime.tsx";
 import RevolutCaseStudy from "./pages/work/Revolut.tsx";
 import AtelierCaseStudy from "./pages/work/Atelier.tsx";
-import WaveCaseStudy from "./pages/work/Wave.tsx";
+import VirexCaseStudy from "./pages/work/Virex.tsx";
 
 const queryClient = new QueryClient();
 
