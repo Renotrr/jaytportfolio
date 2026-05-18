@@ -28,16 +28,18 @@ import madisonHero from "@/assets/madison-hero.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
-import graphic1 from "@/assets/graphic-1.jpg";
-import graphic2 from "@/assets/graphic-2.jpg";
-import graphic3 from "@/assets/graphic-3.jpg";
-import graphic4 from "@/assets/graphic-4.jpg";
-import graphic5 from "@/assets/graphic-5.jpg";
-import graphic6 from "@/assets/graphic-6.jpg";
-import graphic7 from "@/assets/graphic-7.jpg";
-import graphic8 from "@/assets/graphic-8-malole.webp";
-import graphic9 from "@/assets/graphic-9-pwa-flag.webp";
-import graphic10 from "@/assets/graphic-10-pwa-flyer.webp";
+import graphicHouseFellowship from "@/assets/graphic-house-fellowship.webp";
+import graphicCreating from "@/assets/graphic-creating-imperfections.webp";
+import graphicBalenciaga from "@/assets/graphic-balenciaga.webp";
+import graphicJazzy from "@/assets/graphic-jazzy-burger.webp";
+import graphicAnora1 from "@/assets/graphic-anora-1.webp";
+import graphicAnora2 from "@/assets/graphic-anora-2.webp";
+import graphicAnora3 from "@/assets/graphic-anora-3.webp";
+import graphicAnora4 from "@/assets/graphic-anora-4.webp";
+import graphicMidnight from "@/assets/graphic-midnight-pulse.webp";
+import graphicMalole from "@/assets/graphic-8-malole.webp";
+import graphicPwaFlag from "@/assets/graphic-9-pwa-flag.webp";
+import graphicPwaFlyer from "@/assets/graphic-10-pwa-flyer.webp";
 
 const placeholderImage = "/placeholder.svg";
 
@@ -55,17 +57,25 @@ const worksData = [
 ];
 
 const graphicsData = [
-  { id: "g1", title: "Editorial 01", category: "Poster · Gallery", image: graphic1 },
-  { id: "g2", title: "Chrome Form", category: "3D · Art Direction", image: graphic2 },
-  { id: "g3", title: "Liquid", category: "Album Cover", image: graphic3 },
-  { id: "g4", title: "Peant Bane", category: "Editorial · Fashion", image: graphic4 },
-  { id: "g5", title: "Ritual", category: "Packaging", image: graphic5 },
-  { id: "g6", title: "Freval Eve", category: "Event Poster", image: graphic6 },
-  { id: "g7", title: "Horizon", category: "Editorial · Landscape", image: graphic7 },
-  { id: "g8", title: "Mal\u00f2l\u00e9", category: "Album Cover · Àkàndá", image: graphic8 },
-  { id: "g9", title: "The Corporate Rave", category: "Event Flag · PWA", image: graphic9 },
-  { id: "g10", title: "The Corporate Rave", category: "Event Flyer · PWA", image: graphic10 },
+  { id: "g1", title: "House Fellowship", category: "Event Poster · Àkàndá", image: graphicHouseFellowship },
+  { id: "g2", title: "Creating Imperfections", category: "Poster · Brutalist Study", image: graphicCreating },
+  { id: "g3", title: "Balenciaga", category: "New Collection · Editorial", image: graphicBalenciaga },
+  { id: "g4", title: "Jazzy Burger", category: "F&B Poster", image: graphicJazzy },
+  { id: "g6", title: "Midnight Pulse", category: "DJ Event Poster", image: graphicMidnight },
+  { id: "g7", title: "Mal\u00f2l\u00e9", category: "Album Cover · Àkàndá", image: graphicMalole },
 ];
+
+const anoraBranding = {
+  id: "g5",
+  title: "Anora · Grill & Sip",
+  category: "Brand Identity · Packaging",
+  images: [graphicAnora3, graphicAnora1, graphicAnora2, graphicAnora4],
+};
+
+const pwaPair = {
+  main: { title: "The Corporate Rave", category: "Event Flag · PWA", image: graphicPwaFlag },
+  side: { title: "The Corporate Rave", category: "Event Flyer · PWA", image: graphicPwaFlyer },
+};
 
 const marqueeWords = [
   "Creative Designer",
