@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useCaseStudyAnimations } from "@/hooks/useCaseStudyAnimations";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 import hero from "@/assets/ryswift/ry-1.webp";
 import r2 from "@/assets/ryswift/ry-2.webp";
 import r3 from "@/assets/ryswift/ry-3.webp";
@@ -31,9 +33,11 @@ const IconBack = () => (
 );
 
 const RySwiftCaseStudy = () => {
+  useCaseStudyAnimations();
   return (
     <div className="portfolio-page">
       <div id="page">
+        <ScrollProgressBar />
         <div className="cs-page-nav">
           <Link to="/" className="cs-bk" aria-label="Back to portfolio">
             <IconBack />

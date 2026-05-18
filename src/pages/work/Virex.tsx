@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useCaseStudyAnimations } from "@/hooks/useCaseStudyAnimations";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 import hero from "@/assets/virex/virex-1.webp";
 import v2 from "@/assets/virex/virex-2.webp";
 import v3 from "@/assets/virex/virex-3.webp";
@@ -28,9 +30,11 @@ const IconBack = () => (
 );
 
 const VirexCaseStudy = () => {
+  useCaseStudyAnimations();
   return (
     <div className="portfolio-page">
       <div id="page">
+        <ScrollProgressBar />
         <div className="cs-page-nav">
           <Link to="/" className="cs-bk" aria-label="Back to portfolio">
             <IconBack />

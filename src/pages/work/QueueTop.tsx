@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useCaseStudyAnimations } from "@/hooks/useCaseStudyAnimations";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 import qtHero from "@/assets/qt-laptop-hero-listener-live.webp";
 import qtRole from "@/assets/qt-mobile-01-role-select.webp";
 import qtDiscover from "@/assets/qt-mobile-02-discover.webp";
@@ -22,9 +24,11 @@ const IconBack = () => (
 );
 
 const QueueTopCaseStudy = () => {
+  useCaseStudyAnimations();
   return (
     <div className="portfolio-page">
       <div id="page">
+        <ScrollProgressBar />
         <div className="cs-page-nav">
           <Link to="/" className="cs-bk" aria-label="Back to portfolio">
             <IconBack />
