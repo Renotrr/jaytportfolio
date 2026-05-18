@@ -9,7 +9,7 @@ import QueueTopCaseStudy from "./pages/work/QueueTop.tsx";
 import MadisonPrimeCaseStudy from "./pages/work/MadisonPrime.tsx";
 import RevolutCaseStudy from "./pages/work/Revolut.tsx";
 import AtelierCaseStudy from "./pages/work/Atelier.tsx";
-import WaveCaseStudy from "./pages/work/Wave.tsx";
+import VirexCaseStudy from "./pages/work/Virex.tsx";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/work/madison-prime" element={<MadisonPrimeCaseStudy />} />
           <Route path="/work/revolut" element={<RevolutCaseStudy />} />
           <Route path="/work/atelier" element={<AtelierCaseStudy />} />
-          <Route path="/work/wave" element={<WaveCaseStudy />} />
+          <Route path="/work/virex" element={<VirexCaseStudy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
