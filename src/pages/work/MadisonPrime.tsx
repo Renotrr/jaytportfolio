@@ -58,43 +58,49 @@ const MadisonPrimeCaseStudy = () => {
             <div><dt>Year</dt><dd>2024</dd></div>
           </dl>
 
-          <div className="qt-mock-grid qt-mock-grid--single">
+          <div className="qt-mock-grid">
             <figure className="qt-mock qt-mock-tall">
               <img src={homeFull} alt="Madison Prime full homepage scroll" loading="lazy" />
               <figcaption>Homepage · full scroll</figcaption>
             </figure>
+            <div className="qt-mock-col">
+              <figure className="qt-mock">
+                <img src={aboutShot} alt="Madison Prime — About page, dry-aged beef section" loading="lazy" />
+                <figcaption>About · heritage &amp; craft</figcaption>
+              </figure>
+              <figure className="qt-mock">
+                <img src={menuShot} alt="Madison Prime à la carte menu page" loading="lazy" />
+                <figcaption>À la carte menu</figcaption>
+              </figure>
+            </div>
           </div>
 
           <div className="qt-body">
             <div className="qt-body-col">
               <h3>The Problem</h3>
-              <p>Madison Prime is a high-end American steakhouse with thirty years of heritage, dry-aged beef, an extensive wine cellar, and a reservation-driven business model. Their previous site felt dated and generic — it didn&rsquo;t convey the warmth of the room, the precision of the cuisine, or the price point of the experience. Diners were arriving without a clear sense of what to expect, and bookings weren&rsquo;t reflecting the real demand.</p>
+              <p>Madison Prime is a high-end American steakhouse with thirty years of heritage, dry-aged beef, an extensive wine cellar, and a reservation-driven business model. Their previous site felt dated and generic — it didn&rsquo;t convey the warmth of the room, the precision of the cuisine, or the price point of the experience.</p>
             </div>
             <div className="qt-body-col">
               <h3>The Solution</h3>
-              <p>A dark, editorial website built around food photography, generous negative space, and a confident serif voice. Every page is engineered around one decision — book a table — while quietly establishing trust through press mentions, dry-aged provenance, and a meticulously typeset menu. The result reads like a magazine and converts like a reservation funnel.</p>
+              <p>A dark, editorial website built around food photography, generous negative space, and a confident serif voice. Every page is engineered around one decision — book a table — while quietly establishing trust through press mentions, dry-aged provenance, and a meticulously typeset menu.</p>
             </div>
           </div>
 
-          <div className="qt-mock-grid qt-mock-grid--single">
+          <div className="qt-mock-grid">
             <figure className="qt-mock qt-mock-tall">
-              <img src={aboutShot} alt="Madison Prime — About page, dry-aged beef section" loading="lazy" />
-              <figcaption>About · heritage &amp; craft</figcaption>
+              <img src={menuShot} alt="Three-column à la carte menu typography" loading="lazy" />
+              <figcaption>Menu · three-column editorial grid</figcaption>
             </figure>
-          </div>
-
-          <div className="qt-mock-grid qt-mock-grid--single">
-            <figure className="qt-mock qt-mock-tall">
-              <img src={menuShot} alt="Madison Prime à la carte menu page" loading="lazy" />
-              <figcaption>À la carte menu · three-column editorial grid</figcaption>
-            </figure>
-          </div>
-
-          <div className="qt-mock-grid qt-mock-grid--single">
-            <figure className="qt-mock qt-mock-tall">
-              <img src={winesShot} alt="Madison Prime wines and cocktails page" loading="lazy" />
-              <figcaption>Wines &amp; Cocktails</figcaption>
-            </figure>
+            <div className="qt-mock-col">
+              <figure className="qt-mock">
+                <img src={winesShot} alt="Madison Prime wines and cocktails page" loading="lazy" />
+                <figcaption>Wines &amp; Cocktails</figcaption>
+              </figure>
+              <figure className="qt-mock">
+                <img src={heroShot} alt="Homepage hero detail" loading="lazy" />
+                <figcaption>Hero · &ldquo;An Extraordinary Dining Experience&rdquo;</figcaption>
+              </figure>
+            </div>
           </div>
 
           <div className="qt-highlights">
