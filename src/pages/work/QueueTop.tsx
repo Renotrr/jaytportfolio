@@ -61,21 +61,11 @@ const QueueTopCaseStudy = () => {
             <div><dt>Status</dt><dd>Live prototype</dd></div>
           </dl>
 
-          <div className="qt-mock-grid">
+          <div className="qt-mock-grid qt-mock-grid--single">
             <figure className="qt-mock qt-mock-tall">
               <img src={queuetopMulti} alt="QueueTop live DJ session with floating UI cards" loading="lazy" />
               <figcaption>Live session · floating UI system</figcaption>
             </figure>
-            <div className="qt-mock-col">
-              <figure className="qt-mock">
-                <img src={queuetopIcon} alt="QueueTop app icon on iPhone home screen" loading="lazy" />
-                <figcaption>App icon · iOS launch</figcaption>
-              </figure>
-              <figure className="qt-mock">
-                <img src={queuetopTablet} alt="QueueTop DJ dashboard on iPad" loading="lazy" />
-                <figcaption>DJ dashboard · iPad</figcaption>
-              </figure>
-            </div>
           </div>
 
           <div className="qt-body">
