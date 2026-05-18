@@ -5,6 +5,9 @@ import collections from "@/assets/atelier-3-collections.webp";
 import women from "@/assets/atelier-4-women.webp";
 import about from "@/assets/atelier-5-about.webp";
 import men from "@/assets/atelier-6-men.webp";
+import essentials from "@/assets/atelier-7-essentials.webp";
+import editorial from "@/assets/atelier-8-editorial.webp";
+import shopCategory from "@/assets/atelier-9-shop-category.webp";
 
 const IconArrow = () => (
   <svg className="ico ico-arr" viewBox="0 0 24 24" aria-hidden="true">
