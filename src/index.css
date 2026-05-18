@@ -2398,12 +2398,12 @@
   aspect-ratio: 3 / 2;
   background: hsl(var(--panel));
 }
-.gx-pair .gx-pair-main .gx-img img { object-fit: cover; }
+.gx-pair .gx-pair-main .gx-img img { object-fit: contain; }
 .gx-pair .gx-pair-side .gx-img {
   aspect-ratio: 4 / 5;
   background: hsl(var(--panel));
 }
-.gx-pair .gx-pair-side .gx-img img { object-fit: cover; }
+.gx-pair .gx-pair-side .gx-img img { object-fit: contain; }
 @media (max-width: 719px) {
   .gx-pair .gx-pair-main .gx-img { aspect-ratio: 3 / 2; }
 }
