@@ -5,6 +5,9 @@ import collections from "@/assets/atelier-3-collections.webp";
 import women from "@/assets/atelier-4-women.webp";
 import about from "@/assets/atelier-5-about.webp";
 import men from "@/assets/atelier-6-men.webp";
+import essentials from "@/assets/atelier-7-essentials.webp";
+import editorial from "@/assets/atelier-8-editorial.webp";
+import shopCategory from "@/assets/atelier-9-shop-category.webp";
 
 const IconArrow = () => (
   <svg className="ico ico-arr" viewBox="0 0 24 24" aria-hidden="true">
@@ -87,6 +90,20 @@ const AtelierCaseStudy = () => {
             </div>
           </div>
 
+          <div className="qt-mock-grid qt-mock-grid--single">
+            <figure className="qt-mock qt-mock-tall">
+              <img src={shopCategory} alt="Atelier — Shop by Category section with Women, Men, Accessories, Collections" loading="lazy" />
+              <figcaption>Shop by Category · Women · Men · Accessories · Collections</figcaption>
+            </figure>
+          </div>
+
+          <div className="qt-mock-grid qt-mock-grid--single">
+            <figure className="qt-mock qt-mock-tall">
+              <img src={editorial} alt="Atelier — Editorial seasonal edit section" loading="lazy" />
+              <figcaption>Editorial · The Seasonal Edit, Vol. 05</figcaption>
+            </figure>
+          </div>
+
           <div className="qt-mock-grid">
             <figure className="qt-mock qt-mock-tall">
               <img src={collections} alt="Atelier — Seasonal Collections grid" loading="lazy" />
@@ -94,12 +111,12 @@ const AtelierCaseStudy = () => {
             </figure>
             <div className="qt-mock-col">
               <figure className="qt-mock">
-                <img src={about} alt="Atelier — Our Story brand page" loading="lazy" />
-                <figcaption>Our Story · brand &amp; craft</figcaption>
+                <img src={essentials} alt="Atelier — The Essentials Collection campaign" loading="lazy" />
+                <figcaption>Campaign · The Essentials Collection</figcaption>
               </figure>
               <figure className="qt-mock">
-                <img src={hero} alt="Atelier — homepage hero detail" loading="lazy" />
-                <figcaption>Hero · &ldquo;Quiet Luxury. Bold Identity.&rdquo;</figcaption>
+                <img src={about} alt="Atelier — Our Story brand page" loading="lazy" />
+                <figcaption>Our Story · brand &amp; craft</figcaption>
               </figure>
             </div>
           </div>
