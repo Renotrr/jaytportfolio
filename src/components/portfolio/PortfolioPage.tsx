@@ -304,6 +304,79 @@ const PortfolioPage = () => {
     };
   }, []);
 
+  // GSAP premium scroll animations on home page
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const ctx = gsap.context(() => {
+      // Selected works — stagger up
+      gsap.from(".sw-grid .sw-card, .sw-grid .sw-allworks-cell", {
+        y: 60,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.1,
+        scrollTrigger: { trigger: ".sw-grid", start: "top 82%" },
+      });
+      // Selected works title
+      gsap.from([".sw-title-row", ".sw-top", ".sw-lede"], {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.1,
+        scrollTrigger: { trigger: "#work", start: "top 80%" },
+      });
+      // Graphics intro + cards
+      gsap.from(".gx-intro > *", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.08,
+        scrollTrigger: { trigger: ".gx-intro", start: "top 82%" },
+      });
+      gsap.utils.toArray<HTMLElement>(".gx-grid > *").forEach((card, i) => {
+        gsap.from(card, {
+          y: 50,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          delay: (i % 3) * 0.08,
+          scrollTrigger: { trigger: card, start: "top 88%" },
+        });
+      });
+      // Studio CTA section
+      gsap.from(".st-content > *", {
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.12,
+        scrollTrigger: { trigger: "#studio", start: "top 70%" },
+      });
+      // Contact section
+      gsap.from(".cf-inner > *", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.1,
+        scrollTrigger: { trigger: "#contact", start: "top 80%" },
+      });
+      // Footer
+      gsap.from(".site-footer .sf-grid > *", {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power2.out",
+        stagger: 0.08,
+        scrollTrigger: { trigger: ".site-footer", start: "top 92%" },
+      });
+    }, rootRef);
+    return () => ctx.revert();
+  }, []);
+
   // Case study modal
   useEffect(() => {
     if (!activeCaseStudyId) return;
