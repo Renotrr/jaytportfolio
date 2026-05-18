@@ -652,7 +652,7 @@ const PortfolioPage = () => {
             </div>
           </div>
           <div className="gx-grid">
-            {graphicsData.slice(0, 6).map((g) => (
+            {graphicsData.slice(0, 4).map((g) => (
               <figure key={g.id} className="gx-card">
                 <div className="gx-img">
                   <img src={g.image} alt={g.title} loading="lazy" />
@@ -663,50 +663,55 @@ const PortfolioPage = () => {
                 </figcaption>
               </figure>
             ))}
-            {graphicsData[6] && (
-              <figure className="gx-card gx-card--wide">
-                <div className="gx-img gx-img--wide">
-                  <img src={graphicsData[6].image} alt={graphicsData[6].title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{graphicsData[6].title}</span>
-                  <span className="gx-ty">{graphicsData[6].category}</span>
-                </figcaption>
-              </figure>
-            )}
-            {graphicsData[7] && (
-              <figure className="gx-card gx-card--wide gx-card--album">
-                <div className="gx-img gx-img--wide">
-                  <img src={graphicsData[7].image} alt={graphicsData[7].title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{graphicsData[7].title}</span>
-                  <span className="gx-ty">{graphicsData[7].category}</span>
-                </figcaption>
-              </figure>
-            )}
-            {graphicsData[8] && graphicsData[9] && (
-              <div className="gx-card gx-card--wide gx-pair">
-                <figure className="gx-pair-main">
-                  <div className="gx-img">
-                    <img src={graphicsData[8].image} alt={graphicsData[8].title} loading="lazy" />
+
+            {/* Anora — branding collage, 4 boxes in one card */}
+            <figure className="gx-card gx-card--wide gx-card--collage">
+              <div className="gx-collage">
+                {anoraBranding.images.map((src, i) => (
+                  <div className="gx-collage-cell" key={i}>
+                    <img src={src} alt={`${anoraBranding.title} ${i + 1}`} loading="lazy" />
                   </div>
-                  <figcaption className="gx-meta">
-                    <span className="gx-ti">{graphicsData[8].title}</span>
-                    <span className="gx-ty">{graphicsData[8].category}</span>
-                  </figcaption>
-                </figure>
-                <figure className="gx-pair-side">
-                  <div className="gx-img">
-                    <img src={graphicsData[9].image} alt={graphicsData[9].title} loading="lazy" />
-                  </div>
-                  <figcaption className="gx-meta">
-                    <span className="gx-ti">{graphicsData[9].title}</span>
-                    <span className="gx-ty">{graphicsData[9].category}</span>
-                  </figcaption>
-                </figure>
+                ))}
               </div>
-            )}
+              <figcaption className="gx-meta">
+                <span className="gx-ti">{anoraBranding.title}</span>
+                <span className="gx-ty">{anoraBranding.category}</span>
+              </figcaption>
+            </figure>
+
+            {graphicsData.slice(4, 6).map((g) => (
+              <figure key={g.id} className="gx-card">
+                <div className="gx-img">
+                  <img src={g.image} alt={g.title} loading="lazy" />
+                </div>
+                <figcaption className="gx-meta">
+                  <span className="gx-ti">{g.title}</span>
+                  <span className="gx-ty">{g.category}</span>
+                </figcaption>
+              </figure>
+            ))}
+
+            {/* PWA pair — landscape flag + flyer beside it */}
+            <div className="gx-card gx-card--wide gx-pair">
+              <figure className="gx-pair-main">
+                <div className="gx-img">
+                  <img src={pwaPair.main.image} alt={pwaPair.main.title} loading="lazy" />
+                </div>
+                <figcaption className="gx-meta">
+                  <span className="gx-ti">{pwaPair.main.title}</span>
+                  <span className="gx-ty">{pwaPair.main.category}</span>
+                </figcaption>
+              </figure>
+              <figure className="gx-pair-side">
+                <div className="gx-img">
+                  <img src={pwaPair.side.image} alt={pwaPair.side.title} loading="lazy" />
+                </div>
+                <figcaption className="gx-meta">
+                  <span className="gx-ti">{pwaPair.side.title}</span>
+                  <span className="gx-ty">{pwaPair.side.category}</span>
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </section>
 
