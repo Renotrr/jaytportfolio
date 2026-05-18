@@ -24,6 +24,7 @@ import logoSvg from "@/assets/logo.svg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
 import work1 from "@/assets/work-1.jpg";
 import queuetopHero from "@/assets/queuetop-hero.jpg";
+import madisonHero from "@/assets/madison-hero.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
@@ -42,10 +43,10 @@ const withDelay = (delay: string): CSSProperties => ({ ["--d" as string]: delay 
 const resolvePortfolioImage = (src: string) =>
   !src || src.startsWith("PASTE_YOUR_") ? placeholderImage : src;
 
-// New works data (4 cards) with year + generated images
+// New works data with year + generated images
 const worksData = [
   { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
-  { id: "w2", title: "Atlas Mobile", year: "2024", category: "Product Design · iOS", image: work2, href: null },
+  { id: "w2", title: "Madison Prime", year: "2024", category: "Web Design · Hospitality", image: madisonHero, href: "/work/madison-prime" },
   { id: "w3", title: "Noir Identity", year: "2023", category: "Brand Identity", image: work3, href: null },
   { id: "w4", title: "Selene Boutique", year: "2025", category: "E-commerce · Framer", image: work4, href: null },
 ];
