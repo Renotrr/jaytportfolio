@@ -665,7 +665,7 @@ const PortfolioPage = () => {
               </figure>
             )}
             {graphicsData[7] && (
-              <figure className="gx-card gx-card--wide">
+              <figure className="gx-card gx-card--wide gx-card--album">
                 <div className="gx-img gx-img--wide">
                   <img src={graphicsData[7].image} alt={graphicsData[7].title} loading="lazy" />
                 </div>
