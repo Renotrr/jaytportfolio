@@ -3051,8 +3051,14 @@
 
 /* Tablet */
 @media (max-width: 900px) {
-  .h-pin--bl { left: 6%; }
-  .h-pin--br { right: 6%; }
+  .h-pin { font-size: 0.7rem; padding: 0.45rem 0.75rem; }
+  .h-pin-line { height: 60px; }
+  .h-pin--bl .h-pin-line,
+  .h-pin--br .h-pin-line { height: 44px; }
+  .h-pin--tl { top: 22%; left: 5%; }
+  .h-pin--tr { top: 22%; right: 5%; }
+  .h-pin--bl { top: 40%; left: 10%; }
+  .h-pin--br { top: 40%; right: 10%; }
   .h-bottom-row { gap: 1.6rem; }
 }
 
@@ -3072,7 +3078,22 @@
   .h-logo--center { justify-self: start; }
   .h-logo--center img { width: 40px; height: 40px; }
 
-  .h-pins { display: none; }
+  /* Responsive pins on mobile — keep them, shrink + reposition */
+  .h-pins { display: block; }
+  .h-pin {
+    font-size: 0.62rem;
+    padding: 0.35rem 0.6rem;
+    gap: 0.35rem;
+    box-shadow: 0 4px 14px hsl(var(--ink) / 0.4);
+  }
+  .h-pin-dot { width: 5px; height: 5px; }
+  .h-pin-line { height: 38px; }
+  .h-pin--bl .h-pin-line,
+  .h-pin--br .h-pin-line { height: 28px; }
+  .h-pin--tl { top: 16%; left: 4%; }
+  .h-pin--tr { top: 16%; right: 4%; }
+  .h-pin--bl { top: 32%; left: 6%; }
+  .h-pin--br { top: 32%; right: 6%; }
 
   .h-bottom { padding: 0 1.1rem 1.6rem; }
   .h-bottom-row {
@@ -3083,6 +3104,14 @@
   .h-headline--pin { font-size: clamp(2rem, 9vw, 3.2rem); max-width: 100%; }
   .h-lede { justify-self: start; max-width: 100%; font-size: 0.86rem; }
   .h-cta--pin { margin-top: 0.9rem; }
+}
+
+/* Extra-small phones */
+@media (max-width: 380px) {
+  .h-pin { font-size: 0.56rem; padding: 0.3rem 0.5rem; }
+  .h-pin-line { height: 28px; }
+  .h-pin--bl .h-pin-line,
+  .h-pin--br .h-pin-line { height: 20px; }
 }
 
 /* ============ ELOPE STACK: about slides up over hero ============ */
