@@ -362,11 +362,16 @@ const PortfolioPage = () => {
       });
 
       // Hero pins fade out on scroll for cinematic exit
-      gsap.to("#hero .h-pins", {
-        opacity: 0,
-        y: -40,
-        scrollTrigger: { trigger: "#hero", start: "top top", end: "60% top", scrub: true },
-      });
+      gsap.fromTo(
+        "#hero .h-pins",
+        { opacity: 1, y: 0 },
+        {
+          opacity: 0,
+          y: -40,
+          immediateRender: false,
+          scrollTrigger: { trigger: "#hero", start: "top top", end: "60% top", scrub: true },
+        },
+      );
 
       // Work card images — gentle parallax + scale on scroll
       document.querySelectorAll<HTMLElement>(".sw-card-img img").forEach((img) => {
