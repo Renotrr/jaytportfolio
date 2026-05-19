@@ -1,6 +1,11 @@
 import { CSSProperties, FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Hls from "hls.js";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 import {
   aboutContent,
@@ -299,6 +304,176 @@ const PortfolioPage = () => {
       cancelAnimationFrame(raf);
     };
   }, []);
+  // GSAP storytelling — parallax, scroll-reveal, split-text
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const ctx = gsap.context(() => {
+      const splits: SplitText[] = [];
+
+      // Split & reveal large headlines
+      const headlineSelectors = [
+        ".h-headline",
+        ".ab-headline",
+        ".sw-title",
+        ".gx-intro-title",
+        ".st-title",
+        ".cf-title",
+      ];
+      headlineSelectors.forEach((sel) => {
+        document.querySelectorAll<HTMLElement>(sel).forEach((el) => {
+          try {
+            const split = new SplitText(el, { type: "words,chars", wordsClass: "gs-word", charsClass: "gs-char" });
+            splits.push(split);
+            gsap.set(split.chars, { yPercent: 110, opacity: 0, rotate: 6 });
+            gsap.to(split.chars, {
+              yPercent: 0,
+              opacity: 1,
+              rotate: 0,
+              duration: 0.9,
+              ease: "power4.out",
+              stagger: 0.018,
+              scrollTrigger: {
+                trigger: el,
+                start: "top 88%",
+                toggleActions: "play none none reverse",
+              },
+            });
+          } catch (e) {
+            // ignore if split fails
+          }
+        });
+      });
+
+      // Hero video parallax (yPercent)
+      document.querySelectorAll<HTMLElement>("#hero .h-bg").forEach((el) => {
+        gsap.to(el, {
+          yPercent: 18,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      });
+
+      // Hero pins fade out on scroll for cinematic exit
+      gsap.to("#hero .h-pins", {
+        opacity: 0,
+        y: -40,
+        scrollTrigger: { trigger: "#hero", start: "top top", end: "60% top", scrub: true },
+      });
+
+      // Work card images — gentle parallax + scale on scroll
+      document.querySelectorAll<HTMLElement>(".sw-card-img img").forEach((img) => {
+        gsap.fromTo(
+          img,
+          { yPercent: -8, scale: 1.08 },
+          {
+            yPercent: 8,
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: img.closest(".sw-card") as HTMLElement,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          },
+        );
+      });
+
+      // Graphics image parallax
+      document.querySelectorAll<HTMLElement>(".gx-img img, .gx-collage-cell img").forEach((img) => {
+        gsap.fromTo(
+          img,
+          { yPercent: -6, scale: 1.06 },
+          {
+            yPercent: 6,
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: img.parentElement as HTMLElement,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          },
+        );
+      });
+
+      // Studio video parallax + zoom
+      document.querySelectorAll<HTMLElement>("#studio .st-vid").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { yPercent: -10, scale: 1.12 },
+          {
+            yPercent: 10,
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: "#studio",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          },
+        );
+      });
+
+      // Section reveal — generic fade-rise for blocks with .fi/.wu still works; add a polish layer
+      gsap.utils.toArray<HTMLElement>(
+        ".sw-lede, .gx-intro-body, .gx-intro-meta, .ab-list li, .st-sub, .st-tools, .cf-sub, .cf-form, .cf-direct, .gx-card, .qt-hero img",
+      ).forEach((el) => {
+        gsap.fromTo(
+          el,
+          { y: 60, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 92%", toggleActions: "play none none reverse" },
+          },
+        );
+      });
+
+      // Marquee — reactive speed boost on scroll velocity
+      const marqueeTrack = document.querySelector<HTMLElement>(".marquee-track");
+      if (marqueeTrack) {
+        const baseDur = 28;
+        const tween = gsap.to(marqueeTrack, {
+          xPercent: -50,
+          duration: baseDur,
+          ease: "none",
+          repeat: -1,
+        });
+        ScrollTrigger.create({
+          trigger: "#marquee",
+          start: "top bottom",
+          end: "bottom top",
+          onUpdate: (self) => {
+            const v = Math.min(Math.abs(self.getVelocity()) / 800, 4);
+            gsap.to(tween, { timeScale: 1 + v, duration: 0.4, overwrite: true });
+          },
+        });
+      }
+
+      ScrollTrigger.refresh();
+
+      // Cleanup splits on revert
+      return () => {
+        splits.forEach((s) => s.revert());
+      };
+    }, root);
+
+    return () => ctx.revert();
+  }, []);
+
 
   // Case study modal
   useEffect(() => {

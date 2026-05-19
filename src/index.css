@@ -3634,3 +3634,7 @@
 .sw-card--link:hover { transform: translateY(-4px); }
 .sw-card--link:hover .sw-card-img img { transform: scale(1.03); }
 .sw-card--link .sw-card-img img { transition: transform 0.5s ease; }
+
+/* GSAP SplitText — keep chars clipped for clean reveal */
+.gs-word { display: inline-block; overflow: hidden; vertical-align: top; }
+.gs-char { display: inline-block; will-change: transform, opacity; }
