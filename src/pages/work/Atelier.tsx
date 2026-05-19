@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { useCaseStudyAnimations } from "@/hooks/useCaseStudyAnimations";
-import ScrollProgressBar from "@/components/ScrollProgressBar";
 import hero from "@/assets/atelier-1-hero.webp";
 import newArrivals from "@/assets/atelier-2-new-arrivals.webp";
 import collections from "@/assets/atelier-3-collections.webp";
@@ -26,11 +24,9 @@ const IconBack = () => (
 );
 
 const AtelierCaseStudy = () => {
-  useCaseStudyAnimations();
   return (
     <div className="portfolio-page">
       <div id="page">
-        <ScrollProgressBar />
         <div className="cs-page-nav">
           <Link to="/" className="cs-bk" aria-label="Back to portfolio">
             <IconBack />

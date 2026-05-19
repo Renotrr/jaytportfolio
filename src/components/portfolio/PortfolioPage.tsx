@@ -1,10 +1,6 @@
 import { CSSProperties, FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Hls from "hls.js";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 import {
   aboutContent,
@@ -302,79 +298,6 @@ const PortfolioPage = () => {
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(raf);
     };
-  }, []);
-
-  // GSAP premium scroll animations on home page
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const ctx = gsap.context(() => {
-      // Selected works — stagger up
-      gsap.from(".sw-grid .sw-card, .sw-grid .sw-allworks-cell", {
-        y: 60,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.1,
-        scrollTrigger: { trigger: ".sw-grid", start: "top 82%" },
-      });
-      // Selected works title
-      gsap.from([".sw-title-row", ".sw-top", ".sw-lede"], {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.1,
-        scrollTrigger: { trigger: "#work", start: "top 80%" },
-      });
-      // Graphics intro + cards
-      gsap.from(".gx-intro > *", {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.08,
-        scrollTrigger: { trigger: ".gx-intro", start: "top 82%" },
-      });
-      gsap.utils.toArray<HTMLElement>(".gx-grid > *").forEach((card, i) => {
-        gsap.from(card, {
-          y: 50,
-          opacity: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          delay: (i % 3) * 0.08,
-          scrollTrigger: { trigger: card, start: "top 88%" },
-        });
-      });
-      // Studio CTA section
-      gsap.from(".st-content > *", {
-        y: 40,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.12,
-        scrollTrigger: { trigger: "#studio", start: "top 70%" },
-      });
-      // Contact section
-      gsap.from(".cf-inner > *", {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.1,
-        scrollTrigger: { trigger: "#contact", start: "top 80%" },
-      });
-      // Footer
-      gsap.from(".site-footer .sf-grid > *", {
-        y: 20,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power2.out",
-        stagger: 0.08,
-        scrollTrigger: { trigger: ".site-footer", start: "top 92%" },
-      });
-    }, rootRef);
-    return () => ctx.revert();
   }, []);
 
   // Case study modal
@@ -898,8 +821,8 @@ const PortfolioPage = () => {
 
             <div className="cf-direct fi" style={withDelay(".25s")}>
               <a href={`mailto:${heroContent.email}`}>{heroContent.email}</a>
-              <a href="https://www.behance.net/johnadewole" target="_blank" rel="noreferrer">
-                Behance · @johnadewole
+              <a href="https://wa.me/2340000000000" target="_blank" rel="noreferrer">
+                WhatsApp · +234 000 000 0000
               </a>
             </div>
           </div>
@@ -910,27 +833,27 @@ const PortfolioPage = () => {
           <div className="sf-grid">
             <div className="sf-brand">{heroContent.logo}</div>
             <div className="sf-col">
-              <h4>Social</h4>
+              <h4>Social Media</h4>
               <div className="sf-links">
-                <a href="https://www.behance.net/johnadewole" target="_blank" rel="noreferrer">Behance</a>
-                <a href="https://www.linkedin.com/in/johnadewole" target="_blank" rel="noreferrer">LinkedIn</a>
-                <a href="https://www.instagram.com/johnadewole" target="_blank" rel="noreferrer">Instagram</a>
-                <a href="https://twitter.com/johnadewole" target="_blank" rel="noreferrer">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Pinterest</a>
               </div>
             </div>
             <div className="sf-col sf-office">
-              <h4>Get in touch</h4>
-              <a href={`mailto:${heroContent.email}`} className="sf-phone">{heroContent.email}</a>
-              <p>Open to freelance & full-time roles, worldwide.</p>
+              <h4>Our Office :</h4>
+              <p>Surakarta, Indonesia</p>
+              <a href="tel:+621234567890" className="sf-phone">+62 123 4567 890</a>
             </div>
           </div>
           <div className="sf-bot">
             <div className="sf-bot-links">
-              <a href="#work" onClick={(e) => handleNavClick(e, "work")}>Works</a>
-              <a href="#about" onClick={(e) => handleNavClick(e, "about")}>About</a>
-              <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a>
+              <a href="#">FAQ</a>
+              <a href="#">Careers</a>
+              <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact Us</a>
             </div>
-            <div className="sf-copy">© {new Date().getFullYear()} John Adewole · {contactContent.footerRight}</div>
+            <div className="sf-copy">© {new Date().getFullYear()} {contactContent.footerRight}</div>
           </div>
         </footer>
       </div>
