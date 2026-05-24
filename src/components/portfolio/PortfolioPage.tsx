@@ -758,7 +758,7 @@ const PortfolioPage = () => {
                   <div className="sw-card-img">
                     <img src={w.image} alt={w.title} loading="lazy" />
                   </div>
-                  <div className="sw-card-foot">
+                  <div className="sw-card-foot my-[4px]">
                     <span className="sw-card-name"><span className="sw-plus">+</span> {w.title}</span>
                     <div className="sw-tags">
                       <span className="sw-tag sw-tag-num">{i + 1}</span>
