@@ -58,11 +58,11 @@ const resolvePortfolioImage = (src: string) =>
 
 // New works data with year + generated images
 const worksData = [
-  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
-  { id: "w2", title: "RySwift", year: "2025", category: "SaaS · Logistics", image: ryswiftHero, href: "/work/ryswift" },
-  { id: "w3", title: "Revolut", year: "2026", category: "Fintech · Mobile App · UI/UX", image: revolutHero, href: "/work/revolut" },
-  { id: "w4", title: "Virex Energy", year: "2025", category: "BioFuel · Landing Page", image: virexHero, href: "/work/virex" },
-  { id: "w5", title: "Atelier", year: "2026", category: "Fashion E-commerce · Lovable", image: atelierHero, href: "/work/atelier" },
+  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · UX Systems · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
+  { id: "w2", title: "RySwift", year: "2025", category: "Product Design · SaaS UX · Logistics", image: ryswiftHero, href: "/work/ryswift" },
+  { id: "w3", title: "Revolut", year: "2026", category: "UI/UX · Mobile Banking · Visual System", image: revolutHero, href: "/work/revolut" },
+  { id: "w4", title: "Virex Energy", year: "2025", category: "Product Design · Landing System", image: virexHero, href: "/work/virex" },
+  { id: "w5", title: "Atelier", year: "2026", category: "Product Design · E-commerce · Visual System", image: atelierHero, href: "/work/atelier" },
 ];
 
 const graphicsData = [
