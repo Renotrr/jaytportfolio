@@ -670,11 +670,12 @@ const PortfolioPage = () => {
               <div className="h-bottom-row">
                 <h1 className={`h-headline h-headline--pin wu ${heroEntered ? "in" : ""}`} style={withDelay(".15s")}>
                   <span className="h-headline-line">John Adewole —</span>
-                  <span className="h-headline-line">Senior Product Designer.</span>
+                  <span className="h-headline-line">Senior Product Designer</span>
+                  <span className="h-headline-line" style={{ fontSize: "0.55em", opacity: 0.78, letterSpacing: "0.01em" }}>(UX Systems + Visual Design)</span>
                 </h1>
                 <p className={`h-lede fi ${heroEntered ? "in" : ""}`} style={withDelay(".35s")}>
-                  Designing digital products and visual systems with clarity,
-                  structure, and intent — UX, product systems, and visual design.
+                  Designing digital products with clarity, structure,
+                  and product-first thinking.
                 </p>
               </div>
               <div className="h-divider" />
@@ -695,14 +696,17 @@ const PortfolioPage = () => {
         <section id="about" className="ab-elope">
           <div className="ab-top">
             <span className="ab-top-item"><span className="ab-bullet" />(What I Do)</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Product UX</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Visual systems — UI, branding, interface consistency</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Design execution with development awareness</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Product UX design for web &amp; mobile</span>
             <span className="ab-top-copy">©26</span>
           </div>
           <div className="ab-top">
-            <span className="ab-top-item"><span className="ab-bullet" />(About)</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Senior Product Designer · UX Systems · Visual Design</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Design systems &amp; interface structure</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Visual systems — UI, branding, communication design</span>
+            <span className="ab-top-copy">·</span>
+          </div>
+          <div className="ab-top">
+            <span className="ab-top-item"><span className="ab-bullet" />Implementation-aware design for real-world products</span>
+            <span className="ab-top-item"><span className="ab-bullet" />(About) — Senior Product Designer · UX Systems · Visual Design</span>
             <span className="ab-top-copy">©26</span>
           </div>
           <div className="ab-grid">
@@ -718,22 +722,22 @@ const PortfolioPage = () => {
             <div className="ab-right">
               <h2 className="ab-headline wu" style={withDelay(".15s")}>
                 <span className="ab-eye">(About)</span>
-                A product designer who thinks in systems — not isolated screens. I design digital products where UX, visual systems, and brand thinking ship as one coherent surface.
+                I design digital products as systems — where UX, interface structure, and visual design ship as one continuous surface, not separate disciplines stitched together.
               </h2>
               <ul className="ab-list">
                 <li className="fi" style={withDelay(".35s")}>
                   <span className="ab-num">01.</span>
-                  <span className="ab-li-l">Product UX & design systems for web and mobile</span>
+                  <span className="ab-li-l">Product thinking grounded in real constraints — time, platform, user behavior</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".45s")}>
                   <span className="ab-num">02.</span>
-                  <span className="ab-li-l">Figma, design tokens, Lovable, no-code execution</span>
+                  <span className="ab-li-l">Visual systems that reinforce hierarchy, not decorate it</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".55s")}>
                   <span className="ab-num">03.</span>
-                  <span className="ab-li-l">Open to senior product roles & collaborations</span>
+                  <span className="ab-li-l">Implementation-aware — design that ships, not just renders</span>
                   <span className="ab-li-d" />
                 </li>
               </ul>
