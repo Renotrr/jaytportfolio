@@ -754,7 +754,7 @@ const PortfolioPage = () => {
             <h2 className="sw-title">Selected<br />Works</h2>
             <span className="sw-count">({worksData.length})</span>
           </div>
-          <p className="sw-lede">// &nbsp;&nbsp;We help brands grow and tell their stories to the world.</p>
+          <p className="sw-lede">// &nbsp;&nbsp;Product work where UX, visual systems, and brand thinking ship as one.</p>
           <div className="sw-grid">
             {worksData.map((w, i) => {
               const inner = (
