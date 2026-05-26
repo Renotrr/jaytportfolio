@@ -53,7 +53,7 @@ const VirexCaseStudy = () => {
             <div className="qt-case-id">
               <div>
                 <h1 className="qt-case-title">Virex Energy</h1>
-                <p className="qt-case-tag">A BioFuel brand brought online — clean energy, confident science, and a calm green system.</p>
+                <p className="qt-case-tag">A BioFuel brand brought online — product-led landing system where UX clarity, visual restraint, and brand language explain a complex category at a glance.</p>
               </div>
             </div>
           </div>

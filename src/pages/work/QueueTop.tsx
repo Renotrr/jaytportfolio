@@ -47,7 +47,7 @@ const QueueTopCaseStudy = () => {
             <div className="qt-case-id">
               <div>
                 <h1 className="qt-case-title">QueueTop</h1>
-                <p className="qt-case-tag">Control the music — a mobile-first, live song-request economy for nightlife, livestreams and creator rooms.</p>
+                <p className="qt-case-tag">A mobile-first product system for live song-request economies — UX, real-time queue logic, and a visual identity that ships as one surface.</p>
               </div>
             </div>
           </div>
@@ -79,12 +79,41 @@ const QueueTopCaseStudy = () => {
 
           <div className="qt-body">
             <div className="qt-body-col">
-              <h3>The Problem</h3>
-              <p>In clubs, festivals, livestreams and creator rooms, the crowd has no real way to influence what plays next. They yell at the DJ, spam Instagram DMs, or tip cash that disappears into a jar. DJs and creators lose a monetisable layer of crowd interaction, and artists have no direct line to the rooms where their music actually plays.</p>
+              <h3>Context</h3>
+              <p>QueueTop is a mobile-first PWA for nightlife, livestreams and creator rooms — one product surfacing four distinct roles (Listener, Creator, DJ, Artist) on a single account, around a live song-request economy.</p>
             </div>
             <div className="qt-body-col">
-              <h3>The Solution</h3>
-              <p>A mobile-first platform where listeners pay coins to request, boost, skip-to-top and tip — while DJs, creators and artists turn that crowd energy into real income. A live queue auto-reorders in real time based on votes and paid boosts, so the floor becomes the algorithm.</p>
+              <h3>Problem</h3>
+              <p>The crowd has no real way to influence what plays next. They yell at the DJ, spam DMs, or tip cash that disappears. DJs lose a monetisable interaction layer; artists have no direct line to the rooms playing their music. The product UX needed to compress four roles into one coherent flow without fragmenting the brand.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Role</h3>
+              <p>Product Design lead — UX architecture, role-based flows, and live-queue interaction model. UI Design — full mobile system, dark-room ergonomics, motion. Visual system contribution — gradient identity, glow-based surfaces, and a screen-printed feel that carries from the wallet to the dancefloor view.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Approach</h3>
+              <p>Mapped the four roles against a single live-session spine first, then designed the wallet and coin economy as the connective tissue. Prototyped the queue auto-reorder behaviour against real DJ workflows before locking the visual system, so the UI grew out of the interaction model — not the other way around.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Design Decisions</h3>
+              <p>Dark-only UI with large touch targets, tuned for low-light rooms. Server-authoritative coin economy — the client never decrements a wallet — to keep the UX trustworthy under contention. One identity, four lenses: the role selector becomes the product&rsquo;s spine, not a settings toggle.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Visual System Contribution</h3>
+              <p>The neon gradient primary and cyan accent aren&rsquo;t decoration — they map directly to the boost/tip economy, so the UI&rsquo;s most expensive actions read as the most luminous. Borders are replaced with inset glows, which removes form-y noise and keeps the floor view feeling alive. The visual system reinforces UX hierarchy: money moves are brighter than browsing.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Outcome</h3>
+              <p>A coherent product where four user roles, a live queue, and a coin wallet share one mental model. UX hierarchy and visual system reinforce each other — the floor view reads instantly, the wallet feels safe, and the brand carries from poster to product without translation.</p>
             </div>
           </div>
 
