@@ -902,7 +902,22 @@ const PortfolioPage = () => {
           </div>
         </section>
 
-        {/* STUDIO CTA */}
+        {/* DESIGN PHILOSOPHY — small repositioning band */}
+        <section id="philosophy" aria-label="Design philosophy" className="sw" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
+          <div className="sw-top">
+            <span className="sw-top-l"><span className="sw-dot" />004</span>
+            <span className="sw-top-c"><span className="sw-dot" />(Design Philosophy)</span>
+            <span className="sw-top-r">©2026</span>
+          </div>
+          <div className="sw-title-row">
+            <h2 className="sw-title">How I<br />Think.</h2>
+          </div>
+          <ul className="ab-list" style={{ marginTop: "1.5rem" }}>
+            <li><span className="ab-num">01.</span><span className="ab-li-l">Clarity over decoration</span><span className="ab-li-d" /></li>
+            <li><span className="ab-num">02.</span><span className="ab-li-l">Systems over isolated visuals</span><span className="ab-li-d" /></li>
+            <li><span className="ab-num">03.</span><span className="ab-li-l">Intent over aesthetics</span><span className="ab-li-d" /></li>
+          </ul>
+        </section>
 
         {/* STUDIO CTA */}
         <section id="studio">
