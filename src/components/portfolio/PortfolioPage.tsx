@@ -811,24 +811,23 @@ const PortfolioPage = () => {
         <section id="graphics" className="gx-section">
           <div className="gx-intro">
             <div className="gx-intro-top">
-              <span className="sec-lbl">Graphics</span>
-              <span className="gx-intro-tag">/ A practice called <em>Calm Violence</em></span>
+              <span className="sec-lbl">Visual Systems & Brand Work</span>
+              <span className="gx-intro-tag">/ Visual systems that strengthen product communication</span>
             </div>
             <h2 className="gx-intro-title">
-              Beyond pixels &amp; products, I make <em>loud, quiet</em> graphics.
+              Brand systems, campaign visuals, and <em>interface-adjacent</em> graphics.
             </h2>
             <p className="gx-intro-body">
-              I'm also a graphic designer. I built a visual language I call
-              <em> Calm Violence</em> — composed surfaces that hold tension underneath:
-              soft typography, brutal contrast, restrained color, sudden noise.
-              The work below is my playground for posters, covers, and
-              identity studies that try to feel like a held breath.
+              These works focus on strengthening product communication through visual
+              systems — not standalone aesthetics. Brand identity, marketing visuals
+              that support product comms, interface-adjacent graphics, and campaign
+              work aligned with product UX.
             </p>
             <div className="gx-intro-meta">
-              <span>Posters</span><span className="gx-dot">•</span>
-              <span>Covers</span><span className="gx-dot">•</span>
-              <span>Identity</span><span className="gx-dot">•</span>
-              <span>Editorial</span>
+              <span>Brand identity</span><span className="gx-dot">•</span>
+              <span>Marketing</span><span className="gx-dot">•</span>
+              <span>Interface-adjacent</span><span className="gx-dot">•</span>
+              <span>Campaign</span>
             </div>
           </div>
 
