@@ -58,11 +58,11 @@ const resolvePortfolioImage = (src: string) =>
 
 // New works data with year + generated images
 const worksData = [
-  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
-  { id: "w2", title: "RySwift", year: "2025", category: "SaaS · Logistics", image: ryswiftHero, href: "/work/ryswift" },
-  { id: "w3", title: "Revolut", year: "2026", category: "Fintech · Mobile App · UI/UX", image: revolutHero, href: "/work/revolut" },
-  { id: "w4", title: "Virex Energy", year: "2025", category: "BioFuel · Landing Page", image: virexHero, href: "/work/virex" },
-  { id: "w5", title: "Atelier", year: "2026", category: "Fashion E-commerce · Lovable", image: atelierHero, href: "/work/atelier" },
+  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · UX Systems · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
+  { id: "w2", title: "RySwift", year: "2025", category: "Product Design · SaaS UX · Logistics", image: ryswiftHero, href: "/work/ryswift" },
+  { id: "w3", title: "Revolut", year: "2026", category: "UI/UX · Mobile Banking · Visual System", image: revolutHero, href: "/work/revolut" },
+  { id: "w4", title: "Virex Energy", year: "2025", category: "Product Design · Landing System", image: virexHero, href: "/work/virex" },
+  { id: "w5", title: "Atelier", year: "2026", category: "Product Design · E-commerce · Visual System", image: atelierHero, href: "/work/atelier" },
 ];
 
 const graphicsData = [
@@ -645,22 +645,22 @@ const PortfolioPage = () => {
             <div className={`h-pins fi ${heroEntered ? "in" : ""}`} aria-hidden="true">
               <span className="h-pin h-pin--tl" style={withDelay(".4s")}>
                 <span className="h-pin-dot" />
-                Creative Designer
+                Product Design
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--bl" style={withDelay(".55s")}>
                 <span className="h-pin-dot" />
-                No-Code Developer
+                UX Systems
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--tr" style={withDelay(".7s")}>
                 <span className="h-pin-dot" />
-                Brand &amp; Identity
+                Visual Design
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--br" style={withDelay(".85s")}>
                 <span className="h-pin-dot" />
-                AI &amp; Web Experiences
+                Design Systems
                 <span className="h-pin-line" />
               </span>
             </div>
@@ -669,25 +669,22 @@ const PortfolioPage = () => {
             <div className="h-bottom">
               <div className="h-bottom-row">
                 <h1 className={`h-headline h-headline--pin wu ${heroEntered ? "in" : ""}`} style={withDelay(".15s")}>
-                  <span className="h-headline-line">Hi I&rsquo;m John,</span>
-                  <span className="h-headline-line">Welcome to my World.</span>
+                  <span className="h-headline-line">John Adewole —</span>
+                  <span className="h-headline-line">Senior Product Designer.</span>
                 </h1>
                 <p className={`h-lede fi ${heroEntered ? "in" : ""}`} style={withDelay(".35s")}>
-                  Creative designer &amp; no-code developer crafting brand systems,
-                  product interfaces, and considered web experiences.
+                  Designing digital products and visual systems with clarity,
+                  structure, and intent — UX, product systems, and visual design.
                 </p>
               </div>
               <div className="h-divider" />
               <div className={`h-cta h-cta--pin fi ${heroEntered ? "in" : ""}`} style={withDelay(".55s")}>
-                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-primary">
-                  Get in touch
+                <a href="#work" onClick={(e) => handleNavClick(e, "work")} className="btn-pill btn-primary">
+                  View Work
                   <span className="btn-circle"><IconArrow /></span>
                 </a>
-                <a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")} className="btn-pill btn-ghost">
-                  <span className="btn-play" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19" /></svg>
-                  </span>
-                  View graphic design
+                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-ghost">
+                  Contact
                 </a>
               </div>
             </div>
@@ -697,39 +694,46 @@ const PortfolioPage = () => {
         {/* ABOUT — elopes the hero (slides up over it) */}
         <section id="about" className="ab-elope">
           <div className="ab-top">
-            <span className="ab-top-item"><span className="ab-bullet" />(About me)</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Crafted with intention</span>
-            <span className="ab-top-copy">©25</span>
+            <span className="ab-top-item"><span className="ab-bullet" />(What I Do)</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Product UX</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Visual systems — UI, branding, interface consistency</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Design execution with development awareness</span>
+            <span className="ab-top-copy">©26</span>
+          </div>
+          <div className="ab-top">
+            <span className="ab-top-item"><span className="ab-bullet" />(About)</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Senior Product Designer · UX Systems · Visual Design</span>
+            <span className="ab-top-copy">©26</span>
           </div>
           <div className="ab-grid">
             <div className="ab-card fi" style={withDelay(".05s")}>
               <div className="ab-card-inner">
                 <img src={aboutPortrait} alt="John Adewole" />
                 <div className="ab-tag">
-                  <span className="ab-tag-k">JA / 3+</span>
-                  <span className="ab-tag-l">Creative Designer · No-Code Developer</span>
+                  <span className="ab-tag-k">JA / Senior</span>
+                  <span className="ab-tag-l">Senior Product Designer · UX & Visual Systems</span>
                 </div>
               </div>
             </div>
             <div className="ab-right">
               <h2 className="ab-headline wu" style={withDelay(".15s")}>
                 <span className="ab-eye">(About)</span>
-                With over 3 years under my belt, I craft — memorable websites and brand visuals that reflect each client&rsquo;s unique story.
+                A product designer who thinks in systems — not isolated screens. I design digital products where UX, visual systems, and brand thinking ship as one coherent surface.
               </h2>
               <ul className="ab-list">
                 <li className="fi" style={withDelay(".35s")}>
                   <span className="ab-num">01.</span>
-                  <span className="ab-li-l">Creative Designer & No-Code Developer</span>
+                  <span className="ab-li-l">Product UX & design systems for web and mobile</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".45s")}>
                   <span className="ab-num">02.</span>
-                  <span className="ab-li-l">Figma, Canva, Framer, ChatGPT</span>
+                  <span className="ab-li-l">Figma, design tokens, Lovable, no-code execution</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".55s")}>
                   <span className="ab-num">03.</span>
-                  <span className="ab-li-l">Available for freelance & collaborations</span>
+                  <span className="ab-li-l">Open to senior product roles & collaborations</span>
                   <span className="ab-li-d" />
                 </li>
               </ul>
@@ -750,7 +754,7 @@ const PortfolioPage = () => {
             <h2 className="sw-title">Selected<br />Works</h2>
             <span className="sw-count">({worksData.length})</span>
           </div>
-          <p className="sw-lede">// &nbsp;&nbsp;We help brands grow and tell their stories to the world.</p>
+          <p className="sw-lede">// &nbsp;&nbsp;Product work where UX, visual systems, and brand thinking ship as one.</p>
           <div className="sw-grid">
             {worksData.map((w, i) => {
               const inner = (
@@ -807,24 +811,23 @@ const PortfolioPage = () => {
         <section id="graphics" className="gx-section">
           <div className="gx-intro">
             <div className="gx-intro-top">
-              <span className="sec-lbl">Graphics</span>
-              <span className="gx-intro-tag">/ A practice called <em>Calm Violence</em></span>
+              <span className="sec-lbl">Visual Systems & Brand Work</span>
+              <span className="gx-intro-tag">/ Visual systems that strengthen product communication</span>
             </div>
             <h2 className="gx-intro-title">
-              Beyond pixels &amp; products, I make <em>loud, quiet</em> graphics.
+              Brand systems, campaign visuals, and <em>interface-adjacent</em> graphics.
             </h2>
             <p className="gx-intro-body">
-              I'm also a graphic designer. I built a visual language I call
-              <em> Calm Violence</em> — composed surfaces that hold tension underneath:
-              soft typography, brutal contrast, restrained color, sudden noise.
-              The work below is my playground for posters, covers, and
-              identity studies that try to feel like a held breath.
+              These works focus on strengthening product communication through visual
+              systems — not standalone aesthetics. Brand identity, marketing visuals
+              that support product comms, interface-adjacent graphics, and campaign
+              work aligned with product UX.
             </p>
             <div className="gx-intro-meta">
-              <span>Posters</span><span className="gx-dot">•</span>
-              <span>Covers</span><span className="gx-dot">•</span>
-              <span>Identity</span><span className="gx-dot">•</span>
-              <span>Editorial</span>
+              <span>Brand identity</span><span className="gx-dot">•</span>
+              <span>Marketing</span><span className="gx-dot">•</span>
+              <span>Interface-adjacent</span><span className="gx-dot">•</span>
+              <span>Campaign</span>
             </div>
           </div>
 
@@ -899,7 +902,22 @@ const PortfolioPage = () => {
           </div>
         </section>
 
-        {/* STUDIO CTA */}
+        {/* DESIGN PHILOSOPHY — small repositioning band */}
+        <section id="philosophy" aria-label="Design philosophy" className="sw" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
+          <div className="sw-top">
+            <span className="sw-top-l"><span className="sw-dot" />004</span>
+            <span className="sw-top-c"><span className="sw-dot" />(Design Philosophy)</span>
+            <span className="sw-top-r">©2026</span>
+          </div>
+          <div className="sw-title-row">
+            <h2 className="sw-title">How I<br />Think.</h2>
+          </div>
+          <ul className="ab-list" style={{ marginTop: "1.5rem" }}>
+            <li><span className="ab-num">01.</span><span className="ab-li-l">Clarity over decoration</span><span className="ab-li-d" /></li>
+            <li><span className="ab-num">02.</span><span className="ab-li-l">Systems over isolated visuals</span><span className="ab-li-d" /></li>
+            <li><span className="ab-num">03.</span><span className="ab-li-l">Intent over aesthetics</span><span className="ab-li-d" /></li>
+          </ul>
+        </section>
 
         {/* STUDIO CTA */}
         <section id="studio">

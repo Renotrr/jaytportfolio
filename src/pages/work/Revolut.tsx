@@ -44,7 +44,7 @@ const RevolutCaseStudy = () => {
             <div className="qt-case-id">
               <div>
                 <h1 className="qt-case-title">Revolut</h1>
-                <p className="qt-case-tag">Fintech Banking · A mobile app reimagined for the next generation of money — fast, confident, and electric.</p>
+                <p className="qt-case-tag">A mobile banking system reimagined for confident money movement — UX, multi-asset hierarchy, and a single dark visual system that holds fiat, crypto, and equities.</p>
               </div>
             </div>
           </div>
@@ -66,12 +66,41 @@ const RevolutCaseStudy = () => {
 
           <div className="qt-body">
             <div className="qt-body-col">
-              <h3>The Problem</h3>
-              <p>Most banking apps still feel like spreadsheets with a coat of paint — dense, intimidating, and built for compliance instead of confidence. A new generation of users wants money to feel as fluid as messaging: live balances, instant moves, crypto and stocks side-by-side, and an interface that doesn&rsquo;t flinch in the dark.</p>
+              <h3>Context</h3>
+              <p>A concept rework of a mobile banking app that holds fiat accounts, cards, crypto, and equities inside one product. Every primary surface — Home, Cards, Invest, Profile — has to host multiple asset classes without fragmenting the experience.</p>
             </div>
             <div className="qt-body-col">
-              <h3>The Solution</h3>
-              <p>A dark, high-contrast banking system anchored by a single electric-lime accent. Soft, rounded surfaces hold large numerals; every primary action (Add money, Exchange, Send) lives one thumb away. Accounts, Cards and Stocks become a single switchable hub, and the entire app reads as one continuous, breathable wallet.</p>
+              <h3>Problem</h3>
+              <p>Most banking apps still feel like spreadsheets with a coat of paint — dense, intimidating, built for compliance instead of confidence. Users want money to feel as fluid as messaging: live balances, instant moves, crypto and stocks side-by-side, and an interface that doesn&rsquo;t flinch in the dark.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Role</h3>
+              <p>UI/UX Designer on a collaborative team. Owned the home surface taxonomy, the unified Accounts/Cards/Stocks switcher pattern, and the bottom-sheet flow system. Visual system contribution across the dark canvas and the single electric-lime accent that anchors every primary action.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Approach</h3>
+              <p>Treated the home screen as the spine of the product, not a dashboard. Designed the asset switcher first, then layered actions around it, then built the bottom-sheet flow library so every transactional surface inherits the same ergonomics.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Design Decisions</h3>
+              <p>Pure-black canvas to make money the hero element, not chrome. Oversized balance typography. A pill-shaped action bar (Add money · Exchange · More) positioned for one-thumb reach. Bottom-sheet drawers for every flow, so users never lose context.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Visual System Contribution</h3>
+              <p>A single electric-lime accent against pure black is a UX choice as much as a visual one — it tells the eye where the active money action is on every screen. Soft-rounded cards and consistent surface elevation make the product feel like one continuous wallet instead of three stitched-together apps.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Outcome</h3>
+              <p>A unified banking surface that holds fiat, crypto, and equities without losing clarity. The visual system carries the UX hierarchy — money is the hero, primary actions are one thumb away, and every flow feels like part of the same wallet.</p>
             </div>
           </div>
 

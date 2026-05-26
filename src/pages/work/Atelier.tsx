@@ -49,7 +49,7 @@ const AtelierCaseStudy = () => {
             <div className="qt-case-id">
               <div>
                 <h1 className="qt-case-title">Atelier</h1>
-                <p className="qt-case-tag">Quiet luxury, bold identity — a minimal fashion boutique built around the clothes, not around the chrome.</p>
+                <p className="qt-case-tag">An editorial fashion e-commerce system built around the clothes — product UX, category architecture, and a quiet visual system that reinforces brand and conversion together.</p>
               </div>
             </div>
           </div>
@@ -81,12 +81,41 @@ const AtelierCaseStudy = () => {
 
           <div className="qt-body">
             <div className="qt-body-col">
-              <h3>The Problem</h3>
-              <p>Most independent fashion boutiques default to noisy templates — busy banners, hard-sell promos, and product grids that look the same from store to store. For a brand built on quiet luxury, that visual language actively works against the product. Atelier needed a storefront that felt as considered as the garments themselves.</p>
+              <h3>Context</h3>
+              <p>Atelier is an independent fashion boutique concept built on quiet luxury. The storefront has to carry brand voice and conversion at the same time — without falling back on the noisy template patterns that define most e-commerce.</p>
             </div>
             <div className="qt-body-col">
-              <h3>The Solution</h3>
-              <p>A warm-neutral, editorial e-commerce experience anchored by full-bleed lookbook photography and a refined serif logotype. Generous negative space, restrained navigation, and category pages that read like a fashion magazine — Women, Men, Collections — all converging on a single, calm path to buy.</p>
+              <h3>Problem</h3>
+              <p>Most independent boutiques default to busy banners, hard-sell promos, and product grids that look the same store to store. For a brand built on quiet luxury, that visual language actively works against the product. Atelier needed a storefront as considered as the garments themselves.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Role</h3>
+              <p>Product Design — category architecture, navigation system, and the shopping flow from lookbook to checkout. UI Design — editorial e-commerce system, restraint over decoration. Visual system contribution — typographic identity, photography direction, and a calm CTA system across the whole store.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Approach</h3>
+              <p>Treated category pages as editorial spreads, not template grids. Designed the Women / Men / Collections entry points first, then collapsed all secondary navigation around them. Every page converges on one calm path to buy — no pop-ups, no countdown timers, no noise.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Design Decisions</h3>
+              <p>Warm-neutral palette built for fashion photography, not for chrome. Refined serif logotype paired with a clean sans for product copy. Full-bleed lookbook hero with rotating editorial campaigns. Two clear shopping verticals instead of a flattened mega-menu.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Visual System Contribution</h3>
+              <p>The visual system does conversion work — restraint reinforces price perception, and editorial pacing keeps users moving deeper into the catalogue. Typography hierarchy directs attention to the product first; brand identity sits underneath rather than competing with it.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Outcome</h3>
+              <p>An editorial storefront where brand voice and conversion reinforce each other. UX clarity (two verticals, one path to buy) and visual restraint (editorial pacing, calm CTAs) ship as one coherent surface — the store feels as considered as the garments it sells.</p>
             </div>
           </div>
 
