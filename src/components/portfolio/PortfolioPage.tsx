@@ -24,6 +24,7 @@ import {
   thumbnailImages,
   workProjects,
 } from "@/components/portfolio/portfolioData";
+import GraphicsSlideshow, { type GraphicSlide } from "@/components/portfolio/GraphicsSlideshow";
 
 import logoSvg from "@/assets/logo.svg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
@@ -85,6 +86,81 @@ const pwaPair = {
   main: { title: "The Corporate Rave", category: "Event Flag · PWA", image: graphicPwaFlag },
   side: { title: "The Corporate Rave", category: "Event Flyer · PWA", image: graphicPwaFlyer },
 };
+
+const graphicsSlides: GraphicSlide[] = [
+  {
+    id: "gs-anora",
+    image: graphicAnora3,
+    title: "Anora · Grill & Sip",
+    category: "Brand Identity · Packaging",
+    context: "Full brand system for an F&B label spanning packaging, signage, and product photography — designed to feel premium yet warm at shelf and at table.",
+    systemLogic: "Earth-toned palette with a single warm-red accent reserved for brand marks. Serif logotype anchors trust; supporting type stays utilitarian. Consistency across labels, menus, and social keeps the brand recognisable across surfaces.",
+  },
+  {
+    id: "gs-fellowship",
+    image: graphicHouseFellowship,
+    title: "House Fellowship",
+    category: "Event Poster · Àkàndá",
+    context: "Recurring event poster for a fellowship gathering — needed to feel intimate and editorial rather than promotional.",
+    systemLogic: "Single-image composition with restrained typography. Hierarchy collapses to one focal point so the message reads at scroll-speed without losing the editorial tone.",
+  },
+  {
+    id: "gs-creating",
+    image: graphicCreating,
+    title: "Creating Imperfections",
+    category: "Poster · Brutalist Study",
+    context: "A self-initiated study exploring how visual noise can clarify rather than distract — brutalist composition as a hierarchy tool.",
+    systemLogic: "Heavy display type carries the message; texture and grain frame it. Negative space is treated as a structural element, not leftover. The grid breaks intentionally to direct the eye.",
+  },
+  {
+    id: "gs-balenciaga",
+    image: graphicBalenciaga,
+    title: "Balenciaga",
+    category: "New Collection · Editorial",
+    context: "Editorial composition for a fashion drop — translating runway aesthetic into a single static frame.",
+    systemLogic: "High-contrast monochrome; product is hero, type is supporting. Layout follows fashion editorial conventions — wide margins, restrained typography, and a single anchoring image.",
+  },
+  {
+    id: "gs-jazzy",
+    image: graphicJazzy,
+    title: "Jazzy Burger",
+    category: "F&B Poster",
+    context: "Campaign poster for a casual F&B brand — energy-led, designed to compete visually in a busy feed.",
+    systemLogic: "Saturated colour and bold display type create immediate read at thumbnail size. Product photography is foregrounded; brand mark stays subtle so the food sells itself.",
+  },
+  {
+    id: "gs-midnight",
+    image: graphicMidnight,
+    title: "Midnight Pulse",
+    category: "DJ Event Poster",
+    context: "Event identity for a late-night DJ set — designed to feel native to the room: dark, kinetic, and slightly out of focus.",
+    systemLogic: "Restricted to a near-black canvas with one luminous accent. Type breaks the grid to imply motion. The poster doubles as a social asset without re-layout.",
+  },
+  {
+    id: "gs-malole",
+    image: graphicMalole,
+    title: "Màlólé",
+    category: "Album Cover · Àkàndá",
+    context: "Cover art for a music release — a single sustained frame that has to carry the project's identity across streaming, vinyl, and social.",
+    systemLogic: "Composition built for square-format legibility at any size. Typography is integrated into the image, not layered on top — the artwork and title read as one object.",
+  },
+  {
+    id: "gs-pwa-flag",
+    image: graphicPwaFlag,
+    title: "The Corporate Rave — Flag",
+    category: "Event Flag · PWA",
+    context: "Large-format event flag for an experiential brand activation — designed to be legible at distance and on motion.",
+    systemLogic: "Wordmark scaled to flag proportions; chromatic accent inherited from the wider PWA brand system. Reuses the campaign's poster type — one brand reads across every surface.",
+  },
+  {
+    id: "gs-pwa-flyer",
+    image: graphicPwaFlyer,
+    title: "The Corporate Rave — Flyer",
+    category: "Event Flyer · PWA",
+    context: "Distribution flyer for the same event — must carry the flag's visual language into a denser, info-led format.",
+    systemLogic: "Inherits the campaign's palette and type pair. Information hierarchy compresses without losing the visual identity; layout grid is the connective tissue between the large-format and print pieces.",
+  },
+];
 
 const marqueeWords = [
   "Creative Designer",
