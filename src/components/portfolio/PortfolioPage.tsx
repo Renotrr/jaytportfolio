@@ -811,21 +811,20 @@ const PortfolioPage = () => {
 
 
 
-        {/* GRAPHICS — grid 2/2/2 + landscape */}
+        {/* GRAPHICS — slideshow-based visual system showcase */}
         <section id="graphics" className="gx-section">
           <div className="gx-intro">
             <div className="gx-intro-top">
-              <span className="sec-lbl">Visual Systems & Brand Work</span>
-              <span className="gx-intro-tag">/ Visual systems that strengthen product communication</span>
+              <span className="sec-lbl">Visual Systems &amp; Brand Design</span>
+              <span className="gx-intro-tag">/ Visual systems that support product communication</span>
             </div>
             <h2 className="gx-intro-title">
-              Brand systems, campaign visuals, and <em>interface-adjacent</em> graphics.
+              Exploring how visual identity, composition, and system design <em>support clarity</em> in communication.
             </h2>
             <p className="gx-intro-body">
-              These works focus on strengthening product communication through visual
-              systems — not standalone aesthetics. Brand identity, marketing visuals
-              that support product comms, interface-adjacent graphics, and campaign
-              work aligned with product UX.
+              Brand identity, marketing visuals, interface-adjacent graphics, and
+              campaign work — framed as a controlled narrative rather than a
+              gallery dump. Each piece carries its own system logic.
             </p>
             <div className="gx-intro-meta">
               <span>Brand identity</span><span className="gx-dot">•</span>
@@ -837,73 +836,13 @@ const PortfolioPage = () => {
 
           <div className="gx-hdr">
             <div className="gx-count">
-              <span className="gx-curr">09</span>
+              <span className="gx-curr">{String(graphicsSlides.length).padStart(2, "0")}</span>
               <span className="gx-sep">—</span>
               <span className="gx-lbl">Selected pieces</span>
             </div>
           </div>
-          <div className="gx-grid">
-            {graphicsData.slice(0, 4).map((g) => (
-              <figure key={g.id} className="gx-card">
-                <div className="gx-img">
-                  <img src={g.image} alt={g.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{g.title}</span>
-                  <span className="gx-ty">{g.category}</span>
-                </figcaption>
-              </figure>
-            ))}
 
-            {/* Anora — branding collage, 4 boxes in one card */}
-            <figure className="gx-card gx-card--wide gx-card--collage">
-              <div className="gx-collage">
-                {anoraBranding.images.map((src, i) => (
-                  <div className="gx-collage-cell" key={i}>
-                    <img src={src} alt={`${anoraBranding.title} ${i + 1}`} loading="lazy" />
-                  </div>
-                ))}
-              </div>
-              <figcaption className="gx-meta">
-                <span className="gx-ti">{anoraBranding.title}</span>
-                <span className="gx-ty">{anoraBranding.category}</span>
-              </figcaption>
-            </figure>
-
-            {graphicsData.slice(4, 6).map((g) => (
-              <figure key={g.id} className="gx-card">
-                <div className="gx-img">
-                  <img src={g.image} alt={g.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{g.title}</span>
-                  <span className="gx-ty">{g.category}</span>
-                </figcaption>
-              </figure>
-            ))}
-
-            {/* PWA pair — landscape flag + flyer beside it */}
-            <div className="gx-card gx-card--wide gx-pair">
-              <figure className="gx-pair-main">
-                <div className="gx-img">
-                  <img src={pwaPair.main.image} alt={pwaPair.main.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{pwaPair.main.title}</span>
-                  <span className="gx-ty">{pwaPair.main.category}</span>
-                </figcaption>
-              </figure>
-              <figure className="gx-pair-side">
-                <div className="gx-img">
-                  <img src={pwaPair.side.image} alt={pwaPair.side.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{pwaPair.side.title}</span>
-                  <span className="gx-ty">{pwaPair.side.category}</span>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
+          <GraphicsSlideshow slides={graphicsSlides} />
         </section>
 
         {/* DESIGN PHILOSOPHY — small repositioning band */}
