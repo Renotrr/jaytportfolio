@@ -99,8 +99,23 @@ const RevolutCaseStudy = () => {
 
           <div className="qt-body">
             <div className="qt-body-col">
+              <h3>Constraints</h3>
+              <p>One-thumb mobile ergonomics on a multi-asset product. Information density — fiat, crypto, and equities each carry their own data shapes, but the home surface can&rsquo;t fragment. Regulatory weight — every money action is subject to trust expectations, so the UX can&rsquo;t feel toy-like even when it&rsquo;s fast.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Thinking Process</h3>
+              <p>Considered separate tabs per asset class — rejected, it fragments the mental model of &ldquo;my money.&rdquo; Considered a Robinhood-style trading-first layout — rejected, it skews the product toward speculation instead of everyday banking. Landed on a single home spine with an asset switcher and a shared bottom-sheet flow library, so every primary action inherits the same ergonomics.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
               <h3>Outcome</h3>
               <p>A unified banking surface that holds fiat, crypto, and equities without losing clarity. The visual system carries the UX hierarchy — money is the hero, primary actions are one thumb away, and every flow feels like part of the same wallet.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Reflection</h3>
+              <p>Rebuilding today I&rsquo;d push harder on a personalized home order — letting the asset switcher learn which class a user actually opens first, so the spine adapts without losing its shared structure.</p>
             </div>
           </div>
 
