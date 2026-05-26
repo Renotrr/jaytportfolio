@@ -112,8 +112,23 @@ const QueueTopCaseStudy = () => {
 
           <div className="qt-body">
             <div className="qt-body-col">
+              <h3>Constraints</h3>
+              <p>Mobile-first only — rooms are dark and one-thumb. Real-time contention — multiple users pushing the queue simultaneously, with money attached. Distribution constraint — no app-store install path for the audience, so the whole thing had to live as a PWA opened from a QR code in under three seconds.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Thinking Process</h3>
+              <p>Considered four separate apps per role — rejected, because the live session is one shared object and splitting it would fragment the brand and the data model. Considered a Spotify-style algorithmic queue — rejected, because the product&rsquo;s whole point is that the crowd <em>is</em> the algorithm. Landed on a single account with role lenses and a server-authoritative coin economy so contention can&rsquo;t corrupt the queue.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
               <h3>Outcome</h3>
               <p>A coherent product where four user roles, a live queue, and a coin wallet share one mental model. UX hierarchy and visual system reinforce each other — the floor view reads instantly, the wallet feels safe, and the brand carries from poster to product without translation.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Reflection</h3>
+              <p>If I rebuilt today I&rsquo;d ship the DJ surface as a lighter, optional companion view rather than a peer role — most rooms have one DJ and many listeners, so the role architecture could lean further into that asymmetry.</p>
             </div>
           </div>
 

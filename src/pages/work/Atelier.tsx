@@ -114,8 +114,23 @@ const AtelierCaseStudy = () => {
 
           <div className="qt-body">
             <div className="qt-body-col">
+              <h3>Constraints</h3>
+              <p>Small catalogue — couldn&rsquo;t lean on infinite-scroll discovery patterns. No promo culture — discount-driven UX patterns (banners, timers, urgency badges) would corrode brand voice. Photography-first — the visual system had to defer to garment photography rather than compete with it.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Thinking Process</h3>
+              <p>Considered a hero carousel with rotating campaigns — rejected, motion fights the calm. Considered a flattened mega-menu for category breadth — rejected, it scans as a department store. Landed on two clear shopping verticals with editorial pacing and a single quiet path to buy, so restraint becomes the brand signal.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
               <h3>Outcome</h3>
               <p>An editorial storefront where brand voice and conversion reinforce each other. UX clarity (two verticals, one path to buy) and visual restraint (editorial pacing, calm CTAs) ship as one coherent surface — the store feels as considered as the garments it sells.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Reflection</h3>
+              <p>Rebuilding today I&rsquo;d invest more in the product detail page as an editorial surface — treating each garment&rsquo;s PDP like a small magazine spread instead of a uniform template, while keeping checkout invisible and fast.</p>
             </div>
           </div>
 

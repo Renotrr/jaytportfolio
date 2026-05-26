@@ -121,8 +121,23 @@ const RySwiftCaseStudy = () => {
 
           <div className="qt-body">
             <div className="qt-body-col">
+              <h3>Constraints</h3>
+              <p>Three operator roles, one product budget — couldn&rsquo;t ship three sub-apps. Data density is non-negotiable — operators read tables all day; hiding columns is not an option. Long-session ergonomics — the workspace runs full-screen for 8+ hours, so visual fatigue had to be designed against from the first frame.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Thinking Process</h3>
+              <p>Considered role-specific dashboards behind a switcher — rejected, because it splits a shared operational reality. Considered a chart-led overview with drill-downs — rejected, because operators trust tables more than charts and need both side-by-side. Landed on a single workspace with role-aware modules and sortable tables as the primary surface.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
               <h3>Outcome</h3>
               <p>A workspace where three operator roles share one mental model, every table is sortable, and every primary action is one click from the dashboard. UX clarity and visual restraint reinforce each other — the product reads as one calm surface instead of a stack of tools.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Reflection</h3>
+              <p>Rebuilding today I&rsquo;d push further on saved-view personalization — let each operator pin their own table column set so the calm baseline stays, but the workspace adapts to how they actually read it.</p>
             </div>
           </div>
 

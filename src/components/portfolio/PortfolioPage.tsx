@@ -24,6 +24,7 @@ import {
   thumbnailImages,
   workProjects,
 } from "@/components/portfolio/portfolioData";
+import GraphicsSlideshow, { type GraphicSlide } from "@/components/portfolio/GraphicsSlideshow";
 
 import logoSvg from "@/assets/logo.svg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
@@ -85,6 +86,81 @@ const pwaPair = {
   main: { title: "The Corporate Rave", category: "Event Flag · PWA", image: graphicPwaFlag },
   side: { title: "The Corporate Rave", category: "Event Flyer · PWA", image: graphicPwaFlyer },
 };
+
+const graphicsSlides: GraphicSlide[] = [
+  {
+    id: "gs-anora",
+    image: graphicAnora3,
+    title: "Anora · Grill & Sip",
+    category: "Brand Identity · Packaging",
+    context: "Full brand system for an F&B label spanning packaging, signage, and product photography — designed to feel premium yet warm at shelf and at table.",
+    systemLogic: "Earth-toned palette with a single warm-red accent reserved for brand marks. Serif logotype anchors trust; supporting type stays utilitarian. Consistency across labels, menus, and social keeps the brand recognisable across surfaces.",
+  },
+  {
+    id: "gs-fellowship",
+    image: graphicHouseFellowship,
+    title: "House Fellowship",
+    category: "Event Poster · Àkàndá",
+    context: "Recurring event poster for a fellowship gathering — needed to feel intimate and editorial rather than promotional.",
+    systemLogic: "Single-image composition with restrained typography. Hierarchy collapses to one focal point so the message reads at scroll-speed without losing the editorial tone.",
+  },
+  {
+    id: "gs-creating",
+    image: graphicCreating,
+    title: "Creating Imperfections",
+    category: "Poster · Brutalist Study",
+    context: "A self-initiated study exploring how visual noise can clarify rather than distract — brutalist composition as a hierarchy tool.",
+    systemLogic: "Heavy display type carries the message; texture and grain frame it. Negative space is treated as a structural element, not leftover. The grid breaks intentionally to direct the eye.",
+  },
+  {
+    id: "gs-balenciaga",
+    image: graphicBalenciaga,
+    title: "Balenciaga",
+    category: "New Collection · Editorial",
+    context: "Editorial composition for a fashion drop — translating runway aesthetic into a single static frame.",
+    systemLogic: "High-contrast monochrome; product is hero, type is supporting. Layout follows fashion editorial conventions — wide margins, restrained typography, and a single anchoring image.",
+  },
+  {
+    id: "gs-jazzy",
+    image: graphicJazzy,
+    title: "Jazzy Burger",
+    category: "F&B Poster",
+    context: "Campaign poster for a casual F&B brand — energy-led, designed to compete visually in a busy feed.",
+    systemLogic: "Saturated colour and bold display type create immediate read at thumbnail size. Product photography is foregrounded; brand mark stays subtle so the food sells itself.",
+  },
+  {
+    id: "gs-midnight",
+    image: graphicMidnight,
+    title: "Midnight Pulse",
+    category: "DJ Event Poster",
+    context: "Event identity for a late-night DJ set — designed to feel native to the room: dark, kinetic, and slightly out of focus.",
+    systemLogic: "Restricted to a near-black canvas with one luminous accent. Type breaks the grid to imply motion. The poster doubles as a social asset without re-layout.",
+  },
+  {
+    id: "gs-malole",
+    image: graphicMalole,
+    title: "Màlólé",
+    category: "Album Cover · Àkàndá",
+    context: "Cover art for a music release — a single sustained frame that has to carry the project's identity across streaming, vinyl, and social.",
+    systemLogic: "Composition built for square-format legibility at any size. Typography is integrated into the image, not layered on top — the artwork and title read as one object.",
+  },
+  {
+    id: "gs-pwa-flag",
+    image: graphicPwaFlag,
+    title: "The Corporate Rave — Flag",
+    category: "Event Flag · PWA",
+    context: "Large-format event flag for an experiential brand activation — designed to be legible at distance and on motion.",
+    systemLogic: "Wordmark scaled to flag proportions; chromatic accent inherited from the wider PWA brand system. Reuses the campaign's poster type — one brand reads across every surface.",
+  },
+  {
+    id: "gs-pwa-flyer",
+    image: graphicPwaFlyer,
+    title: "The Corporate Rave — Flyer",
+    category: "Event Flyer · PWA",
+    context: "Distribution flyer for the same event — must carry the flag's visual language into a denser, info-led format.",
+    systemLogic: "Inherits the campaign's palette and type pair. Information hierarchy compresses without losing the visual identity; layout grid is the connective tissue between the large-format and print pieces.",
+  },
+];
 
 const marqueeWords = [
   "Creative Designer",
@@ -670,11 +746,12 @@ const PortfolioPage = () => {
               <div className="h-bottom-row">
                 <h1 className={`h-headline h-headline--pin wu ${heroEntered ? "in" : ""}`} style={withDelay(".15s")}>
                   <span className="h-headline-line">John Adewole —</span>
-                  <span className="h-headline-line">Senior Product Designer.</span>
+                  <span className="h-headline-line">Senior Product Designer</span>
+                  <span className="h-headline-line" style={{ fontSize: "0.55em", opacity: 0.78, letterSpacing: "0.01em" }}>(UX Systems + Visual Design)</span>
                 </h1>
                 <p className={`h-lede fi ${heroEntered ? "in" : ""}`} style={withDelay(".35s")}>
-                  Designing digital products and visual systems with clarity,
-                  structure, and intent — UX, product systems, and visual design.
+                  Designing digital products with clarity, structure,
+                  and product-first thinking.
                 </p>
               </div>
               <div className="h-divider" />
@@ -695,14 +772,17 @@ const PortfolioPage = () => {
         <section id="about" className="ab-elope">
           <div className="ab-top">
             <span className="ab-top-item"><span className="ab-bullet" />(What I Do)</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Product UX</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Visual systems — UI, branding, interface consistency</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Design execution with development awareness</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Product UX design for web &amp; mobile</span>
             <span className="ab-top-copy">©26</span>
           </div>
           <div className="ab-top">
-            <span className="ab-top-item"><span className="ab-bullet" />(About)</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Senior Product Designer · UX Systems · Visual Design</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Design systems &amp; interface structure</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Visual systems — UI, branding, communication design</span>
+            <span className="ab-top-copy">·</span>
+          </div>
+          <div className="ab-top">
+            <span className="ab-top-item"><span className="ab-bullet" />Implementation-aware design for real-world products</span>
+            <span className="ab-top-item"><span className="ab-bullet" />(About) — Senior Product Designer · UX Systems · Visual Design</span>
             <span className="ab-top-copy">©26</span>
           </div>
           <div className="ab-grid">
@@ -718,22 +798,22 @@ const PortfolioPage = () => {
             <div className="ab-right">
               <h2 className="ab-headline wu" style={withDelay(".15s")}>
                 <span className="ab-eye">(About)</span>
-                A product designer who thinks in systems — not isolated screens. I design digital products where UX, visual systems, and brand thinking ship as one coherent surface.
+                I design digital products as systems — where UX, interface structure, and visual design ship as one continuous surface, not separate disciplines stitched together.
               </h2>
               <ul className="ab-list">
                 <li className="fi" style={withDelay(".35s")}>
                   <span className="ab-num">01.</span>
-                  <span className="ab-li-l">Product UX & design systems for web and mobile</span>
+                  <span className="ab-li-l">Product thinking grounded in real constraints — time, platform, user behavior</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".45s")}>
                   <span className="ab-num">02.</span>
-                  <span className="ab-li-l">Figma, design tokens, Lovable, no-code execution</span>
+                  <span className="ab-li-l">Visual systems that reinforce hierarchy, not decorate it</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".55s")}>
                   <span className="ab-num">03.</span>
-                  <span className="ab-li-l">Open to senior product roles & collaborations</span>
+                  <span className="ab-li-l">Implementation-aware — design that ships, not just renders</span>
                   <span className="ab-li-d" />
                 </li>
               </ul>
@@ -807,21 +887,20 @@ const PortfolioPage = () => {
 
 
 
-        {/* GRAPHICS — grid 2/2/2 + landscape */}
+        {/* GRAPHICS — slideshow-based visual system showcase */}
         <section id="graphics" className="gx-section">
           <div className="gx-intro">
             <div className="gx-intro-top">
-              <span className="sec-lbl">Visual Systems & Brand Work</span>
-              <span className="gx-intro-tag">/ Visual systems that strengthen product communication</span>
+              <span className="sec-lbl">Visual Systems &amp; Brand Design</span>
+              <span className="gx-intro-tag">/ Visual systems that support product communication</span>
             </div>
             <h2 className="gx-intro-title">
-              Brand systems, campaign visuals, and <em>interface-adjacent</em> graphics.
+              Exploring how visual identity, composition, and system design <em>support clarity</em> in communication.
             </h2>
             <p className="gx-intro-body">
-              These works focus on strengthening product communication through visual
-              systems — not standalone aesthetics. Brand identity, marketing visuals
-              that support product comms, interface-adjacent graphics, and campaign
-              work aligned with product UX.
+              Brand identity, marketing visuals, interface-adjacent graphics, and
+              campaign work — framed as a controlled narrative rather than a
+              gallery dump. Each piece carries its own system logic.
             </p>
             <div className="gx-intro-meta">
               <span>Brand identity</span><span className="gx-dot">•</span>
@@ -833,73 +912,13 @@ const PortfolioPage = () => {
 
           <div className="gx-hdr">
             <div className="gx-count">
-              <span className="gx-curr">09</span>
+              <span className="gx-curr">{String(graphicsSlides.length).padStart(2, "0")}</span>
               <span className="gx-sep">—</span>
               <span className="gx-lbl">Selected pieces</span>
             </div>
           </div>
-          <div className="gx-grid">
-            {graphicsData.slice(0, 4).map((g) => (
-              <figure key={g.id} className="gx-card">
-                <div className="gx-img">
-                  <img src={g.image} alt={g.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{g.title}</span>
-                  <span className="gx-ty">{g.category}</span>
-                </figcaption>
-              </figure>
-            ))}
 
-            {/* Anora — branding collage, 4 boxes in one card */}
-            <figure className="gx-card gx-card--wide gx-card--collage">
-              <div className="gx-collage">
-                {anoraBranding.images.map((src, i) => (
-                  <div className="gx-collage-cell" key={i}>
-                    <img src={src} alt={`${anoraBranding.title} ${i + 1}`} loading="lazy" />
-                  </div>
-                ))}
-              </div>
-              <figcaption className="gx-meta">
-                <span className="gx-ti">{anoraBranding.title}</span>
-                <span className="gx-ty">{anoraBranding.category}</span>
-              </figcaption>
-            </figure>
-
-            {graphicsData.slice(4, 6).map((g) => (
-              <figure key={g.id} className="gx-card">
-                <div className="gx-img">
-                  <img src={g.image} alt={g.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{g.title}</span>
-                  <span className="gx-ty">{g.category}</span>
-                </figcaption>
-              </figure>
-            ))}
-
-            {/* PWA pair — landscape flag + flyer beside it */}
-            <div className="gx-card gx-card--wide gx-pair">
-              <figure className="gx-pair-main">
-                <div className="gx-img">
-                  <img src={pwaPair.main.image} alt={pwaPair.main.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{pwaPair.main.title}</span>
-                  <span className="gx-ty">{pwaPair.main.category}</span>
-                </figcaption>
-              </figure>
-              <figure className="gx-pair-side">
-                <div className="gx-img">
-                  <img src={pwaPair.side.image} alt={pwaPair.side.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{pwaPair.side.title}</span>
-                  <span className="gx-ty">{pwaPair.side.category}</span>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
+          <GraphicsSlideshow slides={graphicsSlides} />
         </section>
 
         {/* DESIGN PHILOSOPHY — small repositioning band */}
