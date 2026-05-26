@@ -85,12 +85,41 @@ const VirexCaseStudy = () => {
 
           <div className="qt-body">
             <div className="qt-body-col">
-              <h3>The Problem</h3>
-              <p>BioFuel is a category people don't immediately understand. Most energy sites either drown the visitor in technical jargon or hide behind vague sustainability buzzwords. Virex needed a site that explains the science, proves the impact, and still feels like a confident, modern energy brand.</p>
+              <h3>Context</h3>
+              <p>Virex is a BioFuel energy brand launching online. The landing system has to do two jobs at once: explain a category most visitors don&rsquo;t fully understand, and position the brand as a credible modern player in clean energy.</p>
             </div>
             <div className="qt-body-col">
-              <h3>The Solution</h3>
-              <p>A focused landing page built on a clean dark-and-green system. Big editorial type for clarity, real product and process imagery for trust, and a calm, sectioned rhythm that walks visitors from "what is BioFuel" to "why Virex" to "talk to us" without ever feeling like a brochure.</p>
+              <h3>Problem</h3>
+              <p>Most energy sites either drown visitors in technical jargon or hide behind vague sustainability buzzwords. Neither builds trust. Virex needed a landing system that explains the science, proves the impact, and still feels like a confident, modern energy brand.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Role</h3>
+              <p>Product Design — landing architecture, narrative sequencing, conversion path. UI Design — clean dark-and-green system, sectioned rhythm. Visual system contribution — typographic hierarchy and brand language that carries from hero to footer without flattening into a brochure.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Approach</h3>
+              <p>Mapped the visitor journey as a teaching arc: &ldquo;what is BioFuel&rdquo; → &ldquo;why Virex&rdquo; → &ldquo;talk to us&rdquo;. Each section answers one question. Designed the brand layer on top of that arc, so visual identity reinforces comprehension instead of competing with it.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Design Decisions</h3>
+              <p>Big editorial type for clarity over density. Real product and process imagery for trust — no stock photography. A calm dark-and-green system that signals &ldquo;energy&rdquo; without leaning on cliché. Sectioned rhythm that gives the page room to breathe between teaching moments.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Visual System Contribution</h3>
+              <p>Brand colour and typography do explanatory work — green carries meaning (clean energy, growth) and editorial type signals &ldquo;considered, not salesy.&rdquo; Visual hierarchy guides the visitor through the teaching arc, so the brand reinforces UX clarity rather than decorating it.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
+              <h3>Outcome</h3>
+              <p>A landing system where a complex category reads at a glance and the brand feels credible end-to-end. UX clarity and brand language ship as one — the page teaches, positions, and converts without ever feeling like a brochure.</p>
             </div>
           </div>
 
