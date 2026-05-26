@@ -694,39 +694,46 @@ const PortfolioPage = () => {
         {/* ABOUT — elopes the hero (slides up over it) */}
         <section id="about" className="ab-elope">
           <div className="ab-top">
-            <span className="ab-top-item"><span className="ab-bullet" />(About me)</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Crafted with intention</span>
-            <span className="ab-top-copy">©25</span>
+            <span className="ab-top-item"><span className="ab-bullet" />(What I Do)</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Product UX</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Visual systems — UI, branding, interface consistency</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Design execution with development awareness</span>
+            <span className="ab-top-copy">©26</span>
+          </div>
+          <div className="ab-top">
+            <span className="ab-top-item"><span className="ab-bullet" />(About)</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Senior Product Designer · UX Systems · Visual Design</span>
+            <span className="ab-top-copy">©26</span>
           </div>
           <div className="ab-grid">
             <div className="ab-card fi" style={withDelay(".05s")}>
               <div className="ab-card-inner">
                 <img src={aboutPortrait} alt="John Adewole" />
                 <div className="ab-tag">
-                  <span className="ab-tag-k">JA / 3+</span>
-                  <span className="ab-tag-l">Creative Designer · No-Code Developer</span>
+                  <span className="ab-tag-k">JA / Senior</span>
+                  <span className="ab-tag-l">Senior Product Designer · UX & Visual Systems</span>
                 </div>
               </div>
             </div>
             <div className="ab-right">
               <h2 className="ab-headline wu" style={withDelay(".15s")}>
                 <span className="ab-eye">(About)</span>
-                With over 3 years under my belt, I craft — memorable websites and brand visuals that reflect each client&rsquo;s unique story.
+                A product designer who thinks in systems — not isolated screens. I design digital products where UX, visual systems, and brand thinking ship as one coherent surface.
               </h2>
               <ul className="ab-list">
                 <li className="fi" style={withDelay(".35s")}>
                   <span className="ab-num">01.</span>
-                  <span className="ab-li-l">Creative Designer & No-Code Developer</span>
+                  <span className="ab-li-l">Product UX & design systems for web and mobile</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".45s")}>
                   <span className="ab-num">02.</span>
-                  <span className="ab-li-l">Figma, Canva, Framer, ChatGPT</span>
+                  <span className="ab-li-l">Figma, design tokens, Lovable, no-code execution</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".55s")}>
                   <span className="ab-num">03.</span>
-                  <span className="ab-li-l">Available for freelance & collaborations</span>
+                  <span className="ab-li-l">Open to senior product roles & collaborations</span>
                   <span className="ab-li-d" />
                 </li>
               </ul>
