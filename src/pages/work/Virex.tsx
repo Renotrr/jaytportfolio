@@ -118,8 +118,23 @@ const VirexCaseStudy = () => {
 
           <div className="qt-body">
             <div className="qt-body-col">
+              <h3>Constraints</h3>
+              <p>Audience knowledge gap — most visitors don&rsquo;t know what BioFuel is, so the page has to teach before it sells. Trust deficit — the energy category is full of greenwashing, so the brand can&rsquo;t lean on sustainability buzzwords. Single landing surface — no sub-pages to fall back on for explanation; the arc has to fit one scroll.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Thinking Process</h3>
+              <p>Considered an immersive scroll with animated diagrams — rejected, motion would slow comprehension and read as marketing theatre. Considered a feature-grid layout — rejected, it positions Virex as another vendor instead of a category educator. Landed on a teaching arc (what / why / talk) with calm sectioned rhythm so the page reads as an editorial explainer that converts.</p>
+            </div>
+          </div>
+
+          <div className="qt-body">
+            <div className="qt-body-col">
               <h3>Outcome</h3>
               <p>A landing system where a complex category reads at a glance and the brand feels credible end-to-end. UX clarity and brand language ship as one — the page teaches, positions, and converts without ever feeling like a brochure.</p>
+            </div>
+            <div className="qt-body-col">
+              <h3>Reflection</h3>
+              <p>Rebuilding today I&rsquo;d add a short interactive comparison module — BioFuel vs. conventional fuel at a glance — so the teaching arc converts curiosity into understanding before the visitor ever reaches the contact section.</p>
             </div>
           </div>
 
