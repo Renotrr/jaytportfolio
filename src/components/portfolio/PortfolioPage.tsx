@@ -645,22 +645,22 @@ const PortfolioPage = () => {
             <div className={`h-pins fi ${heroEntered ? "in" : ""}`} aria-hidden="true">
               <span className="h-pin h-pin--tl" style={withDelay(".4s")}>
                 <span className="h-pin-dot" />
-                Creative Designer
+                Product Design
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--bl" style={withDelay(".55s")}>
                 <span className="h-pin-dot" />
-                No-Code Developer
+                UX Systems
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--tr" style={withDelay(".7s")}>
                 <span className="h-pin-dot" />
-                Brand &amp; Identity
+                Visual Design
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--br" style={withDelay(".85s")}>
                 <span className="h-pin-dot" />
-                AI &amp; Web Experiences
+                Design Systems
                 <span className="h-pin-line" />
               </span>
             </div>
@@ -669,25 +669,22 @@ const PortfolioPage = () => {
             <div className="h-bottom">
               <div className="h-bottom-row">
                 <h1 className={`h-headline h-headline--pin wu ${heroEntered ? "in" : ""}`} style={withDelay(".15s")}>
-                  <span className="h-headline-line">Hi I&rsquo;m John,</span>
-                  <span className="h-headline-line">Welcome to my World.</span>
+                  <span className="h-headline-line">John Adewole —</span>
+                  <span className="h-headline-line">Senior Product Designer.</span>
                 </h1>
                 <p className={`h-lede fi ${heroEntered ? "in" : ""}`} style={withDelay(".35s")}>
-                  Creative designer &amp; no-code developer crafting brand systems,
-                  product interfaces, and considered web experiences.
+                  Designing digital products and visual systems with clarity,
+                  structure, and intent — UX, product systems, and visual design.
                 </p>
               </div>
               <div className="h-divider" />
               <div className={`h-cta h-cta--pin fi ${heroEntered ? "in" : ""}`} style={withDelay(".55s")}>
-                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-primary">
-                  Get in touch
+                <a href="#work" onClick={(e) => handleNavClick(e, "work")} className="btn-pill btn-primary">
+                  View Work
                   <span className="btn-circle"><IconArrow /></span>
                 </a>
-                <a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")} className="btn-pill btn-ghost">
-                  <span className="btn-play" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19" /></svg>
-                  </span>
-                  View graphic design
+                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-ghost">
+                  Contact
                 </a>
               </div>
             </div>
