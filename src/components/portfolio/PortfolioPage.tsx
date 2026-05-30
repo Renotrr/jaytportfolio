@@ -24,7 +24,6 @@ import {
   thumbnailImages,
   workProjects,
 } from "@/components/portfolio/portfolioData";
-import GraphicsSlideshow, { type GraphicSlide } from "@/components/portfolio/GraphicsSlideshow";
 
 import logoSvg from "@/assets/logo.svg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
@@ -59,11 +58,11 @@ const resolvePortfolioImage = (src: string) =>
 
 // New works data with year + generated images
 const worksData = [
-  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · UX Systems · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
-  { id: "w2", title: "RySwift", year: "2025", category: "Product Design · SaaS UX · Logistics", image: ryswiftHero, href: "/work/ryswift" },
-  { id: "w3", title: "Revolut", year: "2026", category: "UI/UX · Mobile Banking · Visual System", image: revolutHero, href: "/work/revolut" },
-  { id: "w4", title: "Virex Energy", year: "2025", category: "Product Design · Landing System", image: virexHero, href: "/work/virex" },
-  { id: "w5", title: "Atelier", year: "2026", category: "Product Design · E-commerce · Visual System", image: atelierHero, href: "/work/atelier" },
+  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
+  { id: "w2", title: "RySwift", year: "2025", category: "SaaS · Logistics", image: ryswiftHero, href: "/work/ryswift" },
+  { id: "w3", title: "Revolut", year: "2026", category: "Fintech · Mobile App · UI/UX", image: revolutHero, href: "/work/revolut" },
+  { id: "w4", title: "Virex Energy", year: "2025", category: "BioFuel · Landing Page", image: virexHero, href: "/work/virex" },
+  { id: "w5", title: "Atelier", year: "2026", category: "Fashion E-commerce · Lovable", image: atelierHero, href: "/work/atelier" },
 ];
 
 const graphicsData = [
@@ -86,81 +85,6 @@ const pwaPair = {
   main: { title: "The Corporate Rave", category: "Event Flag · PWA", image: graphicPwaFlag },
   side: { title: "The Corporate Rave", category: "Event Flyer · PWA", image: graphicPwaFlyer },
 };
-
-const graphicsSlides: GraphicSlide[] = [
-  {
-    id: "gs-anora",
-    image: graphicAnora3,
-    title: "Anora · Grill & Sip",
-    category: "Brand Identity · Packaging",
-    context: "Full brand system for an F&B label spanning packaging, signage, and product photography — designed to feel premium yet warm at shelf and at table.",
-    systemLogic: "Earth-toned palette with a single warm-red accent reserved for brand marks. Serif logotype anchors trust; supporting type stays utilitarian. Consistency across labels, menus, and social keeps the brand recognisable across surfaces.",
-  },
-  {
-    id: "gs-fellowship",
-    image: graphicHouseFellowship,
-    title: "House Fellowship",
-    category: "Event Poster · Àkàndá",
-    context: "Recurring event poster for a fellowship gathering — needed to feel intimate and editorial rather than promotional.",
-    systemLogic: "Single-image composition with restrained typography. Hierarchy collapses to one focal point so the message reads at scroll-speed without losing the editorial tone.",
-  },
-  {
-    id: "gs-creating",
-    image: graphicCreating,
-    title: "Creating Imperfections",
-    category: "Poster · Brutalist Study",
-    context: "A self-initiated study exploring how visual noise can clarify rather than distract — brutalist composition as a hierarchy tool.",
-    systemLogic: "Heavy display type carries the message; texture and grain frame it. Negative space is treated as a structural element, not leftover. The grid breaks intentionally to direct the eye.",
-  },
-  {
-    id: "gs-balenciaga",
-    image: graphicBalenciaga,
-    title: "Balenciaga",
-    category: "New Collection · Editorial",
-    context: "Editorial composition for a fashion drop — translating runway aesthetic into a single static frame.",
-    systemLogic: "High-contrast monochrome; product is hero, type is supporting. Layout follows fashion editorial conventions — wide margins, restrained typography, and a single anchoring image.",
-  },
-  {
-    id: "gs-jazzy",
-    image: graphicJazzy,
-    title: "Jazzy Burger",
-    category: "F&B Poster",
-    context: "Campaign poster for a casual F&B brand — energy-led, designed to compete visually in a busy feed.",
-    systemLogic: "Saturated colour and bold display type create immediate read at thumbnail size. Product photography is foregrounded; brand mark stays subtle so the food sells itself.",
-  },
-  {
-    id: "gs-midnight",
-    image: graphicMidnight,
-    title: "Midnight Pulse",
-    category: "DJ Event Poster",
-    context: "Event identity for a late-night DJ set — designed to feel native to the room: dark, kinetic, and slightly out of focus.",
-    systemLogic: "Restricted to a near-black canvas with one luminous accent. Type breaks the grid to imply motion. The poster doubles as a social asset without re-layout.",
-  },
-  {
-    id: "gs-malole",
-    image: graphicMalole,
-    title: "Màlólé",
-    category: "Album Cover · Àkàndá",
-    context: "Cover art for a music release — a single sustained frame that has to carry the project's identity across streaming, vinyl, and social.",
-    systemLogic: "Composition built for square-format legibility at any size. Typography is integrated into the image, not layered on top — the artwork and title read as one object.",
-  },
-  {
-    id: "gs-pwa-flag",
-    image: graphicPwaFlag,
-    title: "The Corporate Rave — Flag",
-    category: "Event Flag · PWA",
-    context: "Large-format event flag for an experiential brand activation — designed to be legible at distance and on motion.",
-    systemLogic: "Wordmark scaled to flag proportions; chromatic accent inherited from the wider PWA brand system. Reuses the campaign's poster type — one brand reads across every surface.",
-  },
-  {
-    id: "gs-pwa-flyer",
-    image: graphicPwaFlyer,
-    title: "The Corporate Rave — Flyer",
-    category: "Event Flyer · PWA",
-    context: "Distribution flyer for the same event — must carry the flag's visual language into a denser, info-led format.",
-    systemLogic: "Inherits the campaign's palette and type pair. Information hierarchy compresses without losing the visual identity; layout grid is the connective tissue between the large-format and print pieces.",
-  },
-];
 
 const marqueeWords = [
   "Creative Designer",
@@ -721,22 +645,22 @@ const PortfolioPage = () => {
             <div className={`h-pins fi ${heroEntered ? "in" : ""}`} aria-hidden="true">
               <span className="h-pin h-pin--tl" style={withDelay(".4s")}>
                 <span className="h-pin-dot" />
-                Product Design
+                Creative Designer
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--bl" style={withDelay(".55s")}>
                 <span className="h-pin-dot" />
-                UX Systems
+                No-Code Developer
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--tr" style={withDelay(".7s")}>
                 <span className="h-pin-dot" />
-                Visual Design
+                Brand &amp; Identity
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--br" style={withDelay(".85s")}>
                 <span className="h-pin-dot" />
-                Design Systems
+                AI &amp; Web Experiences
                 <span className="h-pin-line" />
               </span>
             </div>
@@ -745,23 +669,25 @@ const PortfolioPage = () => {
             <div className="h-bottom">
               <div className="h-bottom-row">
                 <h1 className={`h-headline h-headline--pin wu ${heroEntered ? "in" : ""}`} style={withDelay(".15s")}>
-                  <span className="h-headline-line">John Adewole —</span>
-                  <span className="h-headline-line">Senior Product Designer</span>
-                  <span className="h-headline-line" style={{ fontSize: "0.55em", opacity: 0.78, letterSpacing: "0.01em" }}>(UX Systems + Visual Design)</span>
+                  <span className="h-headline-line">Hi I&rsquo;m John,</span>
+                  <span className="h-headline-line">Welcome to my World.</span>
                 </h1>
                 <p className={`h-lede fi ${heroEntered ? "in" : ""}`} style={withDelay(".35s")}>
-                  Designing digital products with clarity, structure,
-                  and product-first thinking.
+                  Creative designer &amp; no-code developer crafting brand systems,
+                  product interfaces, and considered web experiences.
                 </p>
               </div>
               <div className="h-divider" />
               <div className={`h-cta h-cta--pin fi ${heroEntered ? "in" : ""}`} style={withDelay(".55s")}>
-                <a href="#work" onClick={(e) => handleNavClick(e, "work")} className="btn-pill btn-primary">
-                  View Work
+                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-primary">
+                  Get in touch
                   <span className="btn-circle"><IconArrow /></span>
                 </a>
-                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-ghost">
-                  Contact
+                <a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")} className="btn-pill btn-ghost">
+                  <span className="btn-play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19" /></svg>
+                  </span>
+                  View graphic design
                 </a>
               </div>
             </div>
@@ -771,49 +697,39 @@ const PortfolioPage = () => {
         {/* ABOUT — elopes the hero (slides up over it) */}
         <section id="about" className="ab-elope">
           <div className="ab-top">
-            <span className="ab-top-item"><span className="ab-bullet" />(What I Do)</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Product UX design for web &amp; mobile</span>
-            <span className="ab-top-copy">©26</span>
-          </div>
-          <div className="ab-top">
-            <span className="ab-top-item"><span className="ab-bullet" />Design systems &amp; interface structure</span>
-            <span className="ab-top-item"><span className="ab-bullet" />Visual systems — UI, branding, communication design</span>
-            <span className="ab-top-copy">·</span>
-          </div>
-          <div className="ab-top">
-            <span className="ab-top-item"><span className="ab-bullet" />Implementation-aware design for real-world products</span>
-            <span className="ab-top-item"><span className="ab-bullet" />(About) — Senior Product Designer · UX Systems · Visual Design</span>
-            <span className="ab-top-copy">©26</span>
+            <span className="ab-top-item"><span className="ab-bullet" />(About me)</span>
+            <span className="ab-top-item"><span className="ab-bullet" />Crafted with intention</span>
+            <span className="ab-top-copy">©25</span>
           </div>
           <div className="ab-grid">
             <div className="ab-card fi" style={withDelay(".05s")}>
               <div className="ab-card-inner">
                 <img src={aboutPortrait} alt="John Adewole" />
                 <div className="ab-tag">
-                  <span className="ab-tag-k">JA / Senior</span>
-                  <span className="ab-tag-l">Senior Product Designer · UX & Visual Systems</span>
+                  <span className="ab-tag-k">JA / 3+</span>
+                  <span className="ab-tag-l">Creative Designer · No-Code Developer</span>
                 </div>
               </div>
             </div>
             <div className="ab-right">
               <h2 className="ab-headline wu" style={withDelay(".15s")}>
                 <span className="ab-eye">(About)</span>
-                I design digital products as systems — where UX, interface structure, and visual design ship as one continuous surface, not separate disciplines stitched together.
+                With over 3 years under my belt, I craft — memorable websites and brand visuals that reflect each client&rsquo;s unique story.
               </h2>
               <ul className="ab-list">
                 <li className="fi" style={withDelay(".35s")}>
                   <span className="ab-num">01.</span>
-                  <span className="ab-li-l">Product thinking grounded in real constraints — time, platform, user behavior</span>
+                  <span className="ab-li-l">Creative Designer & No-Code Developer</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".45s")}>
                   <span className="ab-num">02.</span>
-                  <span className="ab-li-l">Visual systems that reinforce hierarchy, not decorate it</span>
+                  <span className="ab-li-l">Figma, Canva, Framer, ChatGPT</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".55s")}>
                   <span className="ab-num">03.</span>
-                  <span className="ab-li-l">Implementation-aware — design that ships, not just renders</span>
+                  <span className="ab-li-l">Available for freelance & collaborations</span>
                   <span className="ab-li-d" />
                 </li>
               </ul>
@@ -834,7 +750,7 @@ const PortfolioPage = () => {
             <h2 className="sw-title">Selected<br />Works</h2>
             <span className="sw-count">({worksData.length})</span>
           </div>
-          <p className="sw-lede">// &nbsp;&nbsp;Product work where UX, visual systems, and brand thinking ship as one.</p>
+          <p className="sw-lede">// &nbsp;&nbsp;We help brands grow and tell their stories to the world.</p>
           <div className="sw-grid">
             {worksData.map((w, i) => {
               const inner = (
@@ -887,56 +803,103 @@ const PortfolioPage = () => {
 
 
 
-        {/* GRAPHICS — slideshow-based visual system showcase */}
+        {/* GRAPHICS — grid 2/2/2 + landscape */}
         <section id="graphics" className="gx-section">
           <div className="gx-intro">
             <div className="gx-intro-top">
-              <span className="sec-lbl">Visual Systems &amp; Brand Design</span>
-              <span className="gx-intro-tag">/ Visual systems that support product communication</span>
+              <span className="sec-lbl">Graphics</span>
+              <span className="gx-intro-tag">/ A practice called <em>Calm Violence</em></span>
             </div>
             <h2 className="gx-intro-title">
-              Exploring how visual identity, composition, and system design <em>support clarity</em> in communication.
+              Beyond pixels &amp; products, I make <em>loud, quiet</em> graphics.
             </h2>
             <p className="gx-intro-body">
-              Brand identity, marketing visuals, interface-adjacent graphics, and
-              campaign work — framed as a controlled narrative rather than a
-              gallery dump. Each piece carries its own system logic.
+              I'm also a graphic designer. I built a visual language I call
+              <em> Calm Violence</em> — composed surfaces that hold tension underneath:
+              soft typography, brutal contrast, restrained color, sudden noise.
+              The work below is my playground for posters, covers, and
+              identity studies that try to feel like a held breath.
             </p>
             <div className="gx-intro-meta">
-              <span>Brand identity</span><span className="gx-dot">•</span>
-              <span>Marketing</span><span className="gx-dot">•</span>
-              <span>Interface-adjacent</span><span className="gx-dot">•</span>
-              <span>Campaign</span>
+              <span>Posters</span><span className="gx-dot">•</span>
+              <span>Covers</span><span className="gx-dot">•</span>
+              <span>Identity</span><span className="gx-dot">•</span>
+              <span>Editorial</span>
             </div>
           </div>
 
           <div className="gx-hdr">
             <div className="gx-count">
-              <span className="gx-curr">{String(graphicsSlides.length).padStart(2, "0")}</span>
+              <span className="gx-curr">09</span>
               <span className="gx-sep">—</span>
               <span className="gx-lbl">Selected pieces</span>
             </div>
           </div>
+          <div className="gx-grid">
+            {graphicsData.slice(0, 4).map((g) => (
+              <figure key={g.id} className="gx-card">
+                <div className="gx-img">
+                  <img src={g.image} alt={g.title} loading="lazy" />
+                </div>
+                <figcaption className="gx-meta">
+                  <span className="gx-ti">{g.title}</span>
+                  <span className="gx-ty">{g.category}</span>
+                </figcaption>
+              </figure>
+            ))}
 
-          <GraphicsSlideshow slides={graphicsSlides} />
+            {/* Anora — branding collage, 4 boxes in one card */}
+            <figure className="gx-card gx-card--wide gx-card--collage">
+              <div className="gx-collage">
+                {anoraBranding.images.map((src, i) => (
+                  <div className="gx-collage-cell" key={i}>
+                    <img src={src} alt={`${anoraBranding.title} ${i + 1}`} loading="lazy" />
+                  </div>
+                ))}
+              </div>
+              <figcaption className="gx-meta">
+                <span className="gx-ti">{anoraBranding.title}</span>
+                <span className="gx-ty">{anoraBranding.category}</span>
+              </figcaption>
+            </figure>
+
+            {graphicsData.slice(4, 6).map((g) => (
+              <figure key={g.id} className="gx-card">
+                <div className="gx-img">
+                  <img src={g.image} alt={g.title} loading="lazy" />
+                </div>
+                <figcaption className="gx-meta">
+                  <span className="gx-ti">{g.title}</span>
+                  <span className="gx-ty">{g.category}</span>
+                </figcaption>
+              </figure>
+            ))}
+
+            {/* PWA pair — landscape flag + flyer beside it */}
+            <div className="gx-card gx-card--wide gx-pair">
+              <figure className="gx-pair-main">
+                <div className="gx-img">
+                  <img src={pwaPair.main.image} alt={pwaPair.main.title} loading="lazy" />
+                </div>
+                <figcaption className="gx-meta">
+                  <span className="gx-ti">{pwaPair.main.title}</span>
+                  <span className="gx-ty">{pwaPair.main.category}</span>
+                </figcaption>
+              </figure>
+              <figure className="gx-pair-side">
+                <div className="gx-img">
+                  <img src={pwaPair.side.image} alt={pwaPair.side.title} loading="lazy" />
+                </div>
+                <figcaption className="gx-meta">
+                  <span className="gx-ti">{pwaPair.side.title}</span>
+                  <span className="gx-ty">{pwaPair.side.category}</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </section>
 
-        {/* DESIGN PHILOSOPHY — small repositioning band */}
-        <section id="philosophy" aria-label="Design philosophy" className="sw" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
-          <div className="sw-top">
-            <span className="sw-top-l"><span className="sw-dot" />004</span>
-            <span className="sw-top-c"><span className="sw-dot" />(Design Philosophy)</span>
-            <span className="sw-top-r">©2026</span>
-          </div>
-          <div className="sw-title-row">
-            <h2 className="sw-title">How I<br />Think.</h2>
-          </div>
-          <ul className="ab-list" style={{ marginTop: "1.5rem" }}>
-            <li><span className="ab-num">01.</span><span className="ab-li-l">Clarity over decoration</span><span className="ab-li-d" /></li>
-            <li><span className="ab-num">02.</span><span className="ab-li-l">Systems over isolated visuals</span><span className="ab-li-d" /></li>
-            <li><span className="ab-num">03.</span><span className="ab-li-l">Intent over aesthetics</span><span className="ab-li-d" /></li>
-          </ul>
-        </section>
+        {/* STUDIO CTA */}
 
         {/* STUDIO CTA */}
         <section id="studio">

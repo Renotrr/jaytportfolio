@@ -56,7 +56,7 @@ const RySwiftCaseStudy = () => {
             <div className="qt-case-id">
               <div>
                 <h1 className="qt-case-title">RySwift</h1>
-                <p className="qt-case-tag">A logistics SaaS designed around operational clarity — product UX, data hierarchy, and a calm interface system for dispatchers, fleet managers, and finance leads.</p>
+                <p className="qt-case-tag">A logistics SaaS management app — operational clarity for fleets, shipments, and the people running them.</p>
               </div>
             </div>
           </div>
@@ -88,56 +88,12 @@ const RySwiftCaseStudy = () => {
 
           <div className="qt-body">
             <div className="qt-body-col">
-              <h3>Context</h3>
-              <p>RySwift is a logistics SaaS workspace serving three distinct operator roles — dispatchers, fleet managers, and finance — inside a single product. Every screen sits on top of dense operational data that the team reads continuously through the day.</p>
+              <h3>The Problem</h3>
+              <p>Logistics teams live inside dashboards. Most tools either bury operators in dense tables or hide the data behind decorative widgets. RySwift needed a workspace that respects how dispatchers, fleet managers, and finance leads actually read information — fast, hierarchical, and trustworthy.</p>
             </div>
             <div className="qt-body-col">
-              <h3>Problem</h3>
-              <p>Most logistics tools either drown operators in dense tables or hide the data behind decorative widgets. Neither serves the actual job. RySwift needed a workspace that respects how operators read information — fast, hierarchical, trustworthy — without sacrificing the depth that a logistics business depends on.</p>
-            </div>
-          </div>
-
-          <div className="qt-body">
-            <div className="qt-body-col">
-              <h3>Role</h3>
-              <p>Product Design — information architecture across roles, dashboard taxonomy, table interaction patterns. UI Design — calm dense SaaS system, focused data viz, sectioned modules per role. Visual system contribution — typographic hierarchy and a single global navigation that holds the whole workspace together.</p>
-            </div>
-            <div className="qt-body-col">
-              <h3>Approach</h3>
-              <p>Started from real operator workflows — what does a dispatcher do in the first 30 seconds of a shift, where does finance reconcile, where does fleet plan? Built the navigation around those entry points first, then designed each module to answer one question at a time.</p>
-            </div>
-          </div>
-
-          <div className="qt-body">
-            <div className="qt-body-col">
-              <h3>Design Decisions</h3>
-              <p>Dense-but-readable typography over decorative widgets. Sortable tables as a first-class surface, not an afterthought. A single global navigation instead of role-switching sub-apps, so the product feels like one workspace rather than three disconnected tools.</p>
-            </div>
-            <div className="qt-body-col">
-              <h3>Visual System Contribution</h3>
-              <p>Restrained palette and consistent spacing scale reduce cognitive load across long sessions. Visual hierarchy directs attention to status changes and exceptions — the things operators actually need to act on — instead of competing for attention with everything else on screen.</p>
-            </div>
-          </div>
-
-          <div className="qt-body">
-            <div className="qt-body-col">
-              <h3>Constraints</h3>
-              <p>Three operator roles, one product budget — couldn&rsquo;t ship three sub-apps. Data density is non-negotiable — operators read tables all day; hiding columns is not an option. Long-session ergonomics — the workspace runs full-screen for 8+ hours, so visual fatigue had to be designed against from the first frame.</p>
-            </div>
-            <div className="qt-body-col">
-              <h3>Thinking Process</h3>
-              <p>Considered role-specific dashboards behind a switcher — rejected, because it splits a shared operational reality. Considered a chart-led overview with drill-downs — rejected, because operators trust tables more than charts and need both side-by-side. Landed on a single workspace with role-aware modules and sortable tables as the primary surface.</p>
-            </div>
-          </div>
-
-          <div className="qt-body">
-            <div className="qt-body-col">
-              <h3>Outcome</h3>
-              <p>A workspace where three operator roles share one mental model, every table is sortable, and every primary action is one click from the dashboard. UX clarity and visual restraint reinforce each other — the product reads as one calm surface instead of a stack of tools.</p>
-            </div>
-            <div className="qt-body-col">
-              <h3>Reflection</h3>
-              <p>Rebuilding today I&rsquo;d push further on saved-view personalization — let each operator pin their own table column set so the calm baseline stays, but the workspace adapts to how they actually read it.</p>
+              <h3>The Solution</h3>
+              <p>A calm, dense-but-readable SaaS interface: clear typographic hierarchy, focused data viz, sectioned modules per role, and a single global navigation. Every screen answers one question, every table is sortable, and every action is one click from the dashboard.</p>
             </div>
           </div>
 
