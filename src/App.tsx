@@ -9,7 +9,7 @@ import QueueTopCaseStudy from "./pages/work/QueueTop.tsx";
 import RySwiftCaseStudy from "./pages/work/RySwift.tsx";
 import RevolutCaseStudy from "./pages/work/Revolut.tsx";
 import AtelierCaseStudy from "./pages/work/Atelier.tsx";
-import VirexCaseStudy from "./pages/work/Virex.tsx";
+
 
 const queryClient = new QueryClient();
 
@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/work/ryswift" element={<RySwiftCaseStudy />} />
           <Route path="/work/revolut" element={<RevolutCaseStudy />} />
           <Route path="/work/atelier" element={<AtelierCaseStudy />} />
-          <Route path="/work/virex" element={<VirexCaseStudy />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

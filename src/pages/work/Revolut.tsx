@@ -27,7 +27,7 @@ const RevolutCaseStudy = () => {
             <IconBack />
             Back to portfolio
           </Link>
-          <span className="cs-tl">Case Study · Revolut</span>
+          <span className="cs-tl">Case Study · Revolut Redesign</span>
         </div>
 
         <section className="qt-case qt-case--page">
@@ -43,7 +43,7 @@ const RevolutCaseStudy = () => {
           <div className="qt-case-head">
             <div className="qt-case-id">
               <div>
-                <h1 className="qt-case-title">Revolut</h1>
+                <h1 className="qt-case-title">Revolut Redesign</h1>
                 <p className="qt-case-tag">Fintech Banking · A mobile app reimagined for the next generation of money — fast, confident, and electric.</p>
               </div>
             </div>
