@@ -24,6 +24,7 @@ import {
   thumbnailImages,
   workProjects,
 } from "@/components/portfolio/portfolioData";
+import GraphicsCarousel from "@/components/portfolio/GraphicsCarousel";
 
 import logoSvg from "@/assets/logo.svg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
@@ -812,68 +813,15 @@ const PortfolioPage = () => {
               <span className="gx-lbl">Selected pieces</span>
             </div>
           </div>
-          <div className="gx-grid">
-            {graphicsData.slice(0, 4).map((g) => (
-              <figure key={g.id} className="gx-card">
-                <div className="gx-img">
-                  <img src={g.image} alt={g.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{g.title}</span>
-                  <span className="gx-ty">{g.category}</span>
-                </figcaption>
-              </figure>
-            ))}
-
-            {/* Anora — branding collage, 4 boxes in one card */}
-            <figure className="gx-card gx-card--wide gx-card--collage">
-              <div className="gx-collage">
-                {anoraBranding.images.map((src, i) => (
-                  <div className="gx-collage-cell" key={i}>
-                    <img src={src} alt={`${anoraBranding.title} ${i + 1}`} loading="lazy" />
-                  </div>
-                ))}
-              </div>
-              <figcaption className="gx-meta">
-                <span className="gx-ti">{anoraBranding.title}</span>
-                <span className="gx-ty">{anoraBranding.category}</span>
-              </figcaption>
-            </figure>
-
-            {graphicsData.slice(4, 6).map((g) => (
-              <figure key={g.id} className="gx-card">
-                <div className="gx-img">
-                  <img src={g.image} alt={g.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{g.title}</span>
-                  <span className="gx-ty">{g.category}</span>
-                </figcaption>
-              </figure>
-            ))}
-
-            {/* PWA pair — landscape flag + flyer beside it */}
-            <div className="gx-card gx-card--wide gx-pair">
-              <figure className="gx-pair-main">
-                <div className="gx-img">
-                  <img src={pwaPair.main.image} alt={pwaPair.main.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{pwaPair.main.title}</span>
-                  <span className="gx-ty">{pwaPair.main.category}</span>
-                </figcaption>
-              </figure>
-              <figure className="gx-pair-side">
-                <div className="gx-img">
-                  <img src={pwaPair.side.image} alt={pwaPair.side.title} loading="lazy" />
-                </div>
-                <figcaption className="gx-meta">
-                  <span className="gx-ti">{pwaPair.side.title}</span>
-                  <span className="gx-ty">{pwaPair.side.category}</span>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
+          <GraphicsCarousel
+            items={[
+              ...graphicsData.slice(0, 4),
+              { id: "g5", title: anoraBranding.title, category: anoraBranding.category, image: anoraBranding.images[0] },
+              ...graphicsData.slice(4, 6),
+              { id: "g8", title: pwaPair.main.title, category: pwaPair.main.category, image: pwaPair.main.image },
+              { id: "g9", title: pwaPair.side.title, category: pwaPair.side.category, image: pwaPair.side.image },
+            ]}
+          />
         </section>
 
         {/* STUDIO CTA */}
