@@ -24,6 +24,7 @@ import {
   thumbnailImages,
   workProjects,
 } from "@/components/portfolio/portfolioData";
+import GraphicsCarousel from "@/components/portfolio/GraphicsCarousel";
 
 import logoSvg from "@/assets/logo.svg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
