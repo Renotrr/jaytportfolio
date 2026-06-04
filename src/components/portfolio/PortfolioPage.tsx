@@ -624,7 +624,7 @@ const PortfolioPage = () => {
         </a>
         <ul className="h-topnav h-topnav--right">
           <li><a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")}>Graphics</a></li>
-          <li><a href="#services" onClick={(e) => handleNavClick(e, "services")}>Services</a></li>
+          <li><a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact</a></li>
         </ul>
       </div>
 
