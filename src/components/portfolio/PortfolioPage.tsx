@@ -372,24 +372,8 @@ const PortfolioPage = () => {
         },
       );
 
-      // Work card images — gentle parallax + scale on scroll
-      document.querySelectorAll<HTMLElement>(".sw-card-img img").forEach((img) => {
-        gsap.fromTo(
-          img,
-          { yPercent: -8, scale: 1.08 },
-          {
-            yPercent: 8,
-            scale: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: img.closest(".sw-card") as HTMLElement,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: true,
-            },
-          },
-        );
-      });
+      // Work card images — hover zoom handled via CSS; no scroll parallax to avoid override
+
 
       // Graphics image parallax
       document.querySelectorAll<HTMLElement>(".gx-img img, .gx-collage-cell img").forEach((img) => {
