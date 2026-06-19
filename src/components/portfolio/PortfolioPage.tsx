@@ -948,15 +948,13 @@ const PortfolioPage = () => {
             </div>
             <div className="sf-col sf-office">
               <h4>Our Office :</h4>
-              <p>Surakarta, Indonesia</p>
-              <a href="tel:+621234567890" className="sf-phone">+62 123 4567 890</a>
+              <p>Remote, Worldwide</p>
+              <a href="https://wa.me/2348126315467" target="_blank" rel="noreferrer" className="sf-phone">WhatsApp · +234 812 631 5467</a>
             </div>
           </div>
           <div className="sf-bot">
             <div className="sf-bot-links">
-              <a href="#">FAQ</a>
-              <a href="#">Careers</a>
-              <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact Us</a>
+              <span>Designed by John Adewole</span>
             </div>
             <div className="sf-copy">© {new Date().getFullYear()} {contactContent.footerRight}</div>
           </div>
