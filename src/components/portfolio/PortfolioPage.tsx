@@ -196,12 +196,32 @@ const PortfolioPage = () => {
   );
 
   useEffect(() => {
+    if (isReturning) return; // already past the loader when returning from a case study
     const timer = window.setTimeout(() => {
       setLoaderGone(true);
       setHeroEntered(true);
     }, 2300);
 
     return () => window.clearTimeout(timer);
+  }, [isReturning]);
+
+  // Restore scroll position when returning from a case study page
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+    const saved = sessionStorage.getItem("pf-scroll");
+    if (saved === null) return;
+    sessionStorage.removeItem("pf-scroll");
+    const y = parseInt(saved, 10) || 0;
+    const restore = () => window.scrollTo(0, y);
+    // Restore across several frames so pinned/GSAP layout has settled
+    requestAnimationFrame(() => requestAnimationFrame(restore));
+    const t1 = window.setTimeout(restore, 200);
+    const t2 = window.setTimeout(restore, 600);
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+    };
   }, []);
 
   useEffect(() => {
