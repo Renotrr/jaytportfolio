@@ -50,7 +50,7 @@ const RevolutCaseStudy = () => {
           </div>
 
           <dl className="qt-meta">
-            <div><dt>Role</dt><dd>UI/UX Designer · Collaborative team</dd></div>
+            <div><dt>Role</dt><dd>UI/UX Designer</dd></div>
             <div><dt>Client</dt><dd>Revolut (concept)</dd></div>
             <div><dt>Type</dt><dd>Fintech · Mobile Banking App</dd></div>
             <div><dt>Platform</dt><dd>iOS · Android</dd></div>
