@@ -154,8 +154,10 @@ const PortfolioPage = () => {
   const worksScrollRef = useRef<HTMLElement | null>(null);
   const worksTrackRef = useRef<HTMLDivElement | null>(null);
 
-  const [loaderGone, setLoaderGone] = useState(false);
-  const [heroEntered, setHeroEntered] = useState(false);
+  // Returning from a case study page → skip loader & restore scroll position
+  const isReturning = typeof window !== "undefined" && sessionStorage.getItem("pf-scroll") !== null;
+  const [loaderGone, setLoaderGone] = useState(isReturning);
+  const [heroEntered, setHeroEntered] = useState(isReturning);
   const [thumbIndex, setThumbIndex] = useState(0);
   const [hoveredWork, setHoveredWork] = useState<number | null>(null);
   const [activeCaseStudyId, setActiveCaseStudyId] = useState<string | null>(null);
