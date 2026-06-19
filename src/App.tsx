@@ -30,6 +30,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollManager />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/work/queuetop" element={<QueueTopCaseStudy />} />
