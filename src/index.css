@@ -3810,6 +3810,35 @@
 .gd-dot:hover { background: hsl(var(--cream-1) / 0.6); }
 .gd-dot.active { background: hsl(var(--cream-1)); width: 22px; }
 
+/* Full-image preview overlay (hover desktop / tap mobile) */
+.gd-full {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background: hsl(var(--ink) / 0.92);
+  backdrop-filter: blur(8px);
+  animation: gd-full-in 0.3s ease both;
+}
+.gd-full.is-hover { pointer-events: none; }
+.gd-full.is-tap { pointer-events: auto; cursor: zoom-out; }
+.gd-full img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 40px 90px -20px hsl(0 0% 0% / 0.8);
+}
+@keyframes gd-full-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 @media (max-width: 1024px) {
   .gd-viewport { height: 54vh; min-height: 420px; }
   .gd-card { flex-basis: 300px; }
