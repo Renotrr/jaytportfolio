@@ -2552,6 +2552,10 @@
   align-items: center; justify-content: space-between;
 }
 .sf-bot-links { display: flex; gap: 1.5rem; }
+.sf-bot-links span {
+  color: hsl(var(--cream));
+  font-size: 0.85rem;
+}
 .sf-bot-links a {
   color: hsl(var(--cream));
   font-size: 0.85rem;
