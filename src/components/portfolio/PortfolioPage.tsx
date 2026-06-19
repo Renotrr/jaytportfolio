@@ -708,7 +708,7 @@ const PortfolioPage = () => {
                 </li>
                 <li className="fi" style={withDelay(".45s")}>
                   <span className="ab-num">02.</span>
-                  <span className="ab-li-l">Figma, Canva, Framer, ChatGPT</span>
+                  <span className="ab-li-l">Figma, Canva, Lovable AI, Claude AI, ChatGPT</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".55s")}>
