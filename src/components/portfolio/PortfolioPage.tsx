@@ -926,8 +926,8 @@ const PortfolioPage = () => {
 
             <div className="cf-direct fi" style={withDelay(".25s")}>
               <a href={`mailto:${heroContent.email}`}>{heroContent.email}</a>
-              <a href="https://wa.me/2340000000000" target="_blank" rel="noreferrer">
-                WhatsApp · +234 000 000 0000
+              <a href="https://wa.me/2348126315467" target="_blank" rel="noreferrer">
+                WhatsApp · +234 812 631 5467
               </a>
             </div>
           </div>
