@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +11,16 @@ import RySwiftCaseStudy from "./pages/work/RySwift.tsx";
 import RevolutCaseStudy from "./pages/work/Revolut.tsx";
 import AtelierCaseStudy from "./pages/work/Atelier.tsx";
 
+// Scroll to top on case study routes; the portfolio ("/") restores its own
+// scroll position when returning from a case study.
+const ScrollManager = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    if (pathname !== "/") window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
 
 const queryClient = new QueryClient();
 
@@ -19,6 +30,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollManager />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/work/queuetop" element={<QueueTopCaseStudy />} />

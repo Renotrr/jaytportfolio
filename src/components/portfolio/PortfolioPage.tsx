@@ -154,8 +154,10 @@ const PortfolioPage = () => {
   const worksScrollRef = useRef<HTMLElement | null>(null);
   const worksTrackRef = useRef<HTMLDivElement | null>(null);
 
-  const [loaderGone, setLoaderGone] = useState(false);
-  const [heroEntered, setHeroEntered] = useState(false);
+  // Returning from a case study page → skip loader & restore scroll position
+  const isReturning = typeof window !== "undefined" && sessionStorage.getItem("pf-scroll") !== null;
+  const [loaderGone, setLoaderGone] = useState(isReturning);
+  const [heroEntered, setHeroEntered] = useState(isReturning);
   const [thumbIndex, setThumbIndex] = useState(0);
   const [hoveredWork, setHoveredWork] = useState<number | null>(null);
   const [activeCaseStudyId, setActiveCaseStudyId] = useState<string | null>(null);
@@ -194,12 +196,32 @@ const PortfolioPage = () => {
   );
 
   useEffect(() => {
+    if (isReturning) return; // already past the loader when returning from a case study
     const timer = window.setTimeout(() => {
       setLoaderGone(true);
       setHeroEntered(true);
     }, 2300);
 
     return () => window.clearTimeout(timer);
+  }, [isReturning]);
+
+  // Restore scroll position when returning from a case study page
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+    const saved = sessionStorage.getItem("pf-scroll");
+    if (saved === null) return;
+    sessionStorage.removeItem("pf-scroll");
+    const y = parseInt(saved, 10) || 0;
+    const restore = () => window.scrollTo(0, y);
+    // Restore across several frames so pinned/GSAP layout has settled
+    requestAnimationFrame(() => requestAnimationFrame(restore));
+    const t1 = window.setTimeout(restore, 200);
+    const t2 = window.setTimeout(restore, 600);
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+    };
   }, []);
 
   useEffect(() => {
@@ -708,7 +730,7 @@ const PortfolioPage = () => {
                 </li>
                 <li className="fi" style={withDelay(".45s")}>
                   <span className="ab-num">02.</span>
-                  <span className="ab-li-l">Figma, Canva, Framer, ChatGPT</span>
+                  <span className="ab-li-l">Figma, Canva, Lovable AI, Claude AI, ChatGPT</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".55s")}>
@@ -754,7 +776,12 @@ const PortfolioPage = () => {
                 </>
               );
               return w.href ? (
-                <Link to={w.href} className="sw-card sw-card--link" key={w.id}>
+                <Link
+                  to={w.href}
+                  className="sw-card sw-card--link"
+                  key={w.id}
+                  onClick={() => sessionStorage.setItem("pf-scroll", String(window.scrollY))}
+                >
                   {inner}
                 </Link>
               ) : (
@@ -926,8 +953,8 @@ const PortfolioPage = () => {
 
             <div className="cf-direct fi" style={withDelay(".25s")}>
               <a href={`mailto:${heroContent.email}`}>{heroContent.email}</a>
-              <a href="https://wa.me/2340000000000" target="_blank" rel="noreferrer">
-                WhatsApp · +234 000 000 0000
+              <a href="https://wa.me/2348126315467" target="_blank" rel="noreferrer">
+                WhatsApp · +234 812 631 5467
               </a>
             </div>
           </div>
@@ -948,15 +975,13 @@ const PortfolioPage = () => {
             </div>
             <div className="sf-col sf-office">
               <h4>Our Office :</h4>
-              <p>Surakarta, Indonesia</p>
-              <a href="tel:+621234567890" className="sf-phone">+62 123 4567 890</a>
+              <p>Remote, Worldwide</p>
+              <a href="https://wa.me/2348126315467" target="_blank" rel="noreferrer" className="sf-phone">WhatsApp · +234 812 631 5467</a>
             </div>
           </div>
           <div className="sf-bot">
             <div className="sf-bot-links">
-              <a href="#">FAQ</a>
-              <a href="#">Careers</a>
-              <a href="#contact" onClick={(e) => handleNavClick(e, "contact")}>Contact Us</a>
+              <span>Designed by John Adewole</span>
             </div>
             <div className="sf-copy">© {new Date().getFullYear()} {contactContent.footerRight}</div>
           </div>
