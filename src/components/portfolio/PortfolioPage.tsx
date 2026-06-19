@@ -776,7 +776,12 @@ const PortfolioPage = () => {
                 </>
               );
               return w.href ? (
-                <Link to={w.href} className="sw-card sw-card--link" key={w.id}>
+                <Link
+                  to={w.href}
+                  className="sw-card sw-card--link"
+                  key={w.id}
+                  onClick={() => sessionStorage.setItem("pf-scroll", String(window.scrollY))}
+                >
                   {inner}
                 </Link>
               ) : (
