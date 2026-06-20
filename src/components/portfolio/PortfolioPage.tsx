@@ -679,26 +679,34 @@ const PortfolioPage = () => {
                   <span className="h-headline-line">Welcome to my World.</span>
                 </h1>
                 <p className={`h-lede fi ${heroEntered ? "in" : ""}`} style={withDelay(".35s")}>
-                  Creative designer &amp; no-code developer crafting brand systems,
-                  product interfaces, and considered web experiences.
+                  I help startups and brands turn ideas into websites, apps, and
+                  digital experiences that improve engagement, conversions, and growth.
                 </p>
               </div>
               <div className="h-divider" />
               <div className={`h-cta h-cta--pin fi ${heroEntered ? "in" : ""}`} style={withDelay(".55s")}>
-                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-primary">
-                  Get in touch
+                <a href="#work" onClick={(e) => handleNavClick(e, "work")} className="btn-pill btn-primary">
+                  View Case Studies
                   <span className="btn-circle"><IconArrow /></span>
                 </a>
-                <a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")} className="btn-pill btn-ghost">
+                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-ghost">
                   <span className="btn-play" aria-hidden="true">
                     <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19" /></svg>
                   </span>
-                  View graphic design
+                  Book a Discovery Call
                 </a>
               </div>
+              <ul className={`h-trust fi ${heroEntered ? "in" : ""}`} style={withDelay(".7s")} aria-label="Highlights">
+                <li>Multiple Projects Shipped</li>
+                <li aria-hidden="true" className="h-trust-dot">•</li>
+                <li>3+ Years Experience</li>
+                <li aria-hidden="true" className="h-trust-dot">•</li>
+                <li>Startup Focused</li>
+              </ul>
             </div>
           </div>
         </section>
+
 
         {/* ABOUT — elopes the hero (slides up over it) */}
         <section id="about" className="ab-elope">
