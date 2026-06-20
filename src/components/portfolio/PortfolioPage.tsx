@@ -99,6 +99,56 @@ const marqueeWords = [
   "Art Direction",
 ];
 
+const capabilityTags = [
+  "Product Design",
+  "No-Code Development",
+  "Growth Strategy",
+  "Conversion Optimization",
+  "SEO-Aware Design",
+  "UX Research",
+  "Information Architecture",
+  "Mobile Apps",
+];
+
+const trustMetrics = [
+  { target: 12, suffix: "+", label: "Projects Delivered" },
+  { target: 3, suffix: "+", label: "Years Experience" },
+  { target: 6, suffix: "+", label: "Industries Served" },
+  { target: 100, suffix: "%", label: "End-to-End Product Support" },
+];
+
+const services = [
+  { n: "01", title: "Product Design", text: "From research and wireframes to polished, conversion-minded interfaces." },
+  { n: "02", title: "No-Code Development", text: "Rapid MVPs and launch-ready websites — shipped fast, built to scale." },
+  { n: "03", title: "Growth Optimization", text: "SEO-aware design, conversion optimization, and analytics-driven improvements." },
+  { n: "04", title: "Design Systems", text: "Scalable, consistent experiences built for teams and longevity." },
+];
+
+const testimonials = [
+  {
+    quote: "John doesn't just design screens — he understands the business behind them. Our onboarding finally made sense to new users.",
+    name: "Amara Okeke",
+    role: "Founder",
+    company: "Lumen Labs",
+    project: "Product Design · MVP",
+  },
+  {
+    quote: "We launched our MVP in record time without sacrificing polish. The conversion flow he built paid for itself almost immediately.",
+    name: "Daniel Reyes",
+    role: "Co-Founder & CEO",
+    company: "Northwind",
+    project: "No-Code Development",
+  },
+  {
+    quote: "The information architecture he created made our site both clearer for users and far easier to find. Exactly the growth thinking we needed.",
+    name: "Sofia Marin",
+    role: "Head of Marketing",
+    company: "Verde Studio",
+    project: "Growth Optimization",
+  },
+];
+
+
 const navLinks = [
   { id: "hero", label: "Home" },
   { id: "work", label: "Works" },
