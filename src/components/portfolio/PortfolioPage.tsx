@@ -728,26 +728,25 @@ const PortfolioPage = () => {
             <div className="ab-right">
               <h2 className="ab-headline wu" style={withDelay(".15s")}>
                 <span className="ab-eye">(About)</span>
-                With over 3 years under my belt, I craft — memorable websites and brand visuals that reflect each client&rsquo;s unique story.
+                A Creative Director &amp; No-Code Developer turning ideas into launch-ready digital products.
               </h2>
-              <ul className="ab-list">
-                <li className="fi" style={withDelay(".35s")}>
-                  <span className="ab-num">01.</span>
-                  <span className="ab-li-l">Creative Designer & No-Code Developer</span>
-                  <span className="ab-li-d" />
-                </li>
-                <li className="fi" style={withDelay(".45s")}>
-                  <span className="ab-num">02.</span>
-                  <span className="ab-li-l">Figma, Canva, Lovable AI, Claude AI</span>
-                  <span className="ab-li-d" />
-                </li>
-                <li className="fi" style={withDelay(".55s")}>
-                  <span className="ab-num">03.</span>
-                  <span className="ab-li-l">Available for freelance & collaborations</span>
-                  <span className="ab-li-d" />
-                </li>
+              <div className="ab-copy">
+                <p className="fi" style={withDelay(".3s")}>
+                  I&rsquo;m John Adewole, a Creative Director and No-Code Developer with over 3 years of
+                  experience helping startups and brands transform ideas into launch-ready digital products.
+                </p>
+                <p className="fi" style={withDelay(".4s")}>
+                  I combine strategy, design, and growth thinking to create experiences that not only look
+                  great but drive meaningful business outcomes.
+                </p>
+              </div>
+              <ul className="ab-caps fi" style={withDelay(".5s")} aria-label="Capabilities">
+                {capabilityTags.map((tag) => (
+                  <li key={tag} className="ab-cap">{tag}</li>
+                ))}
               </ul>
             </div>
+
           </div>
         </section>
         </div>
