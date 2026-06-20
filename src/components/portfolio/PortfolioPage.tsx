@@ -846,16 +846,25 @@ const PortfolioPage = () => {
             <span className="sw-top-r">©2026</span>
           </div>
           <div className="sw-title-row">
-            <h2 className="sw-title">Selected<br />Works</h2>
+            <h2 className="sw-title">Selected<br />Work</h2>
             <span className="sw-count">({worksData.length})</span>
           </div>
-          <p className="sw-lede">// &nbsp;&nbsp;I help brands grow and tell their stories to the world.</p>
+          <p className="sw-lede">// &nbsp;&nbsp;Design decisions driven by user needs and business goals.</p>
           <div className="sw-grid">
             {worksData.map((w, i) => {
               const inner = (
                 <>
                   <div className="sw-card-img">
-                    <img src={w.image} alt={w.title} loading="lazy" />
+                    <img src={w.image} alt={`${w.title} — ${w.category}`} loading="lazy" />
+                    <div className="sw-card-detail">
+                      <span className="sw-detail-cat">{w.category}</span>
+                      <dl className="sw-detail-dl">
+                        <div><dt>Problem</dt><dd>{w.problem}</dd></div>
+                        <div><dt>Role</dt><dd>{w.role}</dd></div>
+                        <div><dt>Outcome</dt><dd>{w.outcome}</dd></div>
+                      </dl>
+                      <span className="sw-detail-cta">Read case study <IconArrow /></span>
+                    </div>
                   </div>
                   <div className="sw-card-foot my-[4px]">
                     <span className="sw-card-name"><span className="sw-plus">+</span> {w.title}</span>
@@ -885,6 +894,7 @@ const PortfolioPage = () => {
             })}
           </div>
         </section>
+
 
 
 
