@@ -13,7 +13,7 @@ interface Props {
   autoPlayMs?: number;
 }
 
-type FullView = { src: string; alt: string; mode: "hover" | "tap" } | null;
+type FullView = { src: string; alt: string } | null;
 
 export default function GraphicsCarousel({ items, autoPlayMs = 1500 }: Props) {
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -23,6 +23,8 @@ export default function GraphicsCarousel({ items, autoPlayMs = 1500 }: Props) {
   const useARef = useRef(true);
   const autoRef = useRef<number | null>(null);
   const pausedRef = useRef(false);
+  // Press tracking — distinguishes a quick tap (open full) from a press-and-hold (pause)
+  const pressRef = useRef<{ t: number; x: number; y: number; moved: boolean } | null>(null);
   const [active, setActive] = useState(0);
   const [full, setFull] = useState<FullView>(null);
 
@@ -84,7 +86,7 @@ export default function GraphicsCarousel({ items, autoPlayMs = 1500 }: Props) {
     if (item) setBg(item.large || item.image);
   }, [active, items, setBg]);
 
-  // Auto-play — advance every autoPlayMs (default 1.5s), loops back to first
+  // Auto-play — infinite loop, advances every autoPlayMs (default 1.5s)
   const startAuto = useCallback(() => {
     if (autoRef.current) window.clearInterval(autoRef.current);
     autoRef.current = window.setInterval(() => {
@@ -92,7 +94,7 @@ export default function GraphicsCarousel({ items, autoPlayMs = 1500 }: Props) {
       setActive((prev) => {
         const next = (prev + 1) % items.length;
         scrollToIndex(next);
-        return prev; // scroll listener will update active
+        return prev; // scroll listener updates active
       });
     }, autoPlayMs);
   }, [autoPlayMs, items.length, scrollToIndex]);
@@ -109,29 +111,7 @@ export default function GraphicsCarousel({ items, autoPlayMs = 1500 }: Props) {
     pausedRef.current = full !== null;
   }, [full]);
 
-  // Pause on hover/focus/interaction
-  useEffect(() => {
-    const vp = viewportRef.current;
-    if (!vp) return;
-    const pause = () => (pausedRef.current = true);
-    const resume = () => {
-      if (!full) pausedRef.current = false;
-    };
-    vp.addEventListener("pointerenter", pause);
-    vp.addEventListener("pointerleave", resume);
-    vp.addEventListener("focusin", pause);
-    vp.addEventListener("focusout", resume);
-    vp.addEventListener("pointerdown", pause);
-    return () => {
-      vp.removeEventListener("pointerenter", pause);
-      vp.removeEventListener("pointerleave", resume);
-      vp.removeEventListener("focusin", pause);
-      vp.removeEventListener("focusout", resume);
-      vp.removeEventListener("pointerdown", pause);
-    };
-  }, [full]);
-
-  // Close tap-overlay on Escape
+  // Close full overlay on Escape
   useEffect(() => {
     if (!full) return;
     const onKey = (e: globalThis.KeyboardEvent) => {
@@ -144,6 +124,29 @@ export default function GraphicsCarousel({ items, autoPlayMs = 1500 }: Props) {
   const go = (dir: 1 | -1) => {
     const next = (active + dir + items.length) % items.length;
     scrollToIndex(next);
+  };
+
+  // Press-and-hold pauses the animation; a quick tap opens the full image.
+  const onPressStart = (e: React.PointerEvent) => {
+    pressRef.current = { t: Date.now(), x: e.clientX, y: e.clientY, moved: false };
+    pausedRef.current = true; // hold to stop the animation
+  };
+
+  const onPressMove = (e: React.PointerEvent) => {
+    const p = pressRef.current;
+    if (!p) return;
+    if (Math.abs(e.clientX - p.x) > 8 || Math.abs(e.clientY - p.y) > 8) p.moved = true;
+  };
+
+  const onPressEnd = (src: string, alt: string) => {
+    const p = pressRef.current;
+    pressRef.current = null;
+    if (!full) pausedRef.current = false; // resume the animation
+    if (!p) return;
+    const quick = Date.now() - p.t < 250;
+    if (quick && !p.moved) {
+      setFull({ src, alt }); // quick tap → open full image
+    }
   };
 
   return (
@@ -173,23 +176,16 @@ export default function GraphicsCarousel({ items, autoPlayMs = 1500 }: Props) {
                 key={it.id}
                 ref={(el) => (cardRefs.current[i] = el)}
                 className={`gd-card${i === active ? " is-active" : ""}`}
-                onPointerEnter={(e) => {
-                  if (e.pointerType === "mouse") {
-                    setFull({ src, alt: it.title, mode: "hover" });
+                onPointerDown={onPressStart}
+                onPointerMove={onPressMove}
+                onPointerUp={() => onPressEnd(src, it.title)}
+                onPointerCancel={() => onPressEnd(src, it.title)}
+                onPointerLeave={() => {
+                  // released outside / drag away → resume without opening
+                  if (pressRef.current) {
+                    pressRef.current = null;
+                    if (!full) pausedRef.current = false;
                   }
-                }}
-                onPointerLeave={(e) => {
-                  if (e.pointerType === "mouse") {
-                    setFull((prev) => (prev && prev.mode === "hover" ? null : prev));
-                  }
-                }}
-                onClick={(e) => {
-                  // Touch / pen → tap to open full image
-                  if (e.nativeEvent instanceof PointerEvent && e.nativeEvent.pointerType !== "mouse") {
-                    setFull({ src, alt: it.title, mode: "tap" });
-                    return;
-                  }
-                  scrollToIndex(i);
                 }}
               >
                 <div className="gd-img">
@@ -198,6 +194,7 @@ export default function GraphicsCarousel({ items, autoPlayMs = 1500 }: Props) {
                     data-large={src}
                     alt={it.title}
                     loading="lazy"
+                    draggable={false}
                   />
                 </div>
                 <figcaption className="gd-meta">
@@ -227,14 +224,20 @@ export default function GraphicsCarousel({ items, autoPlayMs = 1500 }: Props) {
         <button type="button" className="gd-btn" aria-label="Next" onClick={() => go(1)}>›</button>
       </div>
 
-      {/* Full-image preview overlay — hover (desktop) / tap (mobile) */}
+      {/* Full-image preview — opens on tap, closes via the X button */}
       {full && (
-        <div
-          className={`gd-full is-${full.mode}`}
-          onClick={() => setFull(null)}
-          role="dialog"
-          aria-label={full.alt}
-        >
+        <div className="gd-full" role="dialog" aria-modal="true" aria-label={full.alt}>
+          <button
+            type="button"
+            className="gd-full-close"
+            aria-label="Close full image"
+            onClick={() => setFull(null)}
+          >
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.6">
+              <line x1="6" y1="6" x2="18" y2="18" />
+              <line x1="18" y1="6" x2="6" y2="18" />
+            </svg>
+          </button>
           <img src={full.src} alt={full.alt} />
         </div>
       )}

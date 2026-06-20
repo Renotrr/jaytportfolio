@@ -59,11 +59,12 @@ const resolvePortfolioImage = (src: string) =>
 
 // New works data with year + generated images
 const worksData = [
-  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
-  { id: "w2", title: "RySwift", year: "2025", category: "SaaS · Logistics", image: ryswiftHero, href: "/work/ryswift" },
-  { id: "w3", title: "Revolut Redesign", year: "2026", category: "Fintech · Mobile App · UI/UX", image: revolutHero, href: "/work/revolut" },
-  { id: "w5", title: "Atelier", year: "2026", category: "Fashion E-commerce · Lovable", image: atelierHero, href: "/work/atelier" },
+  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop", problem: "Audiences had no real-time way to influence the music at live events.", role: "Product Design · No-Code Build", outcome: "Improved onboarding clarity & built MVP in record time" },
+  { id: "w2", title: "RySwift", year: "2025", category: "SaaS · Logistics", image: ryswiftHero, href: "/work/ryswift", problem: "Manual dispatch workflows slowed operations and hurt retention.", role: "UX Research · Product Design", outcome: "Optimized conversion flow & reduced task friction" },
+  { id: "w3", title: "Revolut Redesign", year: "2026", category: "Fintech · Mobile App · UI/UX", image: revolutHero, href: "/work/revolut", problem: "Banking felt dense and intimidating to a new generation of users.", role: "UI/UX Designer", outcome: "Clearer money hub & higher engagement potential" },
+  { id: "w5", title: "Atelier", year: "2026", category: "Fashion E-commerce · Lovable", image: atelierHero, href: "/work/atelier", problem: "A boutique needed a storefront as considered as its products.", role: "Product Design · No-Code Build", outcome: "Created SEO-ready information architecture" },
 ];
+
 
 const graphicsData = [
   { id: "g1", title: "House Fellowship", category: "Event Poster · Àkàndá", image: graphicHouseFellowship },
@@ -98,6 +99,59 @@ const marqueeWords = [
   "UI/UX",
   "Art Direction",
 ];
+
+const capabilityTags = [
+  "Product Design",
+  "No-Code Development",
+  "Growth Strategy",
+  "Conversion Optimization",
+  "SEO-Aware Design",
+  "UX Research",
+  "Information Architecture",
+  "Mobile Apps",
+];
+
+const trustMetrics = [
+  { target: 12, suffix: "+", label: "Projects Delivered" },
+  { target: 3, suffix: "+", label: "Years Experience" },
+  { target: 6, suffix: "+", label: "Industries Served" },
+  { target: 100, suffix: "%", label: "End-to-End Product Support" },
+];
+
+const clientLogos = ["Lumen Labs", "Northwind", "Verde Studio", "Atlas", "Orbit", "Cobalt", "Fern & Co", "Helio"];
+
+
+const services = [
+  { n: "01", title: "Product Design", text: "From research and wireframes to polished, conversion-minded interfaces." },
+  { n: "02", title: "No-Code Development", text: "Rapid MVPs and launch-ready websites — shipped fast, built to scale." },
+  { n: "03", title: "Growth Optimization", text: "SEO-aware design, conversion optimization, and analytics-driven improvements." },
+  { n: "04", title: "Design Systems", text: "Scalable, consistent experiences built for teams and longevity." },
+];
+
+const testimonials = [
+  {
+    quote: "John doesn't just design screens — he understands the business behind them. Our onboarding finally made sense to new users.",
+    name: "Amara Okeke",
+    role: "Founder",
+    company: "Lumen Labs",
+    project: "Product Design · MVP",
+  },
+  {
+    quote: "We launched our MVP in record time without sacrificing polish. The conversion flow he built paid for itself almost immediately.",
+    name: "Daniel Reyes",
+    role: "Co-Founder & CEO",
+    company: "Northwind",
+    project: "No-Code Development",
+  },
+  {
+    quote: "The information architecture he created made our site both clearer for users and far easier to find. Exactly the growth thinking we needed.",
+    name: "Sofia Marin",
+    role: "Head of Marketing",
+    company: "Verde Studio",
+    project: "Growth Optimization",
+  },
+];
+
 
 const navLinks = [
   { id: "hero", label: "Home" },
@@ -651,7 +705,7 @@ const PortfolioPage = () => {
             <div className={`h-pins fi ${heroEntered ? "in" : ""}`} aria-hidden="true">
               <span className="h-pin h-pin--tl" style={withDelay(".4s")}>
                 <span className="h-pin-dot" />
-                Creative Designer
+                Creative Director
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--bl" style={withDelay(".55s")}>
@@ -679,26 +733,34 @@ const PortfolioPage = () => {
                   <span className="h-headline-line">Welcome to my World.</span>
                 </h1>
                 <p className={`h-lede fi ${heroEntered ? "in" : ""}`} style={withDelay(".35s")}>
-                  Creative designer &amp; no-code developer crafting brand systems,
-                  product interfaces, and considered web experiences.
+                  I help startups and brands turn ideas into websites, apps, and
+                  digital experiences that improve engagement, conversions, and growth.
                 </p>
               </div>
               <div className="h-divider" />
               <div className={`h-cta h-cta--pin fi ${heroEntered ? "in" : ""}`} style={withDelay(".55s")}>
-                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-primary">
-                  Get in touch
+                <a href="#work" onClick={(e) => handleNavClick(e, "work")} className="btn-pill btn-primary">
+                  View Case Studies
                   <span className="btn-circle"><IconArrow /></span>
                 </a>
-                <a href="#graphics" onClick={(e) => handleNavClick(e, "graphics")} className="btn-pill btn-ghost">
+                <a href="#contact" onClick={(e) => handleNavClick(e, "contact")} className="btn-pill btn-ghost">
                   <span className="btn-play" aria-hidden="true">
                     <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19" /></svg>
                   </span>
-                  View graphic design
+                  Book a Discovery Call
                 </a>
               </div>
+              <ul className={`h-trust fi ${heroEntered ? "in" : ""}`} style={withDelay(".7s")} aria-label="Highlights">
+                <li>Multiple Projects Shipped</li>
+                <li aria-hidden="true" className="h-trust-dot">•</li>
+                <li>3+ Years Experience</li>
+                <li aria-hidden="true" className="h-trust-dot">•</li>
+                <li>Startup Focused</li>
+              </ul>
             </div>
           </div>
         </section>
+
 
         {/* ABOUT — elopes the hero (slides up over it) */}
         <section id="about" className="ab-elope">
@@ -713,37 +775,68 @@ const PortfolioPage = () => {
                 <img src={aboutPortrait} alt="John Adewole" />
                 <div className="ab-tag">
                   <span className="ab-tag-k">JA / 3+</span>
-                  <span className="ab-tag-l">Creative Designer · No-Code Developer</span>
+                  <span className="ab-tag-l">Creative Director · No-Code Developer</span>
                 </div>
               </div>
             </div>
             <div className="ab-right">
               <h2 className="ab-headline wu" style={withDelay(".15s")}>
                 <span className="ab-eye">(About)</span>
-                With over 3 years under my belt, I craft — memorable websites and brand visuals that reflect each client&rsquo;s unique story.
+                A Creative Director &amp; No-Code Developer turning ideas into launch-ready digital products.
               </h2>
-              <ul className="ab-list">
-                <li className="fi" style={withDelay(".35s")}>
-                  <span className="ab-num">01.</span>
-                  <span className="ab-li-l">Creative Designer & No-Code Developer</span>
-                  <span className="ab-li-d" />
-                </li>
-                <li className="fi" style={withDelay(".45s")}>
-                  <span className="ab-num">02.</span>
-                  <span className="ab-li-l">Figma, Canva, Lovable AI, Claude AI</span>
-                  <span className="ab-li-d" />
-                </li>
-                <li className="fi" style={withDelay(".55s")}>
-                  <span className="ab-num">03.</span>
-                  <span className="ab-li-l">Available for freelance & collaborations</span>
-                  <span className="ab-li-d" />
-                </li>
+              <div className="ab-copy">
+                <p className="fi" style={withDelay(".3s")}>
+                  I&rsquo;m John Adewole, a Creative Director and No-Code Developer with over 3 years of
+                  experience helping startups and brands transform ideas into launch-ready digital products.
+                </p>
+                <p className="fi" style={withDelay(".4s")}>
+                  I combine strategy, design, and growth thinking to create experiences that not only look
+                  great but drive meaningful business outcomes.
+                </p>
+              </div>
+              <ul className="ab-caps fi" style={withDelay(".5s")} aria-label="Capabilities">
+                {capabilityTags.map((tag) => (
+                  <li key={tag} className="ab-cap">{tag}</li>
+                ))}
               </ul>
             </div>
+
           </div>
         </section>
         </div>
         {/* /elope-stack */}
+
+        {/* TRUST & EVIDENCE */}
+        <section id="trust" className="tr-section" aria-labelledby="tr-title">
+          <div className="tr-head">
+            <span className="sec-lbl"><span className="sw-dot" />Why work with me</span>
+            <h2 id="tr-title" className="tr-title wu">Built for Growth.<br />Backed by Results.</h2>
+          </div>
+          <div className="tr-grid a-stats">
+            {trustMetrics.map((m) => (
+              <div className="tr-card fi" key={m.label}>
+                <span className="tr-num">
+                  <span className="stat-n" data-target={m.target} data-suffix={m.suffix}>0{m.suffix}</span>
+                </span>
+                <span className="tr-lbl">{m.label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CLIENT LOGOS */}
+        <section id="clients" className="cl-section" aria-labelledby="cl-title">
+          <h2 id="cl-title" className="cl-title">Trusted by Startups and Growing Brands</h2>
+          <div className="cl-marquee" aria-hidden="true">
+            <div className="cl-track">
+              {[...clientLogos, ...clientLogos].map((name, i) => (
+                <span className="cl-logo" key={i}>{name}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
 
         {/* SELECTED WORKS — grid layout */}
         <section id="work" className="sw" ref={worksScrollRef}>
@@ -753,16 +846,25 @@ const PortfolioPage = () => {
             <span className="sw-top-r">©2026</span>
           </div>
           <div className="sw-title-row">
-            <h2 className="sw-title">Selected<br />Works</h2>
+            <h2 className="sw-title">Selected<br />Work</h2>
             <span className="sw-count">({worksData.length})</span>
           </div>
-          <p className="sw-lede">// &nbsp;&nbsp;I help brands grow and tell their stories to the world.</p>
+          <p className="sw-lede">// &nbsp;&nbsp;Design decisions driven by user needs and business goals.</p>
           <div className="sw-grid">
             {worksData.map((w, i) => {
               const inner = (
                 <>
                   <div className="sw-card-img">
-                    <img src={w.image} alt={w.title} loading="lazy" />
+                    <img src={w.image} alt={`${w.title} — ${w.category}`} loading="lazy" />
+                    <div className="sw-card-detail">
+                      <span className="sw-detail-cat">{w.category}</span>
+                      <dl className="sw-detail-dl">
+                        <div><dt>Problem</dt><dd>{w.problem}</dd></div>
+                        <div><dt>Role</dt><dd>{w.role}</dd></div>
+                        <div><dt>Outcome</dt><dd>{w.outcome}</dd></div>
+                      </dl>
+                      <span className="sw-detail-cta">Read case study <IconArrow /></span>
+                    </div>
                   </div>
                   <div className="sw-card-foot my-[4px]">
                     <span className="sw-card-name"><span className="sw-plus">+</span> {w.title}</span>
@@ -795,6 +897,7 @@ const PortfolioPage = () => {
 
 
 
+
         <section id="marquee" className="marquee-section" aria-label="Skills">
           <div className="marquee-track">
             {[...marqueeWords, ...marqueeWords].map((word, i) => (
@@ -805,6 +908,46 @@ const PortfolioPage = () => {
             ))}
           </div>
         </section>
+
+        {/* SERVICES — How I Help */}
+        <section id="services" className="sv-section" aria-labelledby="sv-title">
+          <div className="sv-head">
+            <span className="sec-lbl"><span className="sw-dot" />Services</span>
+            <h2 id="sv-title" className="sv-title wu">How I Help</h2>
+          </div>
+          <div className="sv-grid">
+            {services.map((s) => (
+              <article className="sv-card fi" key={s.n}>
+                <span className="sv-num">{s.n}</span>
+                <h3 className="sv-card-title">{s.title}</h3>
+                <p className="sv-card-text">{s.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section id="testimonials" className="ts-section" aria-labelledby="ts-title">
+          <div className="ts-head">
+            <span className="sec-lbl"><span className="sw-dot" />Testimonials</span>
+            <h2 id="ts-title" className="ts-title wu">What Clients Say</h2>
+          </div>
+          <div className="ts-grid">
+            {testimonials.map((t) => (
+              <figure className="ts-card fi" key={t.name}>
+                <span className="ts-quote-mark" aria-hidden="true">&ldquo;</span>
+                <blockquote className="ts-quote">{t.quote}</blockquote>
+                <figcaption className="ts-cap">
+                  <span className="ts-name">{t.name}</span>
+                  <span className="ts-role">{t.role}, {t.company}</span>
+                  {t.project && <span className="ts-proj">{t.project}</span>}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+
 
 
 
@@ -902,8 +1045,31 @@ const PortfolioPage = () => {
           </div>
         </section>
 
+        {/* FINAL CTA */}
+        <section id="cta" className="fc-section" aria-labelledby="fc-title">
+          <div className="fc-inner">
+            <h2 id="fc-title" className="fc-title wu">
+              Ready to build something people love and businesses grow with?
+            </h2>
+            <p className="fc-sub fi" style={withDelay(".1s")}>
+              Whether you&rsquo;re launching an MVP, redesigning a product, or scaling your digital
+              presence, let&rsquo;s create experiences that deliver results.
+            </p>
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "contact")}
+              className="btn-pill btn-primary fc-btn fi"
+              style={withDelay(".2s")}
+            >
+              Let&rsquo;s Talk
+              <span className="btn-circle"><IconArrow /></span>
+            </a>
+          </div>
+        </section>
+
         {/* CONTACT */}
         <section id="contact" className="contact-form-section">
+
           <div className="cf-inner">
             <h2 className="cf-title fi" style={withDelay("0s")}>
               Let&rsquo;s work together!
@@ -963,22 +1129,27 @@ const PortfolioPage = () => {
         {/* FOOTER */}
         <footer className="site-footer">
           <div className="sf-grid">
-            <div className="sf-brand">{heroContent.logo}</div>
+            <div className="sf-brand">
+              {heroContent.logo}
+              <span className="sf-status"><span className="sf-status-dot" />Available for new projects</span>
+            </div>
             <div className="sf-col">
               <h4>Social Media</h4>
               <div className="sf-links">
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Pinterest</a>
+                <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="https://wa.me/2348126315467" target="_blank" rel="noreferrer">WhatsApp</a>
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://behance.net" target="_blank" rel="noreferrer">Behance</a>
               </div>
             </div>
             <div className="sf-col sf-office">
-              <h4>Our Office :</h4>
+              <h4>Get in touch :</h4>
               <p>Remote, Worldwide</p>
+              <a href={`mailto:${heroContent.email}`} className="sf-phone">{heroContent.email}</a>
               <a href="https://wa.me/2348126315467" target="_blank" rel="noreferrer" className="sf-phone">WhatsApp · +234 812 631 5467</a>
             </div>
           </div>
+
           <div className="sf-bot">
             <div className="sf-bot-links">
               <span>Designed by John Adewole</span>
