@@ -31,7 +31,7 @@ export const heroContent = {
     "Adewole"
   ],
   "mark": "✦",
-  "role": "Creative Director & No-Code Developer",
+  "role": "Creative Designer & No-Code Developer",
   "description": "I help brands and ideas come to life through thoughtful design, motion, and no-code development — using Framer, Figma, and Canva.",
   "email": "johnadewole23@gmail.com"
 } as const;

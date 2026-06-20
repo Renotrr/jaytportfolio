@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- BASE_URL is relative until a custom domain is set. -->
-<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
-  <url><loc>/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>/work/queuetop</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>/work/ryswift</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>/work/revolut</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>/work/atelier</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-</urlset>
