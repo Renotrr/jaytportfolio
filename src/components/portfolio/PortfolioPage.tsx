@@ -117,6 +117,9 @@ const trustMetrics = [
   { target: 100, suffix: "%", label: "End-to-End Product Support" },
 ];
 
+const clientLogos = ["Lumen Labs", "Northwind", "Verde Studio", "Atlas", "Orbit", "Cobalt", "Fern & Co", "Helio"];
+
+
 const services = [
   { n: "01", title: "Product Design", text: "From research and wireframes to polished, conversion-minded interfaces." },
   { n: "02", title: "No-Code Development", text: "Rapid MVPs and launch-ready websites — shipped fast, built to scale." },
