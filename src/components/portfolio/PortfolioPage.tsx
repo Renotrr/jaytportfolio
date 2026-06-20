@@ -771,7 +771,7 @@ const PortfolioPage = () => {
                 <img src={aboutPortrait} alt="John Adewole" />
                 <div className="ab-tag">
                   <span className="ab-tag-k">JA / 3+</span>
-                  <span className="ab-tag-l">Creative Designer · No-Code Developer</span>
+                  <span className="ab-tag-l">Creative Director · No-Code Developer</span>
                 </div>
               </div>
             </div>
