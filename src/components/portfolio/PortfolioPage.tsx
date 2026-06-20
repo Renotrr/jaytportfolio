@@ -59,11 +59,12 @@ const resolvePortfolioImage = (src: string) =>
 
 // New works data with year + generated images
 const worksData = [
-  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
-  { id: "w2", title: "RySwift", year: "2025", category: "SaaS · Logistics", image: ryswiftHero, href: "/work/ryswift" },
-  { id: "w3", title: "Revolut Redesign", year: "2026", category: "Fintech · Mobile App · UI/UX", image: revolutHero, href: "/work/revolut" },
-  { id: "w5", title: "Atelier", year: "2026", category: "Fashion E-commerce · Lovable", image: atelierHero, href: "/work/atelier" },
+  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop", problem: "Audiences had no real-time way to influence the music at live events.", role: "Product Design · No-Code Build", outcome: "Improved onboarding clarity & built MVP in record time" },
+  { id: "w2", title: "RySwift", year: "2025", category: "SaaS · Logistics", image: ryswiftHero, href: "/work/ryswift", problem: "Manual dispatch workflows slowed operations and hurt retention.", role: "UX Research · Product Design", outcome: "Optimized conversion flow & reduced task friction" },
+  { id: "w3", title: "Revolut Redesign", year: "2026", category: "Fintech · Mobile App · UI/UX", image: revolutHero, href: "/work/revolut", problem: "Banking felt dense and intimidating to a new generation of users.", role: "UI/UX Designer", outcome: "Clearer money hub & higher engagement potential" },
+  { id: "w5", title: "Atelier", year: "2026", category: "Fashion E-commerce · Lovable", image: atelierHero, href: "/work/atelier", problem: "A boutique needed a storefront as considered as its products.", role: "Product Design · No-Code Build", outcome: "Created SEO-ready information architecture" },
 ];
+
 
 const graphicsData = [
   { id: "g1", title: "House Fellowship", category: "Event Poster · Àkàndá", image: graphicHouseFellowship },
