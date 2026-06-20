@@ -705,7 +705,7 @@ const PortfolioPage = () => {
           <div className="ab-top">
             <span className="ab-top-item"><span className="ab-bullet" />(About me)</span>
             <span className="ab-top-item"><span className="ab-bullet" />Crafted with intention</span>
-            <span className="ab-top-copy">©25</span>
+            <span className="ab-top-copy">©26</span>
           </div>
           <div className="ab-grid">
             <div className="ab-card fi" style={withDelay(".05s")}>
@@ -730,7 +730,7 @@ const PortfolioPage = () => {
                 </li>
                 <li className="fi" style={withDelay(".45s")}>
                   <span className="ab-num">02.</span>
-                  <span className="ab-li-l">Figma, Canva, Lovable AI, Claude AI, ChatGPT</span>
+                  <span className="ab-li-l">Figma, Canva, Lovable AI, Claude AI</span>
                   <span className="ab-li-d" />
                 </li>
                 <li className="fi" style={withDelay(".55s")}>
@@ -750,13 +750,13 @@ const PortfolioPage = () => {
           <div className="sw-top">
             <span className="sw-top-l"><span className="sw-dot" />002</span>
             <span className="sw-top-c"><span className="sw-dot" />(Work)</span>
-            <span className="sw-top-r">©2025</span>
+            <span className="sw-top-r">©2026</span>
           </div>
           <div className="sw-title-row">
             <h2 className="sw-title">Selected<br />Works</h2>
             <span className="sw-count">({worksData.length})</span>
           </div>
-          <p className="sw-lede">// &nbsp;&nbsp;We help brands grow and tell their stories to the world.</p>
+          <p className="sw-lede">// &nbsp;&nbsp;I help brands grow and tell their stories to the world.</p>
           <div className="sw-grid">
             {worksData.map((w, i) => {
               const inner = (

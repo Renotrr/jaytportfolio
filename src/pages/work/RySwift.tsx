@@ -49,7 +49,7 @@ const RySwiftCaseStudy = () => {
 
           <div className="qt-case-top">
             <span className="qt-case-num"><span className="sw-dot" />Case Study / 02</span>
-            <span className="qt-case-year">©2025</span>
+            <span className="qt-case-year">©2026</span>
           </div>
 
           <div className="qt-case-head">
