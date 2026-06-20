@@ -651,7 +651,7 @@ const PortfolioPage = () => {
             <div className={`h-pins fi ${heroEntered ? "in" : ""}`} aria-hidden="true">
               <span className="h-pin h-pin--tl" style={withDelay(".4s")}>
                 <span className="h-pin-dot" />
-                Creative Designer
+                Creative Director
                 <span className="h-pin-line" />
               </span>
               <span className="h-pin h-pin--bl" style={withDelay(".55s")}>
