@@ -1045,8 +1045,31 @@ const PortfolioPage = () => {
           </div>
         </section>
 
+        {/* FINAL CTA */}
+        <section id="cta" className="fc-section" aria-labelledby="fc-title">
+          <div className="fc-inner">
+            <h2 id="fc-title" className="fc-title wu">
+              Ready to build something people love and businesses grow with?
+            </h2>
+            <p className="fc-sub fi" style={withDelay(".1s")}>
+              Whether you&rsquo;re launching an MVP, redesigning a product, or scaling your digital
+              presence, let&rsquo;s create experiences that deliver results.
+            </p>
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "contact")}
+              className="btn-pill btn-primary fc-btn fi"
+              style={withDelay(".2s")}
+            >
+              Let&rsquo;s Talk
+              <span className="btn-circle"><IconArrow /></span>
+            </a>
+          </div>
+        </section>
+
         {/* CONTACT */}
         <section id="contact" className="contact-form-section">
+
           <div className="cf-inner">
             <h2 className="cf-title fi" style={withDelay("0s")}>
               Let&rsquo;s work together!
