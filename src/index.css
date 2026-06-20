@@ -3749,9 +3749,10 @@
   opacity: 1;
 }
 .gd-card:hover {
-  transform: scale(1.08) translateZ(0);
+  transform: scale(1.05) translateZ(0);
   opacity: 1;
 }
+.gd-card { touch-action: pan-x; }
 .gd-img {
   position: relative;
   width: 100%;
@@ -3814,7 +3815,7 @@
 .gd-dot:hover { background: hsl(var(--cream-1) / 0.6); }
 .gd-dot.active { background: hsl(var(--cream-1)); width: 22px; }
 
-/* Full-image preview overlay (hover desktop / tap mobile) */
+/* Full-image preview overlay — opens on tap, closes via the X button */
 .gd-full {
   position: fixed;
   inset: 0;
@@ -3827,8 +3828,6 @@
   backdrop-filter: blur(8px);
   animation: gd-full-in 0.3s ease both;
 }
-.gd-full.is-hover { pointer-events: none; }
-.gd-full.is-tap { pointer-events: auto; cursor: zoom-out; }
 .gd-full img {
   max-width: 100%;
   max-height: 100%;
@@ -3837,6 +3836,32 @@
   object-fit: contain;
   border-radius: 0.5rem;
   box-shadow: 0 40px 90px -20px hsl(0 0% 0% / 0.8);
+}
+.gd-full-close {
+  position: absolute;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--cream));
+  background: hsl(var(--ink) / 0.6);
+  border: 1px solid hsl(var(--cream) / 0.2);
+  border-radius: 999px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.gd-full-close:hover {
+  background: hsl(var(--ink) / 0.9);
+  border-color: hsl(var(--cream) / 0.5);
+  transform: scale(1.06);
+}
+.gd-full-close:focus-visible {
+  outline: 2px solid hsl(var(--cream));
+  outline-offset: 2px;
 }
 @keyframes gd-full-in {
   from { opacity: 0; transform: scale(0.97); }
