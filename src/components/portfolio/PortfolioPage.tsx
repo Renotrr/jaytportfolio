@@ -909,6 +909,46 @@ const PortfolioPage = () => {
           </div>
         </section>
 
+        {/* SERVICES — How I Help */}
+        <section id="services" className="sv-section" aria-labelledby="sv-title">
+          <div className="sv-head">
+            <span className="sec-lbl"><span className="sw-dot" />Services</span>
+            <h2 id="sv-title" className="sv-title wu">How I Help</h2>
+          </div>
+          <div className="sv-grid">
+            {services.map((s) => (
+              <article className="sv-card fi" key={s.n}>
+                <span className="sv-num">{s.n}</span>
+                <h3 className="sv-card-title">{s.title}</h3>
+                <p className="sv-card-text">{s.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section id="testimonials" className="ts-section" aria-labelledby="ts-title">
+          <div className="ts-head">
+            <span className="sec-lbl"><span className="sw-dot" />Testimonials</span>
+            <h2 id="ts-title" className="ts-title wu">What Clients Say</h2>
+          </div>
+          <div className="ts-grid">
+            {testimonials.map((t) => (
+              <figure className="ts-card fi" key={t.name}>
+                <span className="ts-quote-mark" aria-hidden="true">&ldquo;</span>
+                <blockquote className="ts-quote">{t.quote}</blockquote>
+                <figcaption className="ts-cap">
+                  <span className="ts-name">{t.name}</span>
+                  <span className="ts-role">{t.role}, {t.company}</span>
+                  {t.project && <span className="ts-proj">{t.project}</span>}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+
+
 
 
         {/* GRAPHICS — grid 2/2/2 + landscape */}
