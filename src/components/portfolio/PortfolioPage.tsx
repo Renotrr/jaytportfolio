@@ -1129,22 +1129,27 @@ const PortfolioPage = () => {
         {/* FOOTER */}
         <footer className="site-footer">
           <div className="sf-grid">
-            <div className="sf-brand">{heroContent.logo}</div>
+            <div className="sf-brand">
+              {heroContent.logo}
+              <span className="sf-status"><span className="sf-status-dot" />Available for new projects</span>
+            </div>
             <div className="sf-col">
               <h4>Social Media</h4>
               <div className="sf-links">
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Pinterest</a>
+                <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="https://wa.me/2348126315467" target="_blank" rel="noreferrer">WhatsApp</a>
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://behance.net" target="_blank" rel="noreferrer">Behance</a>
               </div>
             </div>
             <div className="sf-col sf-office">
-              <h4>Our Office :</h4>
+              <h4>Get in touch :</h4>
               <p>Remote, Worldwide</p>
+              <a href={`mailto:${heroContent.email}`} className="sf-phone">{heroContent.email}</a>
               <a href="https://wa.me/2348126315467" target="_blank" rel="noreferrer" className="sf-phone">WhatsApp · +234 812 631 5467</a>
             </div>
           </div>
+
           <div className="sf-bot">
             <div className="sf-bot-links">
               <span>Designed by John Adewole</span>
