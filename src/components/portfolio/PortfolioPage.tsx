@@ -802,6 +802,38 @@ const PortfolioPage = () => {
         </div>
         {/* /elope-stack */}
 
+        {/* TRUST & EVIDENCE */}
+        <section id="trust" className="tr-section" aria-labelledby="tr-title">
+          <div className="tr-head">
+            <span className="sec-lbl"><span className="sw-dot" />Why work with me</span>
+            <h2 id="tr-title" className="tr-title wu">Built for Growth.<br />Backed by Results.</h2>
+          </div>
+          <div className="tr-grid a-stats">
+            {trustMetrics.map((m) => (
+              <div className="tr-card fi" key={m.label}>
+                <span className="tr-num">
+                  <span className="stat-n" data-target={m.target} data-suffix={m.suffix}>0{m.suffix}</span>
+                </span>
+                <span className="tr-lbl">{m.label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CLIENT LOGOS */}
+        <section id="clients" className="cl-section" aria-labelledby="cl-title">
+          <h2 id="cl-title" className="cl-title">Trusted by Startups and Growing Brands</h2>
+          <div className="cl-marquee" aria-hidden="true">
+            <div className="cl-track">
+              {[...clientLogos, ...clientLogos].map((name, i) => (
+                <span className="cl-logo" key={i}>{name}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+
         {/* SELECTED WORKS — grid layout */}
         <section id="work" className="sw" ref={worksScrollRef}>
           <div className="sw-top">
