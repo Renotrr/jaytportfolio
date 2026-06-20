@@ -3948,7 +3948,12 @@
   max-width: 1400px;
   margin: 0 auto;
 }
-.tr-head, .sv-head, .ts-head { margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+.tr-head, .sv-head, .ts-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
 .tr-section .sec-lbl, .sv-section .sec-lbl, .ts-section .sec-lbl,
 .tr-head .sec-lbl {
   display: inline-flex;
