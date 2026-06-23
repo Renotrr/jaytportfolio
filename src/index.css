@@ -3545,6 +3545,7 @@
   display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
   margin-bottom: 3rem;
 }
+.qt-body--single { grid-template-columns: 1fr; }
 .qt-body h3, .qt-highlights h3 {
   font-family: 'Almarai', sans-serif; font-size: 0.78rem;
   text-transform: uppercase; letter-spacing: 0.12em;
