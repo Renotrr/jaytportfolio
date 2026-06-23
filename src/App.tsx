@@ -7,8 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import QueueTopCaseStudy from "./pages/work/QueueTop.tsx";
-import RySwiftCaseStudy from "./pages/work/RySwift.tsx";
-import RevolutCaseStudy from "./pages/work/Revolut.tsx";
+import GrowthBotCaseStudy from "./pages/work/GrowthBot.tsx";
 import AtelierCaseStudy from "./pages/work/Atelier.tsx";
 
 // Scroll to top on case study routes; the portfolio ("/") restores its own
@@ -34,8 +33,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/work/queuetop" element={<QueueTopCaseStudy />} />
-          <Route path="/work/ryswift" element={<RySwiftCaseStudy />} />
-          <Route path="/work/revolut" element={<RevolutCaseStudy />} />
+          <Route path="/work/growthbot" element={<GrowthBotCaseStudy />} />
           <Route path="/work/atelier" element={<AtelierCaseStudy />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
