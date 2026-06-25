@@ -8,9 +8,77 @@ export type WorkProject = { id: string; layout: "image" | "text" | "wide"; tag: 
 
 export type GraphicProject = { title: string; category: string; image: string; imageAlt: string };
 
-export type CaseStudySection = { label: string; title: string; paragraphs: string[]; bullets?: string[]; boxes?: { title: string; text: string }[] };
+export type CaseStudyImageSlot = { label: string; hint?: string };
 
-export type CaseStudy = { id: string; navLabel: string; heroIndex: string; title: string; subtitle: string; image: string; imageAlt: string; meta: { label: string; value: string }[]; sections: CaseStudySection[]; outcome: { title: string; text: string; liveUrl?: string | null; liveLabel?: string | null } };
+export type CaseStudyFlowNode = {
+  x: number;
+  y: number;
+  w: number;
+  h?: number;
+  label: string;
+  sub?: string;
+  start?: boolean;
+};
+
+export type CaseStudyFlowArrow = { x1: number; y1: number; x2: number; y2: number };
+
+export type CaseStudyFlow = {
+  viewBox: string;
+  minWidth?: number;
+  rx?: number;
+  nodes: CaseStudyFlowNode[];
+  arrows: CaseStudyFlowArrow[];
+};
+
+export type CaseStudyProcessStep = { title: string; text: string };
+
+export type CaseStudyMindmap = {
+  center: string;
+  branches: { tag: string; items: string[] }[];
+};
+
+export type CaseStudyPromptCard = { title: string; code: string };
+
+export type CaseStudyStat = { value: string; label: string };
+
+export type CaseStudyNote = { label: string; text: string };
+
+export type CaseStudySection = {
+  label: string;
+  title: string;
+  paragraphs: string[];
+  bullets?: string[];
+  boxes?: { title: string; text: string }[];
+  note?: CaseStudyNote;
+  flow?: CaseStudyFlow;
+  processTitle?: string;
+  process?: CaseStudyProcessStep[];
+  mindmap?: CaseStudyMindmap;
+  imageSlots?: CaseStudyImageSlot[];
+  promptCards?: CaseStudyPromptCard[];
+  stats?: CaseStudyStat[];
+};
+
+export type CaseStudyTheme = "queuetop" | "growthbot" | "atelier";
+
+export type CaseStudy = {
+  id: string;
+  theme?: CaseStudyTheme;
+  eyebrow?: string;
+  navLabel: string;
+  heroIndex: string;
+  title: string;
+  titleAccent?: string;
+  subtitle: string;
+  badges?: { label: string; accent?: boolean }[];
+  image: string;
+  imageAlt: string;
+  heroSlot?: CaseStudyImageSlot;
+  meta: { label: string; value: string }[];
+  timeline?: { label: string; active?: boolean }[];
+  sections: CaseStudySection[];
+  outcome: { title: string; text: string; liveUrl?: string | null; liveLabel?: string | null };
+};
 
 
 
