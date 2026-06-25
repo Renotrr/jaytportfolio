@@ -781,7 +781,12 @@ const PortfolioPage = () => {
                   role="button"
                   tabIndex={0}
                   onClick={() => openCaseStudy(w.caseStudyId)}
-                  onKeyDown={(e) => handleCardKeyDown(e, w.caseStudyId)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      openCaseStudy(w.caseStudyId);
+                    }
+                  }}
                 >
                   {inner}
                 </article>
