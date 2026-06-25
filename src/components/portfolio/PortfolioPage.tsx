@@ -774,17 +774,15 @@ const PortfolioPage = () => {
                   </div>
                 </>
               );
-              return w.href ? (
-                <Link
-                  to={w.href}
+              return (
+                <article
                   className="sw-card sw-card--link"
                   key={w.id}
-                  onClick={() => sessionStorage.setItem("pf-scroll", String(window.scrollY))}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => openCaseStudy(w.caseStudyId)}
+                  onKeyDown={(e) => handleCardKeyDown(e, w.caseStudyId)}
                 >
-                  {inner}
-                </Link>
-              ) : (
-                <article className="sw-card" key={w.id}>
                   {inner}
                 </article>
               );
