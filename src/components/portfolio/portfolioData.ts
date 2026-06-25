@@ -166,93 +166,37 @@ export const aboutTools: ToolPill[] = [
 
 export const workProjects: WorkProject[] = [
   {
-    "id": "cs-chema",
+    "id": "cs-queuetop",
     "layout": "image",
-    "tag": "Framer · 2024",
-    "number": null,
-    "title": "Chema Chemical Solutions",
-    "description": "B2B website designed to build trust and drive enterprise inquiries across 11 industries.",
-    "image": "PASTE_YOUR_CHEMA_MOCKUP_URL_HERE",
-    "imageAlt": "Chema Chemical Solutions",
-    "features": null,
-    "liveLabel": null
-  },
-  {
-    "id": "cs-everbuilt",
-    "layout": "text",
-    "tag": "",
-    "number": "01",
-    "title": "EverBuilt Construction",
-    "description": "A premium construction company site built to showcase project quality and convert high-value clients.",
-    "image": "PASTE_YOUR_EVERBUILT_MOCKUP_URL_HERE",
-    "imageAlt": "EverBuilt",
-    "features": [
-      {
-        "text": "100+ project portfolio with category filters"
-      },
-      {
-        "text": "Trust signals and quote request flow"
-      },
-      {
-        "text": "Built in Framer — no code, full control"
-      }
-    ],
+    "tag": "Product Design · Mobile PWA · 2026",
+    "title": "QueueTop",
+    "description": "A live event music request platform connecting listeners, DJs, and artists — designed end-to-end for a real, paid client engagement.",
+    "image": "PASTE_YOUR_QUEUETOP_MOCKUP_URL_HERE",
+    "imageAlt": "QueueTop",
     "liveLabel": "Read case study"
   },
   {
-    "id": "cs-looma",
+    "id": "cs-growthbot",
     "layout": "text",
-    "tag": "",
-    "number": "02",
-    "title": "Looma Photography Agency",
-    "description": "An editorial fashion portfolio designed to feel as intentional as the photography it presents.",
-    "image": "PASTE_YOUR_LOOMA_MOCKUP_URL_HERE",
-    "imageAlt": "Looma",
-    "features": [
-      {
-        "text": "Cinematic scroll gallery for brand clients"
-      },
-      {
-        "text": "Editorial aesthetic — minimal, breathable"
-      },
-      {
-        "text": "Six-step client process, clearly communicated"
-      }
-    ],
-    "liveLabel": "Read case study"
-  },
-  {
-    "id": "cs-requestify",
-    "layout": "text",
-    "tag": "",
-    "number": "03",
-    "title": "Requestify — DJ Request App",
-    "description": "A live song-request platform connecting audiences to DJs in real time — built for dark venues and fast interactions.",
-    "image": "PASTE_YOUR_REQUESTIFY_MOCKUP_URL_HERE",
-    "imageAlt": "Requestify",
-    "features": [
-      {
-        "text": "No-app-download audience flow via QR code"
-      },
-      {
-        "text": "DJ live dashboard with tipping & priority queue"
-      }
-    ],
+    "tag": "SaaS · Discord Bot · Self-Built · 2026",
+    "title": "GrowthBot",
+    "description": "A Discord monitoring SaaS bot, built and shipped solo — from zero Discord API experience to a live, deployed product.",
+    "image": "PASTE_YOUR_GROWTHBOT_MOCKUP_URL_HERE",
+    "imageAlt": "GrowthBot",
     "liveLabel": "Read case study"
   },
   {
     "id": "cs-atelier",
     "layout": "wide",
-    "tag": "Lovable AI · 2025",
-    "number": null,
-    "title": "Neutral Grace — Fashion E-commerce",
-    "description": "A luxury boutique storefront as considered and minimal as the clothes it sells.",
-    "image": "PASTE_YOUR_BOUTIQUE_MOCKUP_URL_HERE",
-    "imageAlt": "Neutral Grace Boutique",
-    "features": null,
+    "tag": "Concept Project · Lovable AI · 2025",
+    "title": "Atelier",
+    "description": "A luxury boutique storefront concept, designed as considered and minimal as the clothes it imagines selling.",
+    "image": "PASTE_YOUR_ATELIER_MOCKUP_URL_HERE",
+    "imageAlt": "Atelier",
     "liveLabel": "Read case study"
   }
 ];
+
 
 export const graphicProjects: GraphicProject[] = [
   {
