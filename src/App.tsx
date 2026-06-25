@@ -6,9 +6,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import QueueTopCaseStudy from "./pages/work/QueueTop.tsx";
-import GrowthBotCaseStudy from "./pages/work/GrowthBot.tsx";
-import AtelierCaseStudy from "./pages/work/Atelier.tsx";
 
 // Scroll to top on case study routes; the portfolio ("/") restores its own
 // scroll position when returning from a case study.
@@ -32,9 +29,7 @@ const App = () => (
         <ScrollManager />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/work/queuetop" element={<QueueTopCaseStudy />} />
-          <Route path="/work/growthbot" element={<GrowthBotCaseStudy />} />
-          <Route path="/work/atelier" element={<AtelierCaseStudy />} />
+
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

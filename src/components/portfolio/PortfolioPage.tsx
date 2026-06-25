@@ -25,6 +25,7 @@ import {
   workProjects,
 } from "@/components/portfolio/portfolioData";
 import GraphicsCarousel from "@/components/portfolio/GraphicsCarousel";
+import CaseStudyOverlay from "@/components/portfolio/CaseStudyOverlay";
 
 import logoSvg from "@/assets/logo.svg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
@@ -56,11 +57,11 @@ const withDelay = (delay: string): CSSProperties => ({ ["--d" as string]: delay 
 const resolvePortfolioImage = (src: string) =>
   !src || src.startsWith("PASTE_YOUR_") ? placeholderImage : src;
 
-// New works data with year + generated images
+// Works open the route-free case study modal (rendered from the caseStudies array)
 const worksData = [
-  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
-  { id: "w4", title: "GrowthBot", year: "2026", category: "SaaS · Discord Bot · Self-Built", image: growthbotHero, href: "/work/growthbot" },
-  { id: "w5", title: "Atelier", year: "2026", category: "Fashion E-commerce · Concept Project", image: atelierHero, href: "/work/atelier" },
+  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, caseStudyId: "cs-queuetop" },
+  { id: "w4", title: "GrowthBot", year: "2026", category: "SaaS · Discord Bot · Self-Built", image: growthbotHero, caseStudyId: "cs-growthbot" },
+  { id: "w5", title: "Atelier", year: "2025", category: "Concept Project · Lovable AI", image: atelierHero, caseStudyId: "cs-atelier" },
 ];
 
 const graphicsData = [
@@ -773,17 +774,20 @@ const PortfolioPage = () => {
                   </div>
                 </>
               );
-              return w.href ? (
-                <Link
-                  to={w.href}
+              return (
+                <article
                   className="sw-card sw-card--link"
                   key={w.id}
-                  onClick={() => sessionStorage.setItem("pf-scroll", String(window.scrollY))}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => openCaseStudy(w.caseStudyId)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      openCaseStudy(w.caseStudyId);
+                    }
+                  }}
                 >
-                  {inner}
-                </Link>
-              ) : (
-                <article className="sw-card" key={w.id}>
                   {inner}
                 </article>
               );
@@ -986,90 +990,15 @@ const PortfolioPage = () => {
         </footer>
       </div>
 
-      {caseStudies.map((caseStudy) => {
-        const isActive = activeCaseStudy?.id === caseStudy.id;
-        return (
-          <div
-            key={caseStudy.id}
-            id={caseStudy.id}
-            className={`cs-ov ${isActive ? "active" : ""} ${isActive && caseVisible ? "vis" : ""}`.trim()}
-          >
-            <div className="cs-nav">
-              <button className="cs-bk" type="button" onClick={closeCaseStudy}>
-                <IconBack />
-                Back to portfolio
-              </button>
-              <span className="cs-tl">{caseStudy.navLabel}</span>
-            </div>
-            <div className="cs-hero">
-              <img src={resolvePortfolioImage(caseStudy.image)} alt={caseStudy.imageAlt} />
-              <div className="cs-hg" />
-              <div className="cs-hc">
-                <div className="cs-hn">{caseStudy.heroIndex}</div>
-                <h1 className="cs-ht">{caseStudy.title}</h1>
-                <p className="cs-hs">{caseStudy.subtitle}</p>
-              </div>
-            </div>
-            <div className="cs-body">
-              <div className={`cs-meta ${isActive && caseVisible ? "vis" : ""}`} style={{ transitionDelay: "0s" }}>
-                {caseStudy.meta.map((item) => (
-                  <div key={`${caseStudy.id}-${item.label}`}>
-                    <div className="cs-ml">{item.label}</div>
-                    <div className="cs-mv">{item.value}</div>
-                  </div>
-                ))}
-              </div>
-              {caseStudy.sections.map((section, index) => (
-                <div key={`${caseStudy.id}-${section.label}`}>
-                  <div
-                    className={`cs-s ${isActive && caseVisible ? "vis" : ""}`}
-                    style={{ transitionDelay: `${(index + 1) * 0.065}s` }}
-                  >
-                    <div className="cs-sl">{section.label}</div>
-                    <h3>{section.title}</h3>
-                    {section.paragraphs.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                    {!!section.boxes?.length && (
-                      <div className="cs-2c">
-                        {section.boxes.map((box) => (
-                          <div key={box.title} className="cs-box">
-                            <h4>{box.title}</h4>
-                            <p>{box.text}</p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    {!!section.bullets?.length && (
-                      <ul>
-                        {section.bullets.map((bullet) => (
-                          <li key={bullet}>{bullet}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                  {index < caseStudy.sections.length - 1 && <hr className="div" />}
-                </div>
-              ))}
-              <div
-                className={`cs-out ${isActive && caseVisible ? "vis" : ""}`}
-                style={{ transitionDelay: `${(caseStudy.sections.length + 1) * 0.065}s` }}
-              >
-                <h3>{caseStudy.outcome.title}</h3>
-                <p>{caseStudy.outcome.text}</p>
-                {caseStudy.outcome.liveUrl && (
-                  <a href={caseStudy.outcome.liveUrl} target="_blank" rel="noreferrer" className="cs-live">
-                    {caseStudy.outcome.liveLabel}
-                    <span className="btn-circle">
-                      <IconArrow />
-                    </span>
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        );
-      })}
+      {caseStudies.map((caseStudy) => (
+        <CaseStudyOverlay
+          key={caseStudy.id}
+          caseStudy={caseStudy}
+          isActive={activeCaseStudy?.id === caseStudy.id}
+          caseVisible={caseVisible}
+          onClose={closeCaseStudy}
+        />
+      ))}
     </div>
   );
 };
