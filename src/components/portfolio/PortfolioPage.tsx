@@ -25,6 +25,7 @@ import {
   workProjects,
 } from "@/components/portfolio/portfolioData";
 import GraphicsCarousel from "@/components/portfolio/GraphicsCarousel";
+import CaseStudyOverlay from "@/components/portfolio/CaseStudyOverlay";
 
 import logoSvg from "@/assets/logo.svg";
 import aboutPortrait from "@/assets/about-portrait.jpg";
@@ -56,11 +57,11 @@ const withDelay = (delay: string): CSSProperties => ({ ["--d" as string]: delay 
 const resolvePortfolioImage = (src: string) =>
   !src || src.startsWith("PASTE_YOUR_") ? placeholderImage : src;
 
-// New works data with year + generated images
+// Works open the route-free case study modal (rendered from the caseStudies array)
 const worksData = [
-  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, href: "/work/queuetop" },
-  { id: "w4", title: "GrowthBot", year: "2026", category: "SaaS · Discord Bot · Self-Built", image: growthbotHero, href: "/work/growthbot" },
-  { id: "w5", title: "Atelier", year: "2026", category: "Fashion E-commerce · Concept Project", image: atelierHero, href: "/work/atelier" },
+  { id: "w1", title: "QueueTop", year: "2026", category: "Product Design · Mobile PWA", image: queuetopHero, caseStudyId: "cs-queuetop" },
+  { id: "w4", title: "GrowthBot", year: "2026", category: "SaaS · Discord Bot · Self-Built", image: growthbotHero, caseStudyId: "cs-growthbot" },
+  { id: "w5", title: "Atelier", year: "2025", category: "Concept Project · Lovable AI", image: atelierHero, caseStudyId: "cs-atelier" },
 ];
 
 const graphicsData = [
