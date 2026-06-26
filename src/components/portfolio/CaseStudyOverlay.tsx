@@ -127,6 +127,9 @@ const CaseStudyOverlay = ({ caseStudy: cs, isActive, caseVisible, onClose }: Pro
               <p className="csx-text" key={p}>{p}</p>
             ))}
 
+            {isQT && s.label === "The Approach" && <QueueTopApproachExtras />}
+
+
             {s.note && (
               <div className="csx-note">
                 <strong>{s.note.label}</strong> {s.note.text}
