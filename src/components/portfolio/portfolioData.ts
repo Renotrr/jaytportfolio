@@ -1,3 +1,8 @@
+import qtHeroClub from "@/assets/qt-hero-club.webp";
+import qtProblemDjBooth from "@/assets/qt-problem-djbooth.webp";
+import qtDjLive from "@/assets/qt-mobile-04-dj-live.webp";
+import qtDiscover from "@/assets/qt-mobile-02-discover.webp";
+
 export type StatItem = { value: number; suffix?: string; label: string };
 
 export type ToolPill = { label: string };
@@ -8,7 +13,7 @@ export type WorkProject = { id: string; layout: "image" | "text" | "wide"; tag: 
 
 export type GraphicProject = { title: string; category: string; image: string; imageAlt: string };
 
-export type CaseStudyImageSlot = { label: string; hint?: string };
+export type CaseStudyImageSlot = { label: string; hint?: string; src?: string; alt?: string; full?: boolean };
 
 export type CaseStudyFlowNode = {
   x: number;
@@ -74,6 +79,7 @@ export type CaseStudy = {
   image: string;
   imageAlt: string;
   heroSlot?: CaseStudyImageSlot;
+  heroImage?: string;
   meta: { label: string; value: string }[];
   timeline?: { label: string; active?: boolean }[];
   sections: CaseStudySection[];
@@ -363,18 +369,15 @@ export const caseStudies: CaseStudy[] = [
       { "label": "Paid client work", "accent": true },
       { "label": "Listener · DJ/Creator · Artist flows" }
     ],
-    "image": "PASTE_YOUR_QUEUETOP_MOCKUP_URL_HERE",
-    "imageAlt": "QueueTop",
-    "heroSlot": {
-      "label": "Hero product shot goes here",
-      "hint": "Drop in your cleanest QueueTop screen here — the laptop/phone hero shot you already have (qt-laptop-hero-listener-live or similar). Full-bleed, no extra framing needed."
-    },
+    "image": qtHeroClub,
+    "imageAlt": "QueueTop — a listener using the app in a purple-lit club",
+    "heroImage": qtHeroClub,
     "meta": [
       { "label": "Client", "value": "QueueTop" },
-      { "label": "Year", "value": "2026" },
-      { "label": "Tools", "value": "Figma → Lovable" },
-      { "label": "Role", "value": "Product Designer" },
-      { "label": "Flows", "value": "3 — Listener, DJ, Artist" }
+      { "label": "Duration", "value": "3 weeks" },
+      { "label": "Tools", "value": "Figma, Lovable" },
+      { "label": "Role", "value": "Product Designer & Frontend Developer" },
+      { "label": "Stack", "value": "React 18, Vite, TypeScript, Tailwind" }
     ],
     "timeline": [
       { "label": "Discover" },
@@ -393,8 +396,10 @@ export const caseStudies: CaseStudy[] = [
         ],
         "imageSlots": [
           {
-            "label": "Problem / context screenshot",
-            "hint": "A screen showing the \"before\" chaos this solves, or your role-select screen (qt-mobile-01-role-select) works well here."
+            "label": "The problem, illustrated",
+            "src": qtProblemDjBooth,
+            "alt": "Crowd at a DJ booth with overlapping song-request demands",
+            "full": true
           }
         ]
       },
@@ -402,28 +407,8 @@ export const caseStudies: CaseStudy[] = [
         "label": "The Approach",
         "title": "Design for the room, not the desk.",
         "paragraphs": [
-          "Most apps assume a bright screen and an unhurried user. QueueTop has to work in a dark venue, over loud music, on a phone held at arm's length. The onboarding flow below maps how a first-time listener actually moves through the product, end to end."
+          "Most apps assume a bright screen and an unhurried user. QueueTop has to work in a dark venue, over loud music, on a phone held at arm's length. The full user flow below maps how listeners, creators, and artists each move through the product, end to end."
         ],
-        "flow": {
-          "viewBox": "0 0 900 220",
-          "minWidth": 640,
-          "rx": 10,
-          "arrows": [
-            { "x1": 125, "y1": 60, "x2": 225, "y2": 60 },
-            { "x1": 345, "y1": 60, "x2": 445, "y2": 60 },
-            { "x1": 565, "y1": 60, "x2": 665, "y2": 60 },
-            { "x1": 780, "y1": 90, "x2": 780, "y2": 150 },
-            { "x1": 665, "y1": 180, "x2": 240, "y2": 180 }
-          ],
-          "nodes": [
-            { "x": 15, "y": 30, "w": 110, "label": "Scan QR", "sub": "at the venue", "start": true },
-            { "x": 225, "y": 30, "w": 120, "label": "Browse songs", "sub": "no app download" },
-            { "x": 445, "y": 30, "w": 120, "label": "Send request", "sub": "+ optional tip" },
-            { "x": 665, "y": 30, "w": 120, "label": "Lands in DJ queue", "sub": "sorted live" },
-            { "x": 665, "y": 150, "w": 120, "label": "DJ plays it", "sub": "one tap" },
-            { "x": 120, "y": 150, "w": 120, "label": "Listener notified", "sub": "song's playing now" }
-          ]
-        },
         "processTitle": "How I worked through it",
         "process": [
           { "title": "User research — mapped the real moment", "text": "Watched how song requests actually happen at events today: shouted requests, lost paper slips, buried DJ DMs. The friction was the brief, not a feature list." },
@@ -452,8 +437,8 @@ export const caseStudies: CaseStudy[] = [
           "Consistent purple-to-teal visual system carried across all three flows so the product feels like one platform, not three apps"
         ],
         "imageSlots": [
-          { "label": "DJ dashboard screenshot", "hint": "qt-mobile-04-dj-live works well here — show the live queue in action." },
-          { "label": "Listener discovery / request flow screenshot", "hint": "qt-mobile-02-discover or qt-mobile-03-listener-live." }
+          { "label": "DJ live dashboard", "src": qtDjLive, "alt": "QueueTop DJ live queue dashboard" },
+          { "label": "Listener discovery & request flow", "src": qtDiscover, "alt": "QueueTop listener discovery screen" }
         ]
       },
       {

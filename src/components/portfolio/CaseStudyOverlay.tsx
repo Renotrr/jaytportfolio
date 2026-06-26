@@ -1,4 +1,9 @@
 import type { CaseStudy, CaseStudyImageSlot } from "@/components/portfolio/portfolioData";
+import {
+  QueueTopApproachExtras,
+  QueueTopCapsuleBar,
+  QueueTopShowcase,
+} from "@/components/portfolio/QueueTopBlocks";
 
 const IconArrow = () => (
   <svg className="ico ico-arr" viewBox="0 0 24 24" aria-hidden="true">
@@ -14,13 +19,22 @@ const IconBack = () => (
   </svg>
 );
 
-const Slot = ({ slot, hero = false }: { slot: CaseStudyImageSlot; hero?: boolean }) => (
-  <div className={`csx-slot ${hero ? "csx-slot--hero" : ""}`.trim()}>
-    <div className="csx-slot-ico" aria-hidden="true">▢</div>
-    <div className="csx-slot-label">{slot.label}</div>
-    {slot.hint && <div className="csx-slot-hint">{slot.hint}</div>}
-  </div>
-);
+const Slot = ({ slot, hero = false }: { slot: CaseStudyImageSlot; hero?: boolean }) => {
+  if (slot.src) {
+    return (
+      <figure className={`csx-img ${slot.full ? "csx-img--full" : ""} ${hero ? "csx-img--hero" : ""}`.trim()}>
+        <img src={slot.src} alt={slot.alt ?? slot.label} loading={hero ? "eager" : "lazy"} />
+      </figure>
+    );
+  }
+  return (
+    <div className={`csx-slot ${hero ? "csx-slot--hero" : ""}`.trim()}>
+      <div className="csx-slot-ico" aria-hidden="true">▢</div>
+      <div className="csx-slot-label">{slot.label}</div>
+      {slot.hint && <div className="csx-slot-hint">{slot.hint}</div>}
+    </div>
+  );
+};
 
 type Props = {
   caseStudy: CaseStudy;
@@ -32,6 +46,7 @@ type Props = {
 const CaseStudyOverlay = ({ caseStudy: cs, isActive, caseVisible, onClose }: Props) => {
   const vis = isActive && caseVisible;
   const markerId = `csflow-${cs.id}`;
+  const isQT = cs.id === "cs-queuetop";
 
   return (
     <div
@@ -64,7 +79,13 @@ const CaseStudyOverlay = ({ caseStudy: cs, isActive, caseVisible, onClose }: Pro
               ))}
             </div>
           )}
-          {cs.heroSlot && <Slot slot={cs.heroSlot} hero />}
+          {cs.heroImage ? (
+            <figure className="csx-img csx-img--hero csx-img--full">
+              <img src={cs.heroImage} alt={cs.imageAlt} loading="eager" />
+            </figure>
+          ) : (
+            cs.heroSlot && <Slot slot={cs.heroSlot} hero />
+          )}
         </header>
 
         {/* META + TIMELINE */}
@@ -77,15 +98,19 @@ const CaseStudyOverlay = ({ caseStudy: cs, isActive, caseVisible, onClose }: Pro
               </div>
             ))}
           </div>
-          {!!cs.timeline?.length && (
-            <div className="csx-timeline">
-              {cs.timeline.map((t, i) => (
-                <div className="csx-tit" key={t.label}>
-                  <span className={`csx-tpill ${t.active ? "is-active" : ""}`.trim()}>{t.label}</span>
-                  {i < cs.timeline!.length - 1 && <span className="csx-tline" />}
-                </div>
-              ))}
-            </div>
+          {isQT ? (
+            <QueueTopCapsuleBar />
+          ) : (
+            !!cs.timeline?.length && (
+              <div className="csx-timeline">
+                {cs.timeline.map((t, i) => (
+                  <div className="csx-tit" key={t.label}>
+                    <span className={`csx-tpill ${t.active ? "is-active" : ""}`.trim()}>{t.label}</span>
+                    {i < cs.timeline!.length - 1 && <span className="csx-tline" />}
+                  </div>
+                ))}
+              </div>
+            )
           )}
         </section>
 
@@ -101,6 +126,9 @@ const CaseStudyOverlay = ({ caseStudy: cs, isActive, caseVisible, onClose }: Pro
             {s.paragraphs.map((p) => (
               <p className="csx-text" key={p}>{p}</p>
             ))}
+
+            {isQT && s.label === "The Approach" && <QueueTopApproachExtras />}
+
 
             {s.note && (
               <div className="csx-note">
@@ -231,6 +259,10 @@ const CaseStudyOverlay = ({ caseStudy: cs, isActive, caseVisible, onClose }: Pro
             )}
           </section>
         ))}
+
+        {isQT && <QueueTopShowcase />}
+
+
 
         {/* OUTCOME */}
         <section className="csx-sec">
