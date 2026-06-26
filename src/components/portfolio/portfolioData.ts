@@ -407,28 +407,8 @@ export const caseStudies: CaseStudy[] = [
         "label": "The Approach",
         "title": "Design for the room, not the desk.",
         "paragraphs": [
-          "Most apps assume a bright screen and an unhurried user. QueueTop has to work in a dark venue, over loud music, on a phone held at arm's length. The onboarding flow below maps how a first-time listener actually moves through the product, end to end."
+          "Most apps assume a bright screen and an unhurried user. QueueTop has to work in a dark venue, over loud music, on a phone held at arm's length. The full user flow below maps how listeners, creators, and artists each move through the product, end to end."
         ],
-        "flow": {
-          "viewBox": "0 0 900 220",
-          "minWidth": 640,
-          "rx": 10,
-          "arrows": [
-            { "x1": 125, "y1": 60, "x2": 225, "y2": 60 },
-            { "x1": 345, "y1": 60, "x2": 445, "y2": 60 },
-            { "x1": 565, "y1": 60, "x2": 665, "y2": 60 },
-            { "x1": 780, "y1": 90, "x2": 780, "y2": 150 },
-            { "x1": 665, "y1": 180, "x2": 240, "y2": 180 }
-          ],
-          "nodes": [
-            { "x": 15, "y": 30, "w": 110, "label": "Scan QR", "sub": "at the venue", "start": true },
-            { "x": 225, "y": 30, "w": 120, "label": "Browse songs", "sub": "no app download" },
-            { "x": 445, "y": 30, "w": 120, "label": "Send request", "sub": "+ optional tip" },
-            { "x": 665, "y": 30, "w": 120, "label": "Lands in DJ queue", "sub": "sorted live" },
-            { "x": 665, "y": 150, "w": 120, "label": "DJ plays it", "sub": "one tap" },
-            { "x": 120, "y": 150, "w": 120, "label": "Listener notified", "sub": "song's playing now" }
-          ]
-        },
         "processTitle": "How I worked through it",
         "process": [
           { "title": "User research — mapped the real moment", "text": "Watched how song requests actually happen at events today: shouted requests, lost paper slips, buried DJ DMs. The friction was the brief, not a feature list." },
