@@ -1,3 +1,8 @@
+import qtHeroClub from "@/assets/qt-hero-club.webp";
+import qtProblemDjBooth from "@/assets/qt-problem-djbooth.webp";
+import qtDjLive from "@/assets/qt-mobile-04-dj-live.webp";
+import qtDiscover from "@/assets/qt-mobile-02-discover.webp";
+
 export type StatItem = { value: number; suffix?: string; label: string };
 
 export type ToolPill = { label: string };
