@@ -369,18 +369,15 @@ export const caseStudies: CaseStudy[] = [
       { "label": "Paid client work", "accent": true },
       { "label": "Listener · DJ/Creator · Artist flows" }
     ],
-    "image": "PASTE_YOUR_QUEUETOP_MOCKUP_URL_HERE",
-    "imageAlt": "QueueTop",
-    "heroSlot": {
-      "label": "Hero product shot goes here",
-      "hint": "Drop in your cleanest QueueTop screen here — the laptop/phone hero shot you already have (qt-laptop-hero-listener-live or similar). Full-bleed, no extra framing needed."
-    },
+    "image": qtHeroClub,
+    "imageAlt": "QueueTop — a listener using the app in a purple-lit club",
+    "heroImage": qtHeroClub,
     "meta": [
       { "label": "Client", "value": "QueueTop" },
-      { "label": "Year", "value": "2026" },
-      { "label": "Tools", "value": "Figma → Lovable" },
-      { "label": "Role", "value": "Product Designer" },
-      { "label": "Flows", "value": "3 — Listener, DJ, Artist" }
+      { "label": "Duration", "value": "3 weeks" },
+      { "label": "Tools", "value": "Figma, Lovable" },
+      { "label": "Role", "value": "Product Designer & Frontend Developer" },
+      { "label": "Stack", "value": "React 18, Vite, TypeScript, Tailwind" }
     ],
     "timeline": [
       { "label": "Discover" },
@@ -399,8 +396,10 @@ export const caseStudies: CaseStudy[] = [
         ],
         "imageSlots": [
           {
-            "label": "Problem / context screenshot",
-            "hint": "A screen showing the \"before\" chaos this solves, or your role-select screen (qt-mobile-01-role-select) works well here."
+            "label": "The problem, illustrated",
+            "src": qtProblemDjBooth,
+            "alt": "Crowd at a DJ booth with overlapping song-request demands",
+            "full": true
           }
         ]
       },
