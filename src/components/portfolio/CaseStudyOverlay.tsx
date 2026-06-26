@@ -1,4 +1,9 @@
 import type { CaseStudy, CaseStudyImageSlot } from "@/components/portfolio/portfolioData";
+import {
+  QueueTopApproachExtras,
+  QueueTopCapsuleBar,
+  QueueTopShowcase,
+} from "@/components/portfolio/QueueTopBlocks";
 
 const IconArrow = () => (
   <svg className="ico ico-arr" viewBox="0 0 24 24" aria-hidden="true">
@@ -14,13 +19,22 @@ const IconBack = () => (
   </svg>
 );
 
-const Slot = ({ slot, hero = false }: { slot: CaseStudyImageSlot; hero?: boolean }) => (
-  <div className={`csx-slot ${hero ? "csx-slot--hero" : ""}`.trim()}>
-    <div className="csx-slot-ico" aria-hidden="true">▢</div>
-    <div className="csx-slot-label">{slot.label}</div>
-    {slot.hint && <div className="csx-slot-hint">{slot.hint}</div>}
-  </div>
-);
+const Slot = ({ slot, hero = false }: { slot: CaseStudyImageSlot; hero?: boolean }) => {
+  if (slot.src) {
+    return (
+      <figure className={`csx-img ${slot.full ? "csx-img--full" : ""} ${hero ? "csx-img--hero" : ""}`.trim()}>
+        <img src={slot.src} alt={slot.alt ?? slot.label} loading={hero ? "eager" : "lazy"} />
+      </figure>
+    );
+  }
+  return (
+    <div className={`csx-slot ${hero ? "csx-slot--hero" : ""}`.trim()}>
+      <div className="csx-slot-ico" aria-hidden="true">▢</div>
+      <div className="csx-slot-label">{slot.label}</div>
+      {slot.hint && <div className="csx-slot-hint">{slot.hint}</div>}
+    </div>
+  );
+};
 
 type Props = {
   caseStudy: CaseStudy;
