@@ -98,15 +98,19 @@ const CaseStudyOverlay = ({ caseStudy: cs, isActive, caseVisible, onClose }: Pro
               </div>
             ))}
           </div>
-          {!!cs.timeline?.length && (
-            <div className="csx-timeline">
-              {cs.timeline.map((t, i) => (
-                <div className="csx-tit" key={t.label}>
-                  <span className={`csx-tpill ${t.active ? "is-active" : ""}`.trim()}>{t.label}</span>
-                  {i < cs.timeline!.length - 1 && <span className="csx-tline" />}
-                </div>
-              ))}
-            </div>
+          {isQT ? (
+            <QueueTopCapsuleBar />
+          ) : (
+            !!cs.timeline?.length && (
+              <div className="csx-timeline">
+                {cs.timeline.map((t, i) => (
+                  <div className="csx-tit" key={t.label}>
+                    <span className={`csx-tpill ${t.active ? "is-active" : ""}`.trim()}>{t.label}</span>
+                    {i < cs.timeline!.length - 1 && <span className="csx-tline" />}
+                  </div>
+                ))}
+              </div>
+            )
           )}
         </section>
 
