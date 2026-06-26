@@ -13,7 +13,7 @@ export type WorkProject = { id: string; layout: "image" | "text" | "wide"; tag: 
 
 export type GraphicProject = { title: string; category: string; image: string; imageAlt: string };
 
-export type CaseStudyImageSlot = { label: string; hint?: string };
+export type CaseStudyImageSlot = { label: string; hint?: string; src?: string; alt?: string; full?: boolean };
 
 export type CaseStudyFlowNode = {
   x: number;
