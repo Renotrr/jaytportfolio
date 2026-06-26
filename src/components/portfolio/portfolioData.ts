@@ -79,6 +79,7 @@ export type CaseStudy = {
   image: string;
   imageAlt: string;
   heroSlot?: CaseStudyImageSlot;
+  heroImage?: string;
   meta: { label: string; value: string }[];
   timeline?: { label: string; active?: boolean }[];
   sections: CaseStudySection[];
