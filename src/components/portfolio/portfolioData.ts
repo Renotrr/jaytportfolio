@@ -437,8 +437,8 @@ export const caseStudies: CaseStudy[] = [
           "Consistent purple-to-teal visual system carried across all three flows so the product feels like one platform, not three apps"
         ],
         "imageSlots": [
-          { "label": "DJ dashboard screenshot", "hint": "qt-mobile-04-dj-live works well here — show the live queue in action." },
-          { "label": "Listener discovery / request flow screenshot", "hint": "qt-mobile-02-discover or qt-mobile-03-listener-live." }
+          { "label": "DJ live dashboard", "src": qtDjLive, "alt": "QueueTop DJ live queue dashboard" },
+          { "label": "Listener discovery & request flow", "src": qtDiscover, "alt": "QueueTop listener discovery screen" }
         ]
       },
       {
