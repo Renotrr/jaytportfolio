@@ -79,7 +79,13 @@ const CaseStudyOverlay = ({ caseStudy: cs, isActive, caseVisible, onClose }: Pro
               ))}
             </div>
           )}
-          {cs.heroSlot && <Slot slot={cs.heroSlot} hero />}
+          {cs.heroImage ? (
+            <figure className="csx-img csx-img--hero csx-img--full">
+              <img src={cs.heroImage} alt={cs.imageAlt} loading="eager" />
+            </figure>
+          ) : (
+            cs.heroSlot && <Slot slot={cs.heroSlot} hero />
+          )}
         </header>
 
         {/* META + TIMELINE */}
