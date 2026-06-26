@@ -46,6 +46,7 @@ type Props = {
 const CaseStudyOverlay = ({ caseStudy: cs, isActive, caseVisible, onClose }: Props) => {
   const vis = isActive && caseVisible;
   const markerId = `csflow-${cs.id}`;
+  const isQT = cs.id === "cs-queuetop";
 
   return (
     <div
