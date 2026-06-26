@@ -260,6 +260,10 @@ const CaseStudyOverlay = ({ caseStudy: cs, isActive, caseVisible, onClose }: Pro
           </section>
         ))}
 
+        {isQT && <QueueTopShowcase />}
+
+
+
         {/* OUTCOME */}
         <section className="csx-sec">
           <div className="csx-label">Outcome</div>
