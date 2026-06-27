@@ -4024,7 +4024,7 @@
   max-width: 680px;
   color: var(--cs-text);
 }
-.cs-ov--atelier .csx-stitle { font-family: 'Fraunces', serif; font-weight: 500; }
+.cs-ov--atelier .csx-stitle { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
 .csx-text {
   color: var(--cs-text-dim);
   max-width: 620px;
@@ -4112,7 +4112,7 @@
   margin: 44px 0 6px;
   color: var(--cs-text);
 }
-.cs-ov--atelier .csx-process-h { font-family: 'Fraunces', serif; font-weight: 500; }
+.cs-ov--atelier .csx-process-h { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
 .csx-process { display: flex; flex-direction: column; margin: 22px 0; }
 .csx-pstep {
   display: flex;
@@ -4135,7 +4135,7 @@
   color: var(--cs-onaccent);
 }
 .csx-pcontent h5 { font-size: 15.5px; margin: 0 0 6px; color: var(--cs-text); }
-.cs-ov--atelier .csx-pcontent h5 { font-family: 'Fraunces', serif; font-weight: 500; }
+.cs-ov--atelier .csx-pcontent h5 { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
 .csx-pcontent p {
   font-size: 14px;
   color: var(--cs-text-dim);
@@ -4214,7 +4214,7 @@
   padding: 24px;
 }
 .csx-box h4 { font-size: 15px; margin: 0 0 10px; color: var(--cs-accent2); }
-.cs-ov--atelier .csx-box h4 { font-family: 'Fraunces', serif; font-weight: 500; }
+.cs-ov--atelier .csx-box h4 { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
 .csx-box p { font-size: 14px; color: var(--cs-text-dim); margin: 0; line-height: 1.65; }
 
 /* Stats */
@@ -4300,7 +4300,7 @@
   padding: 36px;
 }
 .csx-outcome h3 { font-size: 1.4rem; margin: 0 0 14px; color: var(--cs-text); }
-.cs-ov--atelier .csx-outcome h3 { font-family: 'Fraunces', serif; font-weight: 500; }
+.cs-ov--atelier .csx-outcome h3 { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
 .csx-outcome p { color: var(--cs-text-dim); max-width: 640px; line-height: 1.7; }
 
 /* Footer */
