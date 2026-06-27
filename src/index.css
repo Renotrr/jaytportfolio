@@ -4420,8 +4420,12 @@ body.cs-open .h-shell--pin { display: none !important; }
   font-weight: 500;
 }
 .qt-flow-dot { width: 16px; height: 16px; border-radius: 50%; }
-.qt-flow-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.qt-flow-scroll svg { display: block; }
+.qt-flow-scroll { overflow-x: hidden; -webkit-overflow-scrolling: touch; }
+.qt-flow-scroll svg { display: block; width: 100%; height: auto; }
+@media (max-width: 768px) {
+  .qt-flow-scroll { overflow-x: auto; }
+  .qt-flow-scroll svg { min-width: 720px; }
+}
 
 /* ── Full-width figures ── */
 .qt-fullfig {
