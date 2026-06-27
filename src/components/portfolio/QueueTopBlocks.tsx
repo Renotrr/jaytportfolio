@@ -170,6 +170,14 @@ export const QueueTopShowcase = () => {
             <PhoneFrame src={LIVE_URL} rotate={4} delay={0.15} />
           </div>
         </div>
+        <figure className="qt-fullfig">
+          <img
+            src={qtFridayNight}
+            alt="Friday Night Vibes — QueueTop live session mockup on a phone"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </section>
     </>
   );
