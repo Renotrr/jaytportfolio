@@ -4436,6 +4436,15 @@ body.cs-open .h-shell--pin { display: none !important; }
   background: var(--cs-panel);
 }
 .qt-fullfig img { display: block; width: 100%; height: auto; }
+/* Native-resolution cap so the research slide stays crisp (no upscaling blur) */
+.qt-fullfig--cap {
+  max-width: 736px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--cs-bg);
+  border: none;
+}
+.qt-fullfig--cap img { image-rendering: auto; }
 
 /* ── Design System ── */
 .qt-ds { margin-top: 22px; }
