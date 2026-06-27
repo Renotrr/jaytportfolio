@@ -489,12 +489,14 @@ const PortfolioPage = () => {
   useEffect(() => {
     if (!activeCaseStudyId) return;
     document.body.style.overflow = "hidden";
+    document.body.classList.add("cs-open");
     const rafA = window.requestAnimationFrame(() => {
       const rafB = window.requestAnimationFrame(() => setCaseVisible(true));
       return () => window.cancelAnimationFrame(rafB);
     });
     return () => {
       document.body.style.overflow = "";
+      document.body.classList.remove("cs-open");
       window.cancelAnimationFrame(rafA);
     };
   }, [activeCaseStudyId]);

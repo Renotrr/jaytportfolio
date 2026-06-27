@@ -50,12 +50,13 @@ export const QueueTopApproachExtras = () => {
         <div className="qt-flow-scroll" dangerouslySetInnerHTML={{ __html: queueTopFlowSvg }} />
       </div>
 
-      <figure className="qt-fullfig">
-        <img src={qtUserResearch} alt="User research — quotes from a resident DJ, a listener, and a creator" loading="lazy" />
-      </figure>
-
-      <figure className="qt-fullfig">
-        <img src={qtFridayNight} alt="Friday Night Vibes — QueueTop live session mockup on a phone" loading="lazy" />
+      <figure className="qt-fullfig qt-fullfig--cap">
+        <img
+          src={qtUserResearch}
+          alt="User research — quotes from a resident DJ, a listener, and a creator"
+          loading="lazy"
+          decoding="async"
+        />
       </figure>
     </>
   );
@@ -169,6 +170,14 @@ export const QueueTopShowcase = () => {
             <PhoneFrame src={LIVE_URL} rotate={4} delay={0.15} />
           </div>
         </div>
+        <figure className="qt-fullfig">
+          <img
+            src={qtFridayNight}
+            alt="Friday Night Vibes — QueueTop live session mockup on a phone"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </section>
     </>
   );

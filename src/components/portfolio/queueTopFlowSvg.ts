@@ -1,5 +1,5 @@
 export const queueTopFlowSvg = `
-<svg width="100%" style="min-width:1100px" viewBox="0 0 1300 920" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" viewBox="0 0 1300 920" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
         <path d="M0,0 L7,3 L0,6 Z" fill="rgba(255,255,255,0.35)"/>
