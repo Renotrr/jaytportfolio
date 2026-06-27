@@ -3936,25 +3936,19 @@
 .csx-title {
   font-family: var(--cs-title-font);
   font-style: var(--cs-title-style);
-  font-size: clamp(2.2rem, 6vw, 4.2rem);
-  font-weight: 800;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 1.02;
+  line-height: 0.96;
   margin: 0 0 18px;
   color: var(--cs-text);
 }
-.cs-ov--atelier .csx-title {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-weight: 600;
-  color: var(--cs-accent2);
-}
-.cs-ov--growthbot .csx-title { color: var(--cs-accent2); }
+.cs-ov--atelier .csx-title,
+.cs-ov--growthbot .csx-title { color: var(--cs-text); }
 .csx-grad {
-  background: var(--cs-grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--cs-accent);
+  -webkit-text-fill-color: var(--cs-accent);
+  font-style: italic;
 }
 .csx-subtitle {
   font-size: 1.05rem;
