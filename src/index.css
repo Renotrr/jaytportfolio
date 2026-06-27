@@ -3867,68 +3867,47 @@
    into the site's purple/teal Requestify theme)
    ============================================================ */
 .cs-ov {
-  --cs-bg: #0A0A0D;
-  --cs-panel: #14141A;
-  --cs-panel-2: #1B1B23;
-  --cs-border: rgba(255,255,255,0.09);
-  --cs-text: #F2F1EC;
-  --cs-text-dim: rgba(242,241,236,0.6);
-  --cs-text-dimmer: rgba(242,241,236,0.36);
-  --cs-accent: #C95EFF;
-  --cs-accent2: #00FFE3;
-  --cs-grad: linear-gradient(135deg, #C95EFF, #9A40C8);
-  --cs-onaccent: #0A0A0D;
-  --cs-flow-start: #9A40C8;
-  --cs-node-fill: #1B1B23;
-  --cs-node-stroke: rgba(255,255,255,0.09);
-  --cs-title-font: 'Public Sans', -apple-system, sans-serif;
-  --cs-title-style: normal;
-  --cs-card-radius: 14px;
-  font-family: 'Public Sans', -apple-system, sans-serif;
+  --cs-bg: hsl(40 13% 5%);
+  --cs-panel: hsl(0 0% 6%);
+  --cs-panel-2: hsl(30 6% 10%);
+  --cs-border: hsl(55 24% 84% / 0.09);
+  --cs-text: hsl(55 24% 84%);
+  --cs-text-dim: hsl(55 24% 84% / 0.62);
+  --cs-text-dimmer: hsl(55 24% 84% / 0.4);
+  --cs-accent: hsl(48 23% 83%);
+  --cs-accent2: hsl(48 23% 83%);
+  --cs-grad: hsl(48 23% 83%);
+  --cs-onaccent: hsl(40 13% 5%);
+  --cs-flow-start: hsl(48 23% 83%);
+  --cs-node-fill: hsl(30 6% 10%);
+  --cs-node-stroke: hsl(55 24% 84% / 0.09);
+  --cs-title-font: 'Instrument Serif', serif;
+  --cs-title-style: italic;
+  --cs-card-radius: 12px;
+  font-family: 'Almarai', -apple-system, sans-serif;
   background: var(--cs-bg);
   color: var(--cs-text);
 }
 
-.cs-ov--queuetop {
-  --cs-bg: #0A0A0D;
-  --cs-panel: #14141A;
-  --cs-panel-2: #1B1B23;
-  --cs-accent: #C95EFF;
-  --cs-accent2: #00FFE3;
-  --cs-grad: linear-gradient(135deg, #C95EFF, #9A40C8);
-  --cs-onaccent: #0A0A0D;
-  --cs-flow-start: #9A40C8;
-  --cs-node-fill: #1B1B23;
-}
-
-.cs-ov--growthbot {
-  --cs-bg: #0E0E13;
-  --cs-panel: #17171F;
-  --cs-panel-2: #1E1E28;
-  --cs-accent: #5865F2;
-  --cs-accent2: #8B95FF;
-  --cs-grad: linear-gradient(135deg, #5865F2, #4651d6);
-  --cs-onaccent: #ffffff;
-  --cs-flow-start: #5865F2;
-  --cs-node-fill: #1E1E28;
-}
-
+/* All case studies share the landing-page palette + typography */
+.cs-ov--queuetop,
+.cs-ov--growthbot,
 .cs-ov--atelier {
-  --cs-bg: #14120F;
-  --cs-panel: #1D1A16;
-  --cs-panel-2: #25201A;
-  --cs-border: rgba(244,239,230,0.1);
-  --cs-text: #F4EFE6;
-  --cs-text-dim: rgba(244,239,230,0.62);
-  --cs-text-dimmer: rgba(244,239,230,0.36);
-  --cs-accent: #C9A876;
-  --cs-accent2: #E3CFA0;
-  --cs-grad: linear-gradient(135deg, #C9A876, #b8975f);
-  --cs-onaccent: #14120F;
-  --cs-flow-start: #C9A876;
-  --cs-node-fill: #25201A;
-  --cs-node-stroke: rgba(244,239,230,0.1);
-  --cs-card-radius: 6px;
+  --cs-bg: hsl(40 13% 5%);
+  --cs-panel: hsl(0 0% 6%);
+  --cs-panel-2: hsl(30 6% 10%);
+  --cs-border: hsl(55 24% 84% / 0.09);
+  --cs-text: hsl(55 24% 84%);
+  --cs-text-dim: hsl(55 24% 84% / 0.62);
+  --cs-text-dimmer: hsl(55 24% 84% / 0.4);
+  --cs-accent: hsl(48 23% 83%);
+  --cs-accent2: hsl(48 23% 83%);
+  --cs-grad: hsl(48 23% 83%);
+  --cs-onaccent: hsl(40 13% 5%);
+  --cs-flow-start: hsl(48 23% 83%);
+  --cs-node-fill: hsl(30 6% 10%);
+  --cs-node-stroke: hsl(55 24% 84% / 0.09);
+  --cs-card-radius: 12px;
 }
 
 .cs-ov .cs-nav { border-bottom: 1px solid var(--cs-border); }
