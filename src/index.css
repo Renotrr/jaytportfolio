@@ -4359,14 +4359,14 @@ body.cs-open .h-shell--pin { display: none !important; }
   flex-shrink: 0;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
 }
-.qt-capsule-mark img { width: 70%; height: 70%; object-fit: contain; filter: brightness(0) invert(1); }
+.qt-capsule-mark img { width: 70%; height: 70%; object-fit: contain; filter: brightness(0); }
 .qt-capsule-seg {
   height: 64px;
   display: flex;
   align-items: center;
   border-radius: 999px;
-  color: #fff;
-  font-weight: 600;
+  color: var(--cs-onaccent);
+  font-weight: 700;
   font-size: 15px;
 }
 .qt-capsule-seg--steps {
