@@ -1,41 +1,35 @@
-# John Adewole | Portfolio
+# Design Portfolio Archive
 
-Source code for my personal portfolio website.
+An earlier personal portfolio frontend, retained as a snapshot of my creative and digital product design work.
 
-The site brings together my work in AI automation engineering, product building, workflow integration, and digital product design.
+This repository is **not the source of truth for my current AI automation engineering portfolio**. For my current work and professional information, visit:
 
 **Live portfolio:** https://jaytee-automation-engineer.vercel.app/
 
-## Built with
+## Stack
 
-- React and TypeScript
+- React
+- TypeScript
 - Vite
 - Tailwind CSS
-- Radix UI and shadcn-style components
+- Radix UI components
 - Framer Motion and GSAP
 
 ## Run locally
 
-### Requirements
-
-- Node.js
-- npm
-
-### Install dependencies
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-### Start the development server
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Vite will print the local development URL in the terminal.
-
-## Quality checks
+Run the available checks:
 
 ```bash
 npm run lint
@@ -43,20 +37,10 @@ npm test
 npm run build
 ```
 
-- `npm run lint` runs ESLint.
-- `npm test` runs the Vitest test suite.
-- `npm run build` creates the production build in `dist/`.
+## Repository notes
 
-## Project structure
+- `src/components/portfolio/` contains the portfolio presentation components and content data.
+- `src/assets/` contains the local visual assets.
+- `public/` contains static files.
 
-- `src/pages/` contains page-level components.
-- `src/components/` contains reusable UI and portfolio components.
-- `src/components/portfolio/` contains portfolio content and presentation components.
-- `src/assets/` contains local visual assets.
-- `public/` contains static files served as-is.
-
-## Notes
-
-This repository contains the portfolio frontend. Project case studies describe the work and its status; a public portfolio entry does not imply that every related product repository or production system is open source.
-
-Do not commit credentials, API keys, or local environment files. Keep real secrets in your deployment provider's environment settings.
+This is an older iteration rather than the current deployed portfolio. Some asset values in the content data are still placeholders, so review and replace those values before reusing or deploying this codebase.
